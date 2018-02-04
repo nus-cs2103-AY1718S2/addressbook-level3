@@ -59,8 +59,17 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* *` | user | find a person by tag | locate details of groups of people without having to go through the entire list
+`* *` | user with many persons in the address book | sort persons by name | locate a person easily
+`* *` | user | edit a person | update their contact details without having to delete and add them again
+`* *` | user | add a photo for each person | know at a glance who this person is
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
-`*` | user with many persons in the address book | sort persons by name | locate a person easily
+`* *` | user | undo/redo previous commands | unapply or reapply commands when make mistakes or I change my mind
+`* *` | user | use aliases in place of the full commands | reduce the amount of typing needed
+`*` | user | encrypt my data using a password | keep my data secure when I am not around
+`*` | user | import contact details from Gmail/Yahoo/Outlook | transfer my existing contacts to the App without having to add them one by one
+`*` | user | change the theme of the App | choose a theme that I prefer
+`*` | user | change the font size of the App | fit more details on the screen or make the text easier on my eyes
 
 
 ## Appendix B : Use Cases
