@@ -91,9 +91,14 @@ Use case ends.
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
-2. Should be able to hold up to 1000 persons.
+2. Should work on both 32-bit and 64-bit environments.
 3. Should come with automated unit tests and open source code.
-4. Should favor DOS style commands over Unix-style commands.
+4. Should come with a user guide and a developer guide.
+5. Should favor DOS style commands over Unix-style commands.
+6. Should respond to user commands within 500ms.
+7. Should be intuitive such that a new user shall be able to add and list persons within 10 minutes of use.
+8. Should be able to hold up to 1000 persons.
+9. Should be backward compatible with the storage file produced by earlier versions of AddressBook.
 
 ## Appendix D : Glossary
 
