@@ -22,6 +22,7 @@ public class Main extends Application implements Stoppable{
     public void start(Stage primaryStage) throws Exception{
         gui = new Gui(new Logic(), VERSION);
         gui.start(primaryStage, this);
+
     }
 
     @Override
