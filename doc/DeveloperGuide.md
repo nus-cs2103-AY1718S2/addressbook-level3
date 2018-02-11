@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be intuitive for users who are not tech-savvy.
+6. Should take less than 5 seconds to load and start the program.
+7. Should handle every possible exception.
+8. The code should be readable to others.
 
 ## Appendix D : Glossary
 
