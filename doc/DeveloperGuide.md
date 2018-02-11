@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Data should be persistent across sessions.
+6. The system should respond within 2 seconds.
+7. The system should be usable to someone familiar with typing commands.
+8. The product is not required to have flashy GUI effects.
 
 ## Appendix D : Glossary
 
