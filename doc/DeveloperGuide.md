@@ -59,8 +59,14 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * ` | user | find person by tag | locate details of persons without having to go through the entire list
+`* *` | user | add notes to person | Store additional non-contact information about a person
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | group contacts | organize my contacts into my social circles
+`*` | user | add contact photo | see how my contact looks like in real life
+`*` | new user | import my contacts from Google | save time manually typing all the contacts' details
+`*` | user | export my contacts | transfer my contacts to another device running the same application
 
 
 ## Appendix B : Use Cases
