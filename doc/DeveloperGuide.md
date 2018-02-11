@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should respond to user commands within 300ms
+6. Storage file should be encrypted
+7. Should be backward compatible with older versions of AddressBook
+8. Should be able to onboard new users within 10 minutes
 
 ## Appendix D : Glossary
 
