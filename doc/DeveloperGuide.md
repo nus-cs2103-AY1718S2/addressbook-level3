@@ -94,9 +94,14 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to prevent a normal user from viewing, editing the source storage file.
+6. Should be able to process commands and respond within 3 seconds.
+7. Should be able to process unlimited amounts of command inputs without crashing.
+8. Should only allow the owner of the contact details to access the address book.
+9. Should only allow "update-person" to be used once every 1 week for one person entry.
+
 
 ## Appendix D : Glossary
-
 ##### Mainstream OS
 
 > Windows, Linux, Unix, OS-X
