@@ -59,7 +59,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user in delivery service | find persons by their addresses | identify customers or suppliers staying in a certain area
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | novice user | be able to navigate around address book with ease | understand its usage without much complication
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
