@@ -22,6 +22,8 @@ import static seedu.addressbook.common.Messages.*;
 
 public class LogicTest {
 
+    private static final AddressBook EMPTY_ADDRESS_BOOK = new AddressBook();
+
     /**
      * See https://github.com/junit-team/junit4/wiki/rules#temporaryfolder-rule
      */
@@ -52,16 +54,19 @@ public class LogicTest {
     public void execute_invalid() throws Exception {
         String invalidCommand = "       ";
         assertCommandBehavior(invalidCommand,
-                String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
+                String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE), false);
     }
 
     /**
      * Executes the command and confirms that the result message is correct.
      * Both the 'address book' and the 'last shown list' are expected to be empty.
-     * @see #assertCommandBehavior(String, String, AddressBook, boolean, List)
+     * @see #assertCommandBehavior(String, String, AddressBook, boolean, boolean, List)
      */
-    private void assertCommandBehavior(String inputCommand, String expectedMessage) throws Exception {
-        assertCommandBehavior(inputCommand, expectedMessage, AddressBook.empty(),false, Collections.emptyList());
+    private void assertCommandBehavior(String inputCommand,
+                                       String expectedMessage,
+                                       boolean isMutatingCommand) throws Exception {
+        assertCommandBehavior(inputCommand, expectedMessage, AddressBook.empty(),
+                isMutatingCommand, false, Collections.emptyList());
     }
 
     /**
@@ -69,11 +74,12 @@ public class LogicTest {
      * also confirms that the following three parts of the Logic object's state are as expected:<br>
      *      - the internal address book data are same as those in the {@code expectedAddressBook} <br>
      *      - the internal 'last shown list' matches the {@code expectedLastList} <br>
-     *      - the storage file content matches data in {@code expectedAddressBook} <br>
+     *      - the storage file content matches data in {@code expectedAddressBook}, if the command is mutating <br>
      */
     private void assertCommandBehavior(String inputCommand,
                                       String expectedMessage,
                                       AddressBook expectedAddressBook,
+                                      boolean isMutatingCommand,
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
@@ -90,24 +96,29 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+
+        if (isMutatingCommand) {
+            assertEquals(addressBook, saveFile.load());
+        } else {
+            assertEquals(EMPTY_ADDRESS_BOOK, saveFile.load());
+        }
     }
 
 
     @Test
     public void execute_unknownCommandWord() throws Exception {
         String unknownCommand = "uicfhmowqewca";
-        assertCommandBehavior(unknownCommand, HelpCommand.MESSAGE_ALL_USAGES);
+        assertCommandBehavior(unknownCommand, HelpCommand.MESSAGE_ALL_USAGES, false);
     }
 
     @Test
     public void execute_help() throws Exception {
-        assertCommandBehavior("help", HelpCommand.MESSAGE_ALL_USAGES);
+        assertCommandBehavior("help", HelpCommand.MESSAGE_ALL_USAGES, false);
     }
 
     @Test
     public void execute_exit() throws Exception {
-        assertCommandBehavior("exit", ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT);
+        assertCommandBehavior("exit", ExitCommand.MESSAGE_EXIT_ACKNOWEDGEMENT, false);
     }
 
     @Test
@@ -117,32 +128,34 @@ public class LogicTest {
         addressBook.addPerson(helper.generatePerson(2, true));
         addressBook.addPerson(helper.generatePerson(3, true));
 
-        assertCommandBehavior("clear", ClearCommand.MESSAGE_SUCCESS, AddressBook.empty(), false, Collections.emptyList());
+        assertCommandBehavior("clear", ClearCommand.MESSAGE_SUCCESS, AddressBook.empty(),
+                false, false, Collections.emptyList());
     }
 
     @Test
     public void execute_add_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE);
         assertCommandBehavior(
-                "add wrong args wrong args", expectedMessage);
+                "add wrong args wrong args", expectedMessage, false);
         assertCommandBehavior(
-                "add Valid Name 12345 e/valid@email.butNoPhonePrefix a/valid, address", expectedMessage);
+                "add Valid Name 12345 e/valid@email.butNoPhonePrefix a/valid, address", expectedMessage, false);
         assertCommandBehavior(
-                "add Valid Name p/12345 valid@email.butNoPrefix a/valid, address", expectedMessage);
+                "add Valid Name p/12345 valid@email.butNoPrefix a/valid, address", expectedMessage, false);
         assertCommandBehavior(
-                "add Valid Name p/12345 e/valid@email.butNoAddressPrefix valid, address", expectedMessage);
+                "add Valid Name p/12345 e/valid@email.butNoAddressPrefix valid, address", expectedMessage, false);
     }
 
     @Test
     public void execute_add_invalidPersonData() throws Exception {
         assertCommandBehavior(
-                "add []\\[;] p/12345 e/valid@e.mail a/valid, address", Name.MESSAGE_NAME_CONSTRAINTS);
+                "add []\\[;] p/12345 e/valid@e.mail a/valid, address", Name.MESSAGE_NAME_CONSTRAINTS, false);
         assertCommandBehavior(
-                "add Valid Name p/not_numbers e/valid@e.mail a/valid, address", Phone.MESSAGE_PHONE_CONSTRAINTS);
+                "add Valid Name p/not_numbers e/valid@e.mail a/valid, address", Phone.MESSAGE_PHONE_CONSTRAINTS, false);
         assertCommandBehavior(
-                "add Valid Name p/12345 e/notAnEmail a/valid, address", Email.MESSAGE_EMAIL_CONSTRAINTS);
+                "add Valid Name p/12345 e/notAnEmail a/valid, address", Email.MESSAGE_EMAIL_CONSTRAINTS, false);
         assertCommandBehavior(
-                "add Valid Name p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag", Tag.MESSAGE_TAG_CONSTRAINTS);
+                "add Valid Name p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag",
+                Tag.MESSAGE_TAG_CONSTRAINTS, false);
 
     }
 
@@ -158,6 +171,7 @@ public class LogicTest {
         assertCommandBehavior(helper.generateAddCommand(toBeAdded),
                               String.format(AddCommand.MESSAGE_SUCCESS, toBeAdded),
                               expectedAB,
+                              true,
                               false,
                               Collections.emptyList());
 
@@ -179,6 +193,7 @@ public class LogicTest {
                 helper.generateAddCommand(toBeAdded),
                 AddCommand.MESSAGE_DUPLICATE_PERSON,
                 expectedAB,
+                true,
                 false,
                 Collections.emptyList());
 
@@ -197,6 +212,7 @@ public class LogicTest {
         assertCommandBehavior("list",
                               Command.getMessageForPersonListShownSummary(expectedList),
                               expectedAB,
+                              false,
                               true,
                               expectedList);
     }
@@ -204,8 +220,8 @@ public class LogicTest {
     @Test
     public void execute_view_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
-        assertCommandBehavior("view ", expectedMessage);
-        assertCommandBehavior("view arg not number", expectedMessage);
+        assertCommandBehavior("view ", expectedMessage, false);
+        assertCommandBehavior("view arg not number", expectedMessage, false);
     }
 
     @Test
@@ -225,9 +241,9 @@ public class LogicTest {
 
         logic.setLastShownList(lastShownList);
 
-        assertCommandBehavior(commandWord + " -1", expectedMessage, AddressBook.empty(), false, lastShownList);
-        assertCommandBehavior(commandWord + " 0", expectedMessage, AddressBook.empty(), false, lastShownList);
-        assertCommandBehavior(commandWord + " 3", expectedMessage, AddressBook.empty(), false, lastShownList);
+        assertCommandBehavior(commandWord + " -1", expectedMessage, AddressBook.empty(), false, false, lastShownList);
+        assertCommandBehavior(commandWord + " 0", expectedMessage, AddressBook.empty(), false, false, lastShownList);
+        assertCommandBehavior(commandWord + " 3", expectedMessage, AddressBook.empty(), false, false, lastShownList);
 
     }
 
@@ -247,11 +263,13 @@ public class LogicTest {
                               String.format(ViewCommand.MESSAGE_VIEW_PERSON_DETAILS, p1.getAsTextHidePrivate()),
                               expectedAB,
                               false,
+                              false,
                               lastShownList);
 
         assertCommandBehavior("view 2",
                               String.format(ViewCommand.MESSAGE_VIEW_PERSON_DETAILS, p2.getAsTextHidePrivate()),
                               expectedAB,
+                              false,
                               false,
                               lastShownList);
     }
@@ -273,14 +291,15 @@ public class LogicTest {
                               Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK,
                               expectedAB,
                               false,
+                              false,
                               lastShownList);
     }
 
     @Test
     public void execute_viewAll_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewAllCommand.MESSAGE_USAGE);
-        assertCommandBehavior("viewall ", expectedMessage);
-        assertCommandBehavior("viewall arg not number", expectedMessage);
+        assertCommandBehavior("viewall ", expectedMessage, false);
+        assertCommandBehavior("viewall arg not number", expectedMessage, false);
     }
 
     @Test
@@ -303,11 +322,13 @@ public class LogicTest {
                             String.format(ViewCommand.MESSAGE_VIEW_PERSON_DETAILS, p1.getAsTextShowAll()),
                             expectedAB,
                             false,
+                            false,
                             lastShownList);
 
         assertCommandBehavior("viewall 2",
                             String.format(ViewCommand.MESSAGE_VIEW_PERSON_DETAILS, p2.getAsTextShowAll()),
                             expectedAB,
+                            false,
                             false,
                             lastShownList);
     }
@@ -329,14 +350,15 @@ public class LogicTest {
                                 Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK,
                                 expectedAB,
                                 false,
+                                false,
                                 lastShownList);
     }
 
     @Test
     public void execute_delete_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE);
-        assertCommandBehavior("delete ", expectedMessage);
-        assertCommandBehavior("delete arg not number", expectedMessage);
+        assertCommandBehavior("delete ", expectedMessage, false);
+        assertCommandBehavior("delete arg not number", expectedMessage, false);
     }
 
     @Test
@@ -363,6 +385,7 @@ public class LogicTest {
         assertCommandBehavior("delete 2",
                                 String.format(DeleteCommand.MESSAGE_DELETE_PERSON_SUCCESS, p2),
                                 expectedAB,
+                                true,
                                 false,
                                 threePersons);
     }
@@ -387,6 +410,7 @@ public class LogicTest {
         assertCommandBehavior("delete 2",
                                 Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK,
                                 expectedAB,
+                                true,
                                 false,
                                 threePersons);
     }
@@ -394,7 +418,7 @@ public class LogicTest {
     @Test
     public void execute_find_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE);
-        assertCommandBehavior("find ", expectedMessage);
+        assertCommandBehavior("find ", expectedMessage, false);
     }
 
     @Test
@@ -413,6 +437,7 @@ public class LogicTest {
         assertCommandBehavior("find KEY",
                                 Command.getMessageForPersonListShownSummary(expectedList),
                                 expectedAB,
+                                false,
                                 true,
                                 expectedList);
     }
@@ -433,6 +458,7 @@ public class LogicTest {
         assertCommandBehavior("find KEY",
                                 Command.getMessageForPersonListShownSummary(expectedList),
                                 expectedAB,
+                                false,
                                 true,
                                 expectedList);
     }
@@ -453,6 +479,7 @@ public class LogicTest {
         assertCommandBehavior("find KEY rAnDoM",
                                 Command.getMessageForPersonListShownSummary(expectedList),
                                 expectedAB,
+                                false,
                                 true,
                                 expectedList);
     }
