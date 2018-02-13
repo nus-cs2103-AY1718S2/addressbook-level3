@@ -94,6 +94,16 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should occupy less than 5MB of disk space in total (program+save file).
+6. Should occupy less than 300MB of memory. 
+7. Should take less than 3 seconds to respond for any command. 
+8. Commands should be easy to be understood by average English-speaking users.
+9. Save file should be compatible across different versions.
+10. Should be developed with OOP concept.
+11. Should remain working without internet access.
+12. Codes should comply Java Coding Standard.
+13. All features must comes with help documentation.
+14. Should be free to use. 
 
 ## Appendix D : Glossary
 
