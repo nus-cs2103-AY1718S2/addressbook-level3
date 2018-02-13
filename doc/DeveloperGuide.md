@@ -76,10 +76,16 @@ Priority | As a ... | I want to ... | So that I can...
 3. User requests to delete a specific person in the list
 4. AddressBook deletes the person <br>
 Use case ends.
+5. User wants to change the tag for all entries currently tagged as Friends
+6. User finds all entries with the Friends tag
+7. AddressBook shows a list of persons with the Friends tag
+8. User renames the tag to Buddies
+Use case ends.
 
 **Extensions**
 
 2a. The list is empty
+3a. No entries have the friends tag therefore nothing needs to be renamed
 
 > Use case ends
 
