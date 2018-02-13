@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. System should respond within 2 seconds.
+6. System should be be easy to understand for novice users.
+7. System should allow for data recovery in case of program error.
+8. All tests should be successful before pushing changes.
 
 ## Appendix D : Glossary
 
