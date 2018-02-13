@@ -56,11 +56,18 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
+`* * *` | user | be alerted when I use the wrong format of field | prevent typing information in the wrong field
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | edit a person's contact details | update a person's details without creating a new entry
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | undo a command | remove accidental or wrong changes without creating a new entry
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | store a person's birthday | keep track of people's birthday
+`*` | user | search people by birthday month | see whose birthday is coming up
+`*` | user | type commands using natural language | type commands without having to memorise the formatting rules
+
 
 
 ## Appendix B : Use Cases
