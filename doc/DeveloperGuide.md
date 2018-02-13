@@ -71,17 +71,6 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-###Use case: Rename a tag
-
-**MSS**
-1. User wants to change the tag for all entries currently tagged as Friends
-2. User finds all entries with the Friends tag
-3. AddressBook shows a list of persons with the Friends tag
-4. User renames the tag to Buddies
-Use case ends.
-
-**Extensions**
-3a. No entries have the friends tag therefore nothing needs to be renamed
 
 #### Use case: Delete person
 
@@ -110,10 +99,6 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-5. The running time should be less than O(n^2).
-6. The system should work on 32bit and 62bit systems.
-7. The program should be usable by someone without coding experience (ex: Doctors).
-8. The program is not required to be able to contact the Addressbook entries only store and filter the data.
 
 ## Appendix D : Glossary
 
