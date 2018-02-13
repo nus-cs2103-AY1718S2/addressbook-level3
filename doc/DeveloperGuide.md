@@ -57,10 +57,14 @@ Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
+`* * *` | user | edit a person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user actives in multiple organizations | categorize person | organize my address book neatly by organizations
+`* *` | user who often interacts with some specific persons | be able to favorite persons | reach them easier
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user who owns different devices | be able to sync my address book across devices | easily create, read, update, and delete persons in any devices
 
 
 ## Appendix B : Use Cases
