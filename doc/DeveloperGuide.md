@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be usable to users without any programming background (e.g. Doctors).
+6. Should be able to run commands in less than exponential time.
+7. Should be able to run in both 32-bit and 64-bit environments.
+8. The program is not required to handle the contacting of persons in the address book for communication.
 
 ## Appendix D : Glossary
 
