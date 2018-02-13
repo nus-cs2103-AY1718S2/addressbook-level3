@@ -67,7 +67,7 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-#### Use case: Delete person
+#### Use case 1: Delete person
 
 **MSS**
 
@@ -86,6 +86,30 @@ Use case ends.
 3a. The given index is invalid
 
 > 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+#### Use case 2: Rename an existing tag
+
+**MSS**
+1. User requests to list tags
+2. AddressBook shows a list of tags
+3. User requests to rename a specific tag in the list
+4. AddressBook renames the tag<br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+  
+3b. The given replacement tag name is invalid
+> 3b1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
 ## Appendix C : Non Functional Requirements
