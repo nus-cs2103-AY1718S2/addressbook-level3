@@ -1,17 +1,34 @@
 
+.root {
+    -fx-accent: green;
+}
 
 .text-field {
+    -fx-background-radius: 0;
+    -fx-focus-color: #90EE90;
     -fx-font-size: 12pt;
-    -fx-font-family: "Consolas";
-    -fx-font-weight: bold;
-    -fx-text-fill: yellow;
+    -fx-font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console", "Lucida Sans Typewriter",
+        "DejaVu Sans Mono", "Bitstream Vera Sans Mono", "Liberation Mono",
+        "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+    -fx-text-fill: #90EE90;
     -fx-control-inner-background: derive(#1d1d1d,20%);
+    -fx-padding: 5 10 5 10;
 }
 
 .text-area {
-    -fx-background-color: black;
-    -fx-control-inner-background: black;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10pt;
+    -fx-background-color: #222;
+    -fx-background-radius: 0;
+    -fx-control-inner-background: #222;
+    -fx-faint-focus-color: transparent;
+    -fx-focus-color: transparent;
+    -fx-font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans", "Gill Sans MT",
+        "Myriad Pro", Myriad, "DejaVu Sans Condensed", "Liberation Sans", "Nimbus Sans L", Tahoma,
+        Geneva, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -fx-font-size: 11pt;
     -fx-padding: 5 5 5 5;
+    -fx-text-fill: #cfcfcf;
+}
+
+.text-area .content {
+    -fx-background-radius: 0;
 }
