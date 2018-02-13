@@ -75,7 +75,7 @@ Priority | As a ... | I want to ... | So that I can...
 2. AddressBook shows a list of persons
 3. User requests to delete a specific person in the list
 4. AddressBook deletes the person <br>
-Use case ends.
+Use case ends
 
 **Extensions**
 
@@ -87,6 +87,26 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+
+**MSS**
+
+1. User requests to rename tag
+2. AddressBook shows a list of persons with the tag
+3. AddressBook requests for confirmation
+4. User confirms rename command
+5. AddressBook renames the tag for the list of persons
+Use case ends
+
+**Extensions**
+
+2a. No person has the tags
+
+> 2a1. AddressBook shows an error message <br>
+> Use case ends
+
+4a. The user decides not to rename
+
+> Use case ends
 
 ## Appendix C : Non Functional Requirements
 
