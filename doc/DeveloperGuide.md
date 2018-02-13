@@ -99,6 +99,7 @@ Use case ends.
 
 **Extensions**
 3a. No entries have the friends tag therefore nothing needs to be renamed
+> 0 entries found <br>
 > Use case ends
 
 ## Appendix C : Non Functional Requirements
