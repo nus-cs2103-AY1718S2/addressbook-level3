@@ -61,7 +61,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`* * *` | user | edit the details of an existing contact | update a contact's information to the most current information
+`* * *` | user | undo the last action that I performed | undo a mistake/accidental command
+`* *` | user | have a confirmation prompt before deleting a person | make sure I selected the correct person to delete
+`* *` | user with many persons in the address book | filter contacts by tags | quickly view a subset of my contacts list
+`*` | user | get the number of contacts that I have added | see how many contacts I have
 
 ## Appendix B : Use Cases
 
