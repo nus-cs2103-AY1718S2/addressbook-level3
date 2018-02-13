@@ -88,6 +88,28 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Rename tag
+
+**MSS**
+
+1. User requests to rename tag
+2. AddressBook shows a list of persons with the tag
+3. AddressBook requests requests for confirmation
+4. User confirms rename tag command
+5. AddressBook renames the tag for the list of persons
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> 2a1. AddressBook shows an error message <br>
+> Use case ends
+
+4a. User does not confirm
+
+> Use case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
