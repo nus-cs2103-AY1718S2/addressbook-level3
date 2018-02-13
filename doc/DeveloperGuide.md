@@ -94,6 +94,12 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should work on both 32-bit and 64-bit environments.
+6. Should respond within one second.
+7. Should be usable by a novice who has never programmed before.
+8. Should be expected to contact persons in the addressbook.
+9. Should not be required to handle the printing of contacts.
+10. Should not use words deemed offensive to any person.
 
 ## Appendix D : Glossary
 
