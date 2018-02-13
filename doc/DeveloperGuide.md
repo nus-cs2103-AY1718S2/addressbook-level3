@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Every command should take at most 1 second to complete.
+6. The program should work on both 32-bit and 64-bit environments.
+7. The program is not required to encrypt the storage file
+8. The program should be standalone, and not require downloading of third-party software
 
 ## Appendix D : Glossary
 
