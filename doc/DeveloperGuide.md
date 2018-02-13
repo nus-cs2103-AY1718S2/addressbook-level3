@@ -94,6 +94,13 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should preserve user data when the program is restarted or updated. 
+6. Should support both 32-bit and 64-bit operating systems.
+7. Should be backward compatible with previous versions of AddressBook.
+8. Should respond to user input within 1 second.
+9. Should have all features and commands documented. 
+10. Should be easily usable by a non-technical user (i.e. a person with no prior programming experience).
+11. Should gracefully handle incorrect user input and return friendly error messages to the user. 
 
 ## Appendix D : Glossary
 
