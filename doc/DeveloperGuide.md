@@ -97,7 +97,7 @@ Use case ends.
 5. Should be easy for a novice to use the application.
 6. Should be convenient for users familiar with using a command-line interface. 
 7. Should respond within 2 seconds.
-8. Should work on both 32-bit or 64-bit architectures.
+8. Should work on both 32-bit and 64-bit architectures.
 
 ## Appendix D : Glossary
 
