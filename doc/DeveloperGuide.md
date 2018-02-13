@@ -71,6 +71,18 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+###Use case: Rename a tag
+
+**MSS**
+1. User wants to change the tag for all entries currently tagged as Friends
+2. User finds all entries with the Friends tag
+3. AddressBook shows a list of persons with the Friends tag
+4. User renames the tag to Buddies
+Use case ends.
+
+**Extensions**
+3a. No entries have the friends tag therefore nothing needs to be renamed
+
 #### Use case: Delete person
 
 **MSS**
