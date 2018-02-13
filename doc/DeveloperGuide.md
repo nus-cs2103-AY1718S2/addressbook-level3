@@ -87,6 +87,23 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Add person
+
+**MSS**
+
+1. User requests to add a specific person in the list
+2. AddressBook add the person <br>
+3. AddressBook shows the person added
+Use case ends.
+
+**Extensions**
+
+
+2a. The given details is invalid
+
+> 2a1. AddressBook shows an error message <br>
+  Use case resumes at step 1
 
 ## Appendix C : Non Functional Requirements
 
