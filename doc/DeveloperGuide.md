@@ -94,6 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should work on both 32-bit and 64-bit environments.
+6. Should be usable by a user who is new to CLI interfaces
+7. Should be usable by any international user (contact formats should be universal)
+8. Should respond to any command within one second
+9. Should be able to maintain privacy of the personal details of the persons
 
 ## Appendix D : Glossary
 
