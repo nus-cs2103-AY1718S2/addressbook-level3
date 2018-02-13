@@ -87,6 +87,18 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+###Use case: Rename a tag
+
+**MSS**
+1. User wants to change the tag for all entries currently tagged as Friends
+2. User find all entries with the Friends tag
+3. AddressBook shows a list of persons with the Friends tag
+4. User renames the tag to Buddies
+Use case ends.
+
+**Extensions**
+3a. No entries have the friends tag therefore nothing needs to be renamed
 
 ## Appendix C : Non Functional Requirements
 
