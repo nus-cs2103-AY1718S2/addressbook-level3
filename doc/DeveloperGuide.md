@@ -61,7 +61,10 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`*` | user with many persons in the address book | clear list with a backup | ensure my data is not lost by accident
+`*` | user who does many searches | keep a log of all the search history | can easily refer to the history
+`*` | user who is busy | be able to key in incomplete details | faster keying in of data
+`*` | user who wants to store additional data | to be able to include more parameters | more comprehensive information storage
 
 ## Appendix B : Use Cases
 
