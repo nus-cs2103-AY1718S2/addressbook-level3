@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. The system should work on both 32-bit and 64-bit environments.
+6. The system should respond within two seconds for any command given.
+7. The system should be as simple as possible so someone with no technical background can still understand how to use it.
+8. The system should be secure so that no personal information will be leaked since it is and address book.
 
 ## Appendix D : Glossary
 
