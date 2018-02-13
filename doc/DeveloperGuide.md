@@ -61,6 +61,8 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`**`| user who does many searches | see my search history | so I can return easily to someones data
+`***` | user who has a large database | be asked for confirmation before clearing my entire database | minimize my change of deleting entries by accident
 
 
 ## Appendix B : Use Cases
