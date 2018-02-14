@@ -94,6 +94,12 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be initialised with data added in previous executions.
+6. Should allow certain data to be private.
+7. Should use intuitive commands to make it easier for novice users.
+8. Should be robust and should not crash due to invalid commands.
+9. Source code should be open source.
+10. Should work offline.
 
 ## Appendix D : Glossary
 
