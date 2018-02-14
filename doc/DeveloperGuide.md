@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should execute commands within 2 seconds for all available commands.
+6. Should be intuitive for people who are not tech-savvy.
+7. Should be optimized to work in 32-bit or 64-bit environment.
+8. Product should be able to function without internet access.
 
 ## Appendix D : Glossary
 
