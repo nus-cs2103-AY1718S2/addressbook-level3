@@ -67,7 +67,7 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
-#### Use case: Delete person
+#### Use case: UC01 - Delete person
 
 **MSS**
 
@@ -87,6 +87,33 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+
+### Use case: UC02 - Rename tag
+
+**MSS**
+
+1. User requests to list tags
+2. AddressBook shows a list of tags
+3. User requests to rename a specific tag in the list
+4. AddressBook requests confirmation for the change that is to be made
+5. User confirms the change to be made
+6. AddressBook renames tag for all persons <br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given tag is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2.
+
+5a. User denies the change to be made
+
+> Use case ends 
 
 ## Appendix C : Non Functional Requirements
 
