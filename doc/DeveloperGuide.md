@@ -59,8 +59,12 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | list all persons | see how many contacts I have
+`* * *` | user | undo a previous command | restore the changes made by mistake
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *  | user who used previous versions of the address book | transfer contacts to the new version | save the time to re-enter all contacts
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with many persons belonging to different groups in the address book | find persons by group | mass contact a group easily |
 
 
 ## Appendix B : Use Cases
