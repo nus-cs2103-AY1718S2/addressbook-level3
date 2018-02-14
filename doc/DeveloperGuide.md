@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be compatible with x32 and x64 systems.
+6. Should be able to handle all types of user input (UTF-8 or ASCII).
+7. Should be responsive with less than 1 second delay.
+8. Should have backward compatibility.
 
 ## Appendix D : Glossary
 
