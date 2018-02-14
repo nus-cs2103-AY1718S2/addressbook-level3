@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not have any data loss or corruption on restart.
+6. Should function in both 32 and 64 bit environments.
+7. Should have intuitive commands for users unfamiliar with Command Line Interface.
+8. Should respone to commands within 1 second.
 
 ## Appendix D : Glossary
 
