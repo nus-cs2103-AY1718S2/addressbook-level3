@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should come with a help feature and various helper messages so that it is usable by a novice who had never had CLI experience before.
+6. The project is expected to have at least 4 additional major and minor features by the end of the semester.
+7. Users are expected to know how to set up the project without an installer.
+8. The end product is meant for users in a specific profession, and may not be suitable for everyone.
 
 ## Appendix D : Glossary
 
