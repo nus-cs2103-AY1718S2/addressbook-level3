@@ -97,7 +97,7 @@ Use case ends.
 5. The system should be usable to someone familiar with typing commands.
 6. The product is not required to have extravagant GUI effects.
 7. Data should be persistent across sessions.
-8. The system should not take more than 2 seconds to respond
+
 
 ## Appendix D : Glossary
 
