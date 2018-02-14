@@ -61,6 +61,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | busy user | know how long since I last contacted a friend | keep in touch with close friends
+`*` | user who is also a project manager | find the contacts of all my team members at once | delegate work and manage the project more efficiently
+`*` | user | clear everyone from my address book | start a new life
 
 
 ## Appendix B : Use Cases
