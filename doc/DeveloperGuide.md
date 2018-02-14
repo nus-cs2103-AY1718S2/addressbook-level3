@@ -58,9 +58,16 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | clear the addresbook | save time in removing all the entries when I no longer need the contact information
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | find a person by phone number | identify the caller when I missed an incoming call
+`* * *` | user | edit a person's details | make changes when necessary and save time from deletingand re-entering
+`* * *` | user | undo previous command(s)| reverse changes if they are made by mistake
+`* * ` | user | find a person by tags | identify persons of the same categories 
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user wth bad eyesight or color blindness  | adjust font size and color of the display| see things more clearly 
+
 
 
 ## Appendix B : Use Cases
