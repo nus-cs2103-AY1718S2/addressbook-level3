@@ -61,7 +61,9 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`* *` | user who frequently sends emails | open new email to them from address book | email my contacts easily without having to type the email
+`* *` | user with many contacts with similar names | set profile pictures for users | identify and remember contacts' pictures.
+`*` | user | edit the details of contacts | modify contacts without having to delete and add again
 
 ## Appendix B : Use Cases
 
