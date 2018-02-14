@@ -83,6 +83,22 @@ Use case ends.
 
 > Use case ends
 
+#### Use case: Rename existing tag
+
+**MSS**
+
+1.User requests to rename an existing tag
+2.Address Book shows a list of person with their tag
+3.Confirms change with user regarding decision to rename tag
+4.User confirms changes
+5.Address Book renames the tag
+
+**Extensions**
+
+2a.The tag does not exist
+
+>Use case ends
+
 3a. The given index is invalid
 
 > 3a1. AddressBook shows an error message <br>
