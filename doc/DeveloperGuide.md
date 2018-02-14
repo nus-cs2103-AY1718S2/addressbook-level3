@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should store record in human readable files.
+6. Should have intuitive command name and format
+7. Should allow user to make operation in Command Line in 1 step.
 
 ## Appendix D : Glossary
 
