@@ -60,6 +60,8 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | edit a contact | update any details of a contact should it change
+`* *` | user who remembers parts of a phone number | find persons by part of their phone number | locate details of persons just with part of their phone number
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
