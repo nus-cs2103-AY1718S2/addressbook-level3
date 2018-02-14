@@ -77,16 +77,59 @@ Priority | As a ... | I want to ... | So that I can...
 4. AddressBook deletes the person <br>
 Use case ends.
 
+#### Use case: Rename tag
+
+**MSS**
+
+1. User input the tag to be renamed and the new name
+2. AddressBook shows a list of persons that will be affected
+3. AddressBook ask user to confirm on the rename tag operation
+4. User confirms to proceed with the rename tag operation
+5. AddressBook renames all instances of the tag to the new name<br>
+6. Updated AddressBook is written into save file<br>
+Use case ends.
+
 **Extensions**
 
-2a. The list is empty
+1a. No tag is specified in command.
 
+> 1a1. Show error message<br>
+> 1a2. Show rename tag command usage<br>
+> 1a3. User enters a new command
+> Steps 1a1-1a3 are repeated until command entered specifies a tag 
+> Use case resumes from step 2
+
+1b. New name for tag is not provided by user.
+
+> 1b1. Show error message<br>
+> 1b2. Show rename tag command usage<br>
+> 1b3. User enters a new command<br>
+> Steps 1b1-1b3 are repeated until command entered specifies a tag<br> 
+> Use case resumes from step 2
+
+2a. No person will be affected.
+
+> 2a1. Inform user that the tag never occur in AddressBook<br>
 > Use case ends
 
-3a. The given index is invalid
+2b. AddressBook is empty
 
-> 3a1. AddressBook shows an error message <br>
-  Use case resumes at step 2
+> 2b1. Inform user that AddressBook is empty, no tag to rename<br>
+> Use case ends
+
+4a. User denies the operation.
+
+> 4a1. No changes will be done to AddressBook<br>
+> Use case ends
+
+6a. Save file is read-only
+> 6a1. Prompts user to grant write access<br>
+> Step 6a1 until write access is granted<br>
+> Use case resumes from step 6
+
+6b. Save file is not exist
+> 6b1. Create an empty save file<br>
+> Use case resumes from step 6
 
 ## Appendix C : Non Functional Requirements
 
