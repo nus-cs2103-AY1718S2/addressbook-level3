@@ -60,7 +60,10 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | edit details of a person | keep an updated version of the person's information
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user pressed for time | find a person by name without caring about case-sensitivity | locate details of persons fast
+`*` | careless user | undo delete of a person | recover deleted person in case I accidentally delete the person
 
 
 ## Appendix B : Use Cases
