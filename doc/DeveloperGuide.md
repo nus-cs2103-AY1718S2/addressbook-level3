@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should follow Java coding standards/styles.
+6. Should work on both 32-bit and 64-bit environments.
+7. Should work without access to the internet.
+8. Should work without external libraries/software.
 
 ## Appendix D : Glossary
 
