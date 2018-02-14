@@ -94,6 +94,12 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should run all commands in under 1 second.
+6. Should be able to run without additional installation of software.
+7. Should work on both 32-bit and 64-bit environments.
+8. Should be usable by programmers and non-programmers alike.
+9. Should not result in a large binary (more than 5mb).
+10. Data Format should be backwards compatible with program updates.
 
 ## Appendix D : Glossary
 
