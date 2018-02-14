@@ -83,6 +83,21 @@ Use case ends.
 
 > Use case ends
 
+#### Use case: Sort persons
+
+**MSS**
+
+1. User requests a sorted list of users.
+2. AddressBook displays an alphabetically sorted list of persons
+3. User views the contact they are interested in 
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
 3a. The given index is invalid
 
 > 3a1. AddressBook shows an error message <br>
