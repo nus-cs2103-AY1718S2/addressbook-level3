@@ -61,7 +61,10 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
-
+`* * *` | user | edit details of a person | always have up-to-date details
+`* *` | user | add a display picture for a person | easily find a new person and distinguish between persons with similar names
+`*` | user | message a person | efficiently communicate with that person
+`*` | user who loves Instagram | view Instagram posts of a person | quickly see the recent Instagram activity of a person
 
 ## Appendix B : Use Cases
 
