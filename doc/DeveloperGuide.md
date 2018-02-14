@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. The commands and what they do should be easily understood by user.
+6. The address book should be easy to export to other computers.
+7. Should take less than 3 seconds to respond to each command.
+8. Should be free for all users.
 
 ## Appendix D : Glossary
 
