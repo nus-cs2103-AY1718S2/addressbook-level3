@@ -94,6 +94,12 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should retain data in the event of a crash
+6. Should be able to process queries with less than 2s of delay
+7. Should be intuitive and easy-to-use to novice users
+8. Should have new features developed every week
+9. Should be able to import and export to different AddressBooks
+10. Should be backwards compatible with earlier versions
 
 ## Appendix D : Glossary
 
