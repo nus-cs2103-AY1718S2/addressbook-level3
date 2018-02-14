@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not lose data on shutdown.
+6. Should respond within 2 seconds of commmand acceptance.
+7. Should be easy to understand for users unfamiliar with commandline.
+8. Should function with or without internet access.
 
 ## Appendix D : Glossary
 
