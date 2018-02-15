@@ -88,6 +88,24 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Find details of a specific person
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to find a specific person in the list
+4. AddressBook finds and shows a list of persons with similar names
+5. User found details of specific person <br>
+Use case ends.
+
+**Extensions**
+
+5a. The details of specific person is private
+
+> 5a1. User requests to view full details of specific person <br>
+  Use case resumes at step 5
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
