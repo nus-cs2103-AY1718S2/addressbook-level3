@@ -87,6 +87,36 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Renaming an existing tag 
+  
+**MSS**
+
+1. User requests to rename a tag that exists
+2. AddressBook shows a list of all people with tag(s)
+3. User enters the specific tag they want to rename
+4. AddressBook displays the users with that tag and prompts the user to input the new tag
+5. User inputs the new tag
+6. AddressBook confirms with the user with their input
+7. User confirms their change
+8. AddressBook updates the relevant tags to the new one <br> 
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The tag the user wants to rename does not exist
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 3
+
+5a. The tag given by user already exists
+
+> 5a1. AddressBook shows an error message <br>
+  Use case resumes at step 4
 
 ## Appendix C : Non Functional Requirements
 
