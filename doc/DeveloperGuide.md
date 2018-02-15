@@ -60,7 +60,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user who is part of many events | have a calendar | view all my events in an organised manner and not forget about them
+`* *` | user | list persons by tag | locate persons by something other than their names and addresses
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user who is in-charge of many events | share events with many persons | schedule events with many persons easily
+`*` | user with many persons in the address book | message them | contact a person via the addresss book if I do not have his contact details
 
 
 ## Appendix B : Use Cases
