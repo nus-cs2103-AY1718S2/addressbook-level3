@@ -36,6 +36,7 @@ public class AddCommand extends Command {
                       String email, boolean isEmailPrivate,
                       String address, boolean isAddressPrivate,
                       Set<String> tags) throws IllegalValueException {
+        super(true);
         final Set<Tag> tagSet = new HashSet<>();
         for (String tagName : tags) {
             tagSet.add(new Tag(tagName));
@@ -50,6 +51,7 @@ public class AddCommand extends Command {
     }
 
     public AddCommand(Person toAdd) {
+        super(true);
         this.toAdd = toAdd;
     }
 

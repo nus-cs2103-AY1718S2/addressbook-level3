@@ -21,7 +21,7 @@ public class DeleteCommand extends Command {
 
 
     public DeleteCommand(int targetVisibleIndex) {
-        super(targetVisibleIndex);
+        super(targetVisibleIndex, true);
     }
 
 
