@@ -91,43 +91,6 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
-#### Use case: Rename the tag 'friends' into 'buddies'
-
-Precondition : 'friends' tag exists in the address book
-**MSS**
-
-1. User requests to list all tags
-2. AddressBook shows a list of all tags
-3. User requests to rename the 'friends' tag
-4. AddressBook asks a new name for the tag
-5. User responds by typing 'buddies'
-6. AddressBook displays a message indicating the tag has been renamed
-Use case ends
-
-**Extensions**
-3a. User chooses a wrong tag to rename
-
-> 4.   AddressBook asks a new name for the tag
-> 4a1. User cancels the request.
-  Use case resumes from step 3
-
-3b. User provides an invalid input
-
-> 3b1. AddressBook shows an error message
-  Use case ends
-
-5a. User provides an unacceptable tagname
-
-> 5a1. AddressBook shows an error message
-  Use case ends
-
-5b. User makes a typo
-
-> 6. AddressBook displays a message indicating the tag has been renamed
-  Use case ends
-
-
-
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
