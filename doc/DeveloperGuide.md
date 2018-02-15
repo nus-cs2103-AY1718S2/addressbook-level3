@@ -87,6 +87,16 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: find person
+
+**MSS**
+
+1. User requests to find all persons with any of  the keywords in their names 
+2. AddressBook shows the list of persons satisfy the condition<br>
+Use case ends.
+
+> Use case ends
 
 ## Appendix C : Non Functional Requirements
 
