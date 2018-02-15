@@ -94,6 +94,11 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to persistently store all user data.
+6. Should be able to respond to any query within two seconds.
+7. Should be usable by any user who can read the provided instructions, even if they have rarely used
+    a text-based application before.
+8. The source code should be open source.
 
 ## Appendix D : Glossary
 
