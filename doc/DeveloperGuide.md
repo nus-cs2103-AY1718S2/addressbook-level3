@@ -87,6 +87,42 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Sort persons
+
+**MSS**
+
+1. User requests to sort persons
+2. AddressBook shows a list of persons sorted in the alphabetical order of names.
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+#### Use case: Rename tags
+
+**MSS**
+
+1. User requests to rename a particular tag
+2. AddressBook shows a list of persons with the tag
+3. AddressBook prompts user to enter new name for existing tag
+4. AddressBook asks user for confirmation before renaming the tag
+5. AddressBook shows list of persons with the renamed tag
+Use case ends.
+
+**Extensions**
+
+2a. There is no such tag 
+
+> 2a1. AddressBook shows an error message <br>
+  Use case resumes at step 1
+  
+4a. User cancels the rename operation
+
+> Use case ends     
 
 ## Appendix C : Non Functional Requirements
 
