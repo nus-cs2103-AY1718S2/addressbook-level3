@@ -60,7 +60,16 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | edit my details | easily change my details if I input it incorrectly
+`* *` | user | undo my previous input |
+`* *` | user | redo my previous undo |
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with many persons in the address book | sort persons by tag | locate tags easily
+`*` | user with many persons in the address book | sort persons by address | locate addresses easily
+`*` | user who forgets other people's name easily | allow people to add a profile photo | remember their name based on the photo.
+`*` | user | find all people with a certain tag | locate a group that I'm interested in easily
+`*` | user | search user of a certain gender | locate details of persons of a certain gender
+`*` | user | colour code different data of people | easily distinguish people's data
 
 
 ## Appendix B : Use Cases
