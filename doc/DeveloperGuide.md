@@ -90,10 +90,13 @@ Use case ends.
 
 ## Appendix C : Non Functional Requirements
 
-1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
+1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should respond to any command in 2 seconds.
+6. Should be intuitive for non-tech-savy people to use.
+7. Should have easily understandable output
 
 ## Appendix D : Glossary
 
