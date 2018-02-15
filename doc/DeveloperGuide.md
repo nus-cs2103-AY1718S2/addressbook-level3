@@ -59,8 +59,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* *` | user | edit a person's details | change entries that I input incorrectly 
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`*` | user | lock my app | share my computer with other people without worrying about my contacts being seen
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user | undo an action | undo any unwanted actions such as deletion by mistake 
 
 
 ## Appendix B : Use Cases
