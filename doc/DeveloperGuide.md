@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Is compatible with future and older versions of the AddressBook
+6. The source code should and remain open source.
+7. Should back up data in a separate file to ensure no data loss.
 
 ## Appendix D : Glossary
 
