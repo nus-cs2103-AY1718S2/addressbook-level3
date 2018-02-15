@@ -94,6 +94,8 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to respond to user's queries within 2 seconds
+6. Should ensure every entry has a distinct name and email. If an entry has a number or email that is identical to that of an earlier entry, the program should display a message that the entry is invalid and will not be stored in the addressbook.
 
 ## Appendix D : Glossary
 
