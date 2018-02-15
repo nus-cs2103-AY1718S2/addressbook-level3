@@ -98,6 +98,22 @@ Use case ends.
 
 > Use case ends
 
+#### Use case: Rename tag
+
+**MSS**
+
+1. User requests to rename a tag
+2. AddressBook list all the persons with the tag
+3. User enters the new tag name
+4. AddressBook changes the tag of all person in the list to the new tag <br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
