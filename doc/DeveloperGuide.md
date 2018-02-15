@@ -56,11 +56,14 @@ Priorities: High (must have) - `* * *`, Medium (nice to have)  - `* *`,  Low (un
 Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
-`* * *` | user | add a new person |
+`* * *` | new user | see examples of each command | replicate the command but with information relevant to my contacts
+`* * *` | user | add a new person | increase the amount of people in my address book
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with many persons in the address book | search a person by name | locate a person easily
+`*` | user with many persons in the address book | look up people by their tags | categorize my address book more easily
 
 
 ## Appendix B : Use Cases
