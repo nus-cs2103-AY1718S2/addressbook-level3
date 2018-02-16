@@ -119,7 +119,8 @@ Use case ends.
   Use case resumes at step 4
 
 7a. User chooses to cancel the operation <br>
-  Use case ends
+
+> Use case ends
 
 ## Appendix C : Non Functional Requirements
 
