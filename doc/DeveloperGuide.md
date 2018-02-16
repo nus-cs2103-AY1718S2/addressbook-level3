@@ -67,6 +67,23 @@ Priority | As a ... | I want to ... | So that I can...
 
 (For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
 
+#### Use case: Add person
+
+**MSS**
+
+1. User requests to add a person
+2. AddressBook adds the person
+3. User requests to list persons
+4. AddressBook shows a list of persons <br>
+Use case ends.
+
+**Extensions**
+
+1a. The given contact is invalid
+
+> 1a1. AddressBook shows an error message <br>
+  Use case ends
+
 #### Use case: Delete person
 
 **MSS**
