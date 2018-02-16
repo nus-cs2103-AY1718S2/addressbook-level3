@@ -59,7 +59,11 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user | list all persons | view a list of all persons in the address book
+`* * *` | user | view non-private details of a person | view the non-private details of the specified person
+`* * *` | user | clear all entries | clear all entries from the address book
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | view all details of a person | view all details (including private details) of the specified person
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
