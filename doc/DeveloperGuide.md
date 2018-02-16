@@ -57,9 +57,13 @@ Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
+`* * *` | user | edit a person | update any details that may have changed
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | undo an action | recover from mistakes
+`* *` | user | export a backup | protect my data or transfer it to another device
+`* *` | expert user | have access to a [non-interactive CLI](#non-interactive-cli) | automate tasks or integrate the program into something else
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
 
 
@@ -104,3 +108,7 @@ Use case ends.
 ##### Private contact detail
 
 > A contact detail that is not meant to be shared with others
+
+##### Non-interactive CLI
+
+> The current CLI is an *interactive* one, that is, the user inputs a command in response to a prompt, the system replies with another prompt, and so on until the exit command is posted. In a non-interactive CLI, the user should be able to complete any task in a single command, via the use of command-line options.
