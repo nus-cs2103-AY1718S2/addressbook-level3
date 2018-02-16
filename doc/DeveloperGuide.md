@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should install without additional dependencies, or come packaged with said dependencies.
+6. Should be able to operate fully on CLI, any GUI is only for feedback.
+7. Should use only local config files to remain fully portable.
+8. Should be intuitive enough for a user inexperienced with CLI to use.
 
 ## Appendix D : Glossary
 
