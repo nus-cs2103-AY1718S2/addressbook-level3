@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be usable by a novice who has never use commands application (commands that are simple and easy to understand)
+6. Should respond withing 5 seconds
+7. The system is not required to handle communication with the contacts in the system (eg: phone call, email)
 
 ## Appendix D : Glossary
 
