@@ -87,6 +87,11 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+4a. User regrets deleting contact
+
+> 4a1. AddressBook sends confirmation message for the deletion
+  User case resumes at step 2
 
 ## Appendix C : Non Functional Requirements
 
