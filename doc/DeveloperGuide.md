@@ -94,6 +94,8 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be easily usable by a novice who has never used address books before.
+6. Should be completed within 3 months and total project cost should not exceed $2000 SGD.
 
 ## Appendix D : Glossary
 
