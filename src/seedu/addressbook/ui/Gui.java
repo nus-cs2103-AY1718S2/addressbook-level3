@@ -2,11 +2,12 @@ package seedu.addressbook.ui;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
+import java.net.URL;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -44,6 +45,8 @@ public class Gui {
 
         stage.setTitle(version);
         stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
+        URL iconPath = Gui.class.getResource("addressbook-icon.png");
+        stage.getIcons().add(new Image(iconPath.toString()));
         stage.show();
         MainWindow mainWindow = loader.getController();
         mainWindow.setLogic(logic);
