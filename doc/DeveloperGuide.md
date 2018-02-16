@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be able to retrieve contacts in less than 1 second.
+6. Should be able to function both online or offline.
+7. Should be user friendly.
+8. Should have customisable font size.
 
 ## Appendix D : Glossary
 
