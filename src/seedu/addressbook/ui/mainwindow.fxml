@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox stylesheets="@/seedu/addressbook/ui/DarkTheme.css" alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="seedu.addressbook.ui.MainWindow">
+<VBox alignment="center" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
-        </TextField>
+        <TextField fx:id="commandInput" alignment="TOP_LEFT" onAction="#onCommand" prefHeight="0.0" prefWidth="541.0" style="-fx-background-color: orange;" VBox.vgrow="NEVER">
+         <font>
+            <Font name="Gujarati MT" size="13.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
 
-        <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
-        </TextArea>
+        <TextArea fx:id="outputConsole" editable="false" prefHeight="237.0" prefWidth="541.0" style="-fx-border-color: white; -fx-background-color: grey;" wrapText="true" VBox.vgrow="ALWAYS">
+         <font>
+            <Font name="Euphemia UCAS Bold" size="13.0" />
+         </font></TextArea>
 
     </children>
 
