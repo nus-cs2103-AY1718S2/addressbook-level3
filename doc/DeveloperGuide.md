@@ -88,6 +88,48 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Rename tag
+
+**Preconditions**
+
+1) Database cannot be empty
+2) There exist at least a user with the specific tag
+
+**Guarantees**
+
+1) Similar tags will be renamed for all persons in address book if there exist such a tag.
+
+**MSS**
+
+1) User enter edit command word.
+2) AddressBook request for the field to be edited
+3) User enters tags
+4) AddressBook display a list of tags
+5) User enters index corresponding to a tag
+6) AddressBook request for new tag details
+7) AddressBook will rename the tags for all similar tags in the AddressBook <br>
+Use case ends
+
+**Extensions**
+
+3a. AddressBook detect invalid entered field.
+
+> 3a1. AddressBook request for the correct field
+  3a2. User enters new field
+  Steps 3a1-3a2 are repeated until the field entered is correct
+  Use case resume from step 4.
+
+4a. The list is empty
+
+> Use case ends
+
+5a. AddressBook detect invalid index
+
+> 5a1. AddressBook request for the correct index
+  5a2. User enters new index
+  Steps 5a1-5a2 are repeated until the field entered is correct
+  Use case resume from step 6.
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
