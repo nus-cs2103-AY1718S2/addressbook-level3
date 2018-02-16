@@ -88,13 +88,12 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
-#### Use case: Show sorted list
+#### Use case: List people
 
 **MSS**
 
-1. User requests to list persons in sorted order
-2. AddressBook shows a list of persons in sorted order
-Use case ends.
+1. User requests to list persons
+2. AddressBook shows an indexed list of persons
 
 **Extensions**
 
