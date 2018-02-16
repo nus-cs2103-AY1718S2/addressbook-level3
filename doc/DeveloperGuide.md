@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should cater to both IT proficient people and those who are new to Command Line Interface.
+6. Should be able to remain open for a long period of time while having low CPU usage.
+7. Should keep confidential information encapsulated.
 
 ## Appendix D : Glossary
 
