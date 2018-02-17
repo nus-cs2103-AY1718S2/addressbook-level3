@@ -58,9 +58,14 @@ Priority | As a ... | I want to ... | So that I can...
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
 `* * *` | user | delete a person | remove entries that I no longer need
+`* * *` | user | edit a person's details | don't have to delete and re-add them again
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
+`* * *` | user with OCD | sort the contacts by any field | so that my list is more organised
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
+`* *` | user | add contacts with some details optionally left out | don't have to find out everything about them to add them as a contact
+`*` | user | optionally add other fields such as github accounts | so that my list is more organised
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with multiple devices | export my data in other specified formats | enable it to interface with other programs such as for spreadsheeting
 
 
 ## Appendix B : Use Cases
