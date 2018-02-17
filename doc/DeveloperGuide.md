@@ -88,6 +88,36 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Rename tag
+
+**Preconditions**
+
+1. Addressbook should have at least one user with tags
+
+**Guarantees**
+
+1. All users with specified tag to be renamed will be renamed
+
+**MSS**
+
+1. User enters rename tag command
+2. User specifies which tag to be renamed and what it should be renamed into
+3. Addressbook confirms tags have been renamed.
+
+> Use case ends
+
+**Extensions**
+
+2a. Addressbook has no users with such specified tags
+
+> Addressbook notifies the user that there are no such users
+  Use case ends
+
+3a. Tag names to be renamed into contain invalid characters
+
+> Addressbook notifies the user that the tag names contain invalid characters
+  User case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
