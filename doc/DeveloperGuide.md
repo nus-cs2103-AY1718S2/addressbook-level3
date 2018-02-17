@@ -95,7 +95,7 @@ Use case ends.
 1. User requests to rename a tag
 2. User inputs current name of tag and new name
 3. AddressBook renames all instances of the tag with the old name to the new name
-4. AddressBook user of success <br>
+4. AddressBook informs user of success <br>
 Use case ends.
 
 **Extensions**
