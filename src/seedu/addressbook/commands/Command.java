@@ -70,4 +70,12 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Describes whether a command mutates the data in the AddressBook - if so, the data will be saved
+     * to file after the command. By default, it is assumed that Commands are NOT mutating.
+     */
+    public boolean isMutating() {
+        return false;
+    }
 }
