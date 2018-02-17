@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should not contact anyone directly.
+6. Should be operable by a non-technical user without much difficulty.
+7. Should handle errors gracefully and give helpful error messages.
 
 ## Appendix D : Glossary
 
