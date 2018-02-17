@@ -107,4 +107,18 @@ public class MainWindow {
         outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
     }
 
+    /**
+     * Called when the user clicks on the clear all button.
+     */
+    @FXML
+    private void exitOnButtonClick() {
+        try {
+            exitApp();
+            return;
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
 }
