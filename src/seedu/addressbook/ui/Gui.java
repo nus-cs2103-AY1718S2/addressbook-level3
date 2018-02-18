@@ -2,11 +2,11 @@ package seedu.addressbook.ui;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
 
-import java.io.File;
 import java.io.IOException;
 
 /**
@@ -19,6 +19,9 @@ public class Gui {
 
     public static final int INITIAL_WINDOW_WIDTH = 800;
     public static final int INITIAL_WINDOW_HEIGHT = 600;
+
+    private final String ICON_IMAGE_URL = "http://engageconsultants.com/wp-content/uploads/2017/02/dropped-pin.png";
+
     private final Logic logic;
 
     private MainWindow mainWindow;
@@ -43,6 +46,7 @@ public class Gui {
         loader.setLocation(Main.class.getResource("ui/mainwindow.fxml"));
 
         stage.setTitle(version);
+        stage.getIcons().add(new Image(ICON_IMAGE_URL));
         stage.setScene(new Scene(loader.load(), INITIAL_WINDOW_WIDTH, INITIAL_WINDOW_HEIGHT));
         stage.show();
         MainWindow mainWindow = loader.getController();
