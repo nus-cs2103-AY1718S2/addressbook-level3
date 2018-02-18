@@ -38,7 +38,7 @@ public class StorageFileTest {
     @Test
     public void constructor_noTxtExtension_exceptionThrown() throws Exception {
         thrown.expect(IllegalValueException.class);
-        new StorageFile(TEST_DATA_FOLDER + "/" + "InvalidfileName");
+        new StorageFile("/" + TEST_DATA_FOLDER + "/" + "InvalidfileName");
     }
 
     @Test
