@@ -47,6 +47,14 @@ public abstract class Command {
     //public abstract CommandResult execute();
 
     /**
+     * Describes whether a command mutates the AddressBook. Assumed to be false by default to prevent functions from
+     * unintentionally modifying the AddressBook.
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
+    /**
      * Supplies the data the command will operate on.
      */
     public void setData(AddressBook addressBook, List<? extends ReadOnlyPerson> relevantPersons) {
