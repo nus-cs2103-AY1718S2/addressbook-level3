@@ -87,6 +87,32 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+4a. User regrets deleting contact
+
+> 4a1. AddressBook sends confirmation message for the deletion
+  User case resumes at step 2
+  
+#### Use case: Sort AddressBook
+
+**MSS**
+
+1. User requests to sort AddressBook list
+2. AddressBook sorts the list
+3. AddressBook shows the sorted list
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> 2a1. AddressBook shows a message indicating that list is empty
+  Use case ends
+
+2b. The list is already sorted
+
+> 2b1. AddressBook shows a message indicating that list is already sorted
+  Use case ends
 
 ## Appendix C : Non Functional Requirements
 
