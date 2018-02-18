@@ -94,6 +94,10 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Every command should take up to 1 second.
+6. Should work with 32-bit and 64-bit environments.
+7. Is not required to encrypt storage files
+8. Should not require downloading of external third-party programs to work
 
 ## Appendix D : Glossary
 
