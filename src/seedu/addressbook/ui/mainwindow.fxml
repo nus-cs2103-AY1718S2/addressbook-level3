@@ -29,12 +29,12 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Exit" />
+              <MenuItem mnemonicParsing="false" onAction="#exitApp" text="Exit" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="View">
               <items>
-                <MenuItem mnemonicParsing="false" text="Toggle Background Colour" />
+                <MenuItem mnemonicParsing="false" onAction="#toggleBackgroundColor" text="Toggle Background Colour" />
               </items>
             </Menu>
         </menus>

@@ -3,8 +3,10 @@ package seedu.addressbook.ui;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import seedu.addressbook.commands.ExitCommand;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
@@ -40,6 +42,14 @@ public class MainWindow {
     @FXML
     private TextField commandInput;
 
+    @FXML
+    private VBox container;
+
+    private String darkTheme =
+            getClass().getResource("/seedu/addressbook/ui/DarkTheme.css").toExternalForm();
+
+    private String lightTheme =
+            getClass().getResource("/seedu/addressbook/ui/LightTheme.css").toExternalForm();
 
     @FXML
     void onCommand(ActionEvent event) {
@@ -58,8 +68,20 @@ public class MainWindow {
         }
     }
 
+    @FXML
     private void exitApp() throws Exception {
         mainApp.stop();
+    }
+
+    @FXML
+    private void toggleBackgroundColor() {
+        if (container.getStylesheets().contains(darkTheme)) {
+            container.getStylesheets().remove(darkTheme);
+            container.getStylesheets().add(lightTheme);
+        } else if (container.getStylesheets().contains(lightTheme)) {
+            container.getStylesheets().remove(lightTheme);
+            container.getStylesheets().add(darkTheme);
+        }
     }
 
     /** Returns true of the result given is the result of an exit command */
