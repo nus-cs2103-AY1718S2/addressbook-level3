@@ -58,8 +58,7 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public boolean isMutating()
-    {
+    public boolean isMutating() {
         return true;
     }
 
