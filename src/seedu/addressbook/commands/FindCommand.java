@@ -53,4 +53,12 @@ public class FindCommand extends Command {
         return matchedPersons;
     }
 
+    @Override
+    /**
+     * Returns false since the Find command does not change the contents of address book
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
 }

@@ -16,4 +16,12 @@ public class ExitCommand extends Command {
         return new CommandResult(MESSAGE_EXIT_ACKNOWEDGEMENT);
     }
 
+    @Override
+    /**
+     * Returns false since the Exit command does not change the contents of address book
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
 }

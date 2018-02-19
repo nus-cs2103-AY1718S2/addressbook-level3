@@ -25,4 +25,12 @@ public class HelpCommand extends Command {
     public CommandResult execute() {
         return new CommandResult(MESSAGE_ALL_USAGES);
     }
+
+    @Override
+    /**
+     * Returns false since the Help command does not change contents of address book
+     */
+    public boolean isMutating() {
+        return false;
+    }
 }

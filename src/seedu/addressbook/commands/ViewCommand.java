@@ -38,4 +38,12 @@ public class ViewCommand extends Command {
         }
     }
 
+    @Override
+    /**
+     * Returns false since the View command does not change contents of address book
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
 }
