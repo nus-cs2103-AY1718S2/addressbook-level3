@@ -83,9 +83,13 @@ public class Logic {
      * @throws Exception if there was any problem during command execution.
      */
     private CommandResult execute(Command command) throws Exception {
+        boolean isMutated = false;
+        isMutated = command.isMutating();
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        if (isMutated == true) {
+            storage.save(addressBook);
+        }
         return result;
     }
 
