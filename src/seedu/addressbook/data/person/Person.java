@@ -2,6 +2,8 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.UniqueTagList;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -16,6 +18,8 @@ public class Person implements ReadOnlyPerson {
     private Address address;
 
     private final UniqueTagList tags;
+    public static final String DELIMITER = " ";
+
     /**
      * Assumption: Every field must be present and not null.
      */
@@ -81,7 +85,18 @@ public class Person implements ReadOnlyPerson {
 
     @Override
     public String toString() {
-        return getAsTextShowAll();
+        return getPrintableString(name, phone, email, address, tags);
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    String getPrintableString(Printable... printables){
+        List<String> printableList = new ArrayList<>();
+        for (Printable printable : printables) {
+            printableList.add(printable.getPrintableString());
+        }
+        return String.join(DELIMITER, printableList);
     }
 
 }
