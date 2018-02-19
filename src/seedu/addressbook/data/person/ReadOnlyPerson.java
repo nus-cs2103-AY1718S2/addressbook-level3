@@ -1,7 +1,10 @@
 package seedu.addressbook.data.person;
 
+import java.util.ArrayList;
+
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.ui.Formatter;
 
 /**
  * A read-only immutable interface for a Person in the addressbook.
@@ -26,10 +29,10 @@ public interface ReadOnlyPerson {
     default boolean isSameStateAs(ReadOnlyPerson other) {
         return other == this // short circuit if same object
                 || (other != null // this is first to avoid NPE below
-                && other.getName().equals(this.getName()) // state checks here onwards
-                && other.getPhone().equals(this.getPhone())
-                && other.getEmail().equals(this.getEmail())
-                && other.getAddress().equals(this.getAddress()));
+                    && other.getName().equals(this.getName()) // state checks here onwards
+                    && other.getPhone().equals(this.getPhone())
+                    && other.getEmail().equals(this.getEmail())
+                    && other.getAddress().equals(this.getAddress()));
     }
 
     /**
@@ -37,27 +40,12 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
-        final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
-        if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getPhone())
-                .append(" Email: ");
-        if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getEmail())
-                .append(" Address: ");
-        if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getAddress())
-                .append(" Tags: ");
+        builder.append(Formatter.getPrintableString(getName(), getPhone(), getEmail(), getAddress()));
+        builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
+
         return builder.toString();
     }
 
@@ -66,16 +54,18 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName());
+        ArrayList<String> strs = new ArrayList<String>();
+        strs.add(getName().getPrintableString());
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            strs.add(getPhone().getPrintableString());
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            strs.add(getEmail().getPrintableString());
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            strs.add(getAddress().getPrintableString());
         }
+        builder.append(String.join(" ", strs));
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
