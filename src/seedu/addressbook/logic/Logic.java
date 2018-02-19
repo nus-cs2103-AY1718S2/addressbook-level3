@@ -71,6 +71,7 @@ public class Logic {
     public CommandResult execute(String userCommandText) throws Exception {
         Command command = new Parser().parseCommand(userCommandText);
         CommandResult result = execute(command);
+        saveAddressBook(command.isMutating());
         recordResult(result);
         return result;
     }
@@ -80,13 +81,22 @@ public class Logic {
      *
      * @param command user command
      * @return result of the command
-     * @throws Exception if there was any problem during command execution.
      */
-    private CommandResult execute(Command command) throws Exception {
+    private CommandResult execute(Command command) {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
         return result;
+    }
+
+    /**
+     * Saves the addressbook to disk if it has been updated.
+     *
+     * @param hasMutated the addressbook state
+     */
+    private void saveAddressBook(boolean hasMutated) throws Exception {
+        if (hasMutated) {
+            storage.save(addressBook);
+        }
     }
 
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
