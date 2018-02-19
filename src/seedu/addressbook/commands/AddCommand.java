@@ -67,4 +67,5 @@ public class AddCommand extends Command {
         }
     }
 
+    public boolean isMutating() { return true; }
 }

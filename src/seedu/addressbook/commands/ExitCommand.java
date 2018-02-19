@@ -16,4 +16,5 @@ public class ExitCommand extends Command {
         return new CommandResult(MESSAGE_EXIT_ACKNOWEDGEMENT);
     }
 
+    public boolean isMutating() { return false; }
 }
