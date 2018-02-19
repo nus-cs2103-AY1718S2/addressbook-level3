@@ -19,7 +19,11 @@ public class ViewAllCommand extends Command {
 
     public static final String MESSAGE_VIEW_PERSON_DETAILS = "Viewing person: %1$s";
 
-
+    @Override
+    public boolean isMutating() {
+        return NOT_MUTATED;
+    }
+    
     public ViewAllCommand(int targetVisibleIndex) {
         super(targetVisibleIndex);
     }

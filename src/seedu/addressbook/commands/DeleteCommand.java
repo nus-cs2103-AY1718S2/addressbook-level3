@@ -11,7 +11,7 @@ import seedu.addressbook.data.person.UniquePersonList.PersonNotFoundException;
 public class DeleteCommand extends Command {
 
     public static final String COMMAND_WORD = "delete";
-
+//    public static final boolean IS_MUTATING = true;
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" 
             + "Deletes the person identified by the index number used in the last person listing.\n\t"
             + "Parameters: INDEX\n\t"
@@ -24,7 +24,11 @@ public class DeleteCommand extends Command {
         super(targetVisibleIndex);
     }
 
-
+    @Override
+    public boolean isMutating() {
+        return MUTATED;
+    }
+    
     @Override
     public CommandResult execute() {
         try {
