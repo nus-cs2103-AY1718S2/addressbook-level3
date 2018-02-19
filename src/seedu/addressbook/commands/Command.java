@@ -37,6 +37,14 @@ public abstract class Command {
     }
 
     /**
+     * Determines if command perform mutation on data
+     * @return false by default
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
+    /**
      * Executes the command and returns the result.
      */
     public CommandResult execute(){
