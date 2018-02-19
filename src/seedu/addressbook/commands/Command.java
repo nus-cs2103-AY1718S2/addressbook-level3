@@ -15,7 +15,9 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
-
+    public static final boolean MUTATED = true;
+    public static final boolean NOT_MUTATED = false;
+    
     /**
      * @param targetIndex last visible listing index of the target person
      */
@@ -70,4 +72,13 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Should be overwritten in child class
+     * @return
+     */
+    public boolean isMutating() {
+        return MUTATED;
+    }
+    
 }

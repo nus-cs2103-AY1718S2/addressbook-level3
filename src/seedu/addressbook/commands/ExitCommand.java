@@ -10,7 +10,13 @@ public class ExitCommand extends Command {
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Exits the program.\n\t"
             + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_EXIT_ACKNOWEDGEMENT = "Exiting Address Book as requested ...";
-
+    
+    
+    @Override
+    public boolean isMutating() {
+        return NOT_MUTATED;
+    }
+    
     @Override
     public CommandResult execute() {
         return new CommandResult(MESSAGE_EXIT_ACKNOWEDGEMENT);
