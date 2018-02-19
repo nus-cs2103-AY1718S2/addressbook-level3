@@ -63,6 +63,6 @@ public class Name implements Printable {
 
     @Override
     public String getPrintableString(){
-        return "Name: " + this.fullName;
+        return "Name: " + fullName;
     }
 }

@@ -61,6 +61,7 @@ public class Email implements Printable {
 
     @Override
     public String getPrintableString(){
-        return "Email: " + this.value;
+        return String.format("Email: %s%s", isPrivate ?
+                "(private) " : "", value);
     }
 }
