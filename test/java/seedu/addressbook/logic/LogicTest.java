@@ -12,12 +12,14 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
 import java.util.*;
 
 import static junit.framework.TestCase.assertEquals;
 import static seedu.addressbook.common.Messages.*;
+import static sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl.ThreadStateMap.Byte1.other;
 
 
 public class LogicTest {
@@ -90,7 +92,19 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        assertEqualIfSaved(inputCommand);
+
+    }
+
+    /**
+     * Execute checks with saveFile only if save is required.
+     * @param inputCommand
+     * @throws Exception
+     */
+    private void assertEqualIfSaved(String inputCommand) throws Exception {
+        Command command = new Parser().parseCommand(inputCommand);
+        if(command.isMutating())
+            assertEquals(addressBook, saveFile.load());
     }
 
 
