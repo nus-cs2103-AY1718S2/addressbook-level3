@@ -47,6 +47,7 @@ public class AddCommand extends Command {
                 new Address(address, isAddressPrivate),
                 new UniqueTagList(tagSet)
         );
+        this.mutateData = true;
     }
 
     public AddCommand(Person toAdd) {
