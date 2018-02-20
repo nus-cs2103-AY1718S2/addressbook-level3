@@ -58,6 +58,6 @@ public class Address implements Printable {
 
     @Override
     public String getPrintableString() {
-        return "Address: " + (isPrivate ? "(private)" : value);
+        return " Address: " + (isPrivate ? "(private)" : value);
     }
 }
