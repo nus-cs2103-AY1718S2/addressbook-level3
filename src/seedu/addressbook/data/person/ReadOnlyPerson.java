@@ -38,7 +38,7 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(Formatter.getPrintableString(getPhone(), getEmail(), getAddress()));
+        builder.append(Formatter.getPrintableString(getName(), getPhone(), getEmail(), getAddress()));
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
