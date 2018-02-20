@@ -1,13 +1,15 @@
 package seedu.addressbook.common;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import seedu.addressbook.data.person.Printable;
+
+import java.util.*;
 
 /**
  * Utility methods
  */
 public class Utils {
+
+    public static final String DELIMITER = " ";
 
     /**
      * Checks whether any of the given items are null.
@@ -33,5 +35,16 @@ public class Utils {
             }
         }
         return true;
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public static String getPrintableString(Printable... printables) {
+        List<String> list = new ArrayList<String>();
+        for (Printable printable: printables) {
+            list.add(printable.getPrintableString());
+        }
+        return String.join(DELIMITER, list);
     }
 }
