@@ -71,7 +71,7 @@ public class Logic {
     public CommandResult execute(String userCommandText) throws Exception {
         Command command = new Parser().parseCommand(userCommandText);
         CommandResult result = execute(command);
-        recordResult(result);
+        recordResult(result, command);
         return result;
     }
 
@@ -90,9 +90,9 @@ public class Logic {
     }
 
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
-    private void recordResult(CommandResult result) {
+    private void recordResult(CommandResult result, Command command) {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();
-        if (personList.isPresent()) {
+        if (personList.isPresent() && command.isMutating()) {
             lastShownList = personList.get();
         }
     }
