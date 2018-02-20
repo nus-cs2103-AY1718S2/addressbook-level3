@@ -2,7 +2,6 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 
-import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.List;
 
