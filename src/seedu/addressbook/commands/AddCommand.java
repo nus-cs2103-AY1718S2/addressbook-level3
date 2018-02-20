@@ -67,4 +67,14 @@ public class AddCommand extends Command {
         }
     }
 
+    /**
+     * AddCommand mutates the actual data of the file
+     *
+     * @return true
+     */
+    @Override
+    public boolean isMutating() {
+        return true;
+    }
+
 }

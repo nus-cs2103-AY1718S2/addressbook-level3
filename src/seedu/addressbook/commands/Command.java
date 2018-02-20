@@ -55,6 +55,17 @@ public abstract class Command {
     }
 
     /**
+     * Returns true if the command executed mutates the actual data
+     * By default set to return false assuming all commands do not mutate the actual data
+     * Commands that actually mutates the data - AddCommand, ClearCommand, DeleteCommand
+     *
+     * @return false
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
+    /**
      * Extracts the the target person in the last shown list from the given arguments.
      *
      * @throws IndexOutOfBoundsException if the target index is out of bounds of the last viewed listing
