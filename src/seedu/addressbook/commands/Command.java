@@ -70,4 +70,12 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Check if the command is mutating the data
+     * @return true if the command is mutating the data, else return false
+     */
+    public boolean isMutating() {
+        return false;
+    }
 }
