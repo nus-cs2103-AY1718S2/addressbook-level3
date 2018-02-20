@@ -30,11 +30,11 @@ public class ViewCommand extends Command {
         try {
             final ReadOnlyPerson target = getTargetPerson();
             if (!addressBook.containsPerson(target)) {
-                return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
+                return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK, isMutating());
             }
-            return new CommandResult(String.format(MESSAGE_VIEW_PERSON_DETAILS, target.getAsTextHidePrivate()));
+            return new CommandResult(String.format(MESSAGE_VIEW_PERSON_DETAILS, target.getAsTextHidePrivate()), isMutating());
         } catch (IndexOutOfBoundsException ie) {
-            return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, isMutating());
         }
     }
 

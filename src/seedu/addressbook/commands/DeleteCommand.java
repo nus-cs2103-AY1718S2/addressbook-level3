@@ -30,13 +30,22 @@ public class DeleteCommand extends Command {
         try {
             final ReadOnlyPerson target = getTargetPerson();
             addressBook.removePerson(target);
-            return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target));
+            return new CommandResult(String.format(MESSAGE_DELETE_PERSON_SUCCESS, target), isMutating());
 
         } catch (IndexOutOfBoundsException ie) {
-            return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+            return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX, isMutating());
         } catch (PersonNotFoundException pnfe) {
-            return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
+            return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK, isMutating());
         }
+    }
+
+    @Override
+    /**
+     *
+     * @return true if command mutates data
+     */
+    public boolean isMutating(){
+        return true;
     }
 
 }
