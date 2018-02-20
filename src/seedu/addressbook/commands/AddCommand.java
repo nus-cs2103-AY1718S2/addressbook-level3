@@ -5,6 +5,8 @@ import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 
+import seedu.addressbook.ui.Formatter;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -61,7 +63,9 @@ public class AddCommand extends Command {
     public CommandResult execute() {
         try {
             addressBook.addPerson(toAdd);
-            return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+            String formattedPersonDetails = Formatter.getPrintableString(toAdd.getName(), toAdd.getPhone(),
+                    toAdd.getEmail(), toAdd.getAddress()) + toAdd.getTags().toString();
+            return new CommandResult(String.format(MESSAGE_SUCCESS, formattedPersonDetails));
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
         }
