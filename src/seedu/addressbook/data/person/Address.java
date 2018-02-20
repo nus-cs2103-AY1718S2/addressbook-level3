@@ -37,7 +37,7 @@ public class Address implements Printable {
 
     @Override
     public String getPrintableString() {
-        return value;
+        return String.format(" Address: " + value);
     }
 
     @Override
