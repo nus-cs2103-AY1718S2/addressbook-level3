@@ -13,6 +13,7 @@ import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 import seedu.addressbook.storage.StorageFile;
+import seedu.addressbook.ui.Formatter;
 
 import java.util.*;
 
@@ -155,8 +156,10 @@ public class LogicTest {
         expectedAB.addPerson(toBeAdded);
 
         // execute command and verify result
+        String formattedPersonDetails = Formatter.getPrintableString(toBeAdded.getName(), toBeAdded.getPhone(),
+                toBeAdded.getEmail(), toBeAdded.getAddress()) + toBeAdded.getTags().toString();
         assertCommandBehavior(helper.generateAddCommand(toBeAdded),
-                              String.format(AddCommand.MESSAGE_SUCCESS, toBeAdded),
+                              String.format(AddCommand.MESSAGE_SUCCESS, formattedPersonDetails),
                               expectedAB,
                               false,
                               Collections.emptyList());
