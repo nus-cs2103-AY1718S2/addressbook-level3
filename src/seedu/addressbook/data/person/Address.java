@@ -60,7 +60,7 @@ public class Address implements Printable{
     public String getPrintableString() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append("Address: ");
+        builder.append(" Address: ");
         if (isPrivate) {
             builder.append(detailIsPrivate);
         }

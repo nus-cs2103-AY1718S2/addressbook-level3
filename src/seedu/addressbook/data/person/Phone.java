@@ -61,7 +61,7 @@ public class Phone implements Printable{
     public String getPrintableString() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append("Phone: ");
+        builder.append(" Phone: ");
         if (isPrivate) {
             builder.append(detailIsPrivate);
         }

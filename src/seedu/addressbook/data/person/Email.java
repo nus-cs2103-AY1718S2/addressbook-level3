@@ -63,7 +63,7 @@ public class Email implements Printable{
     public String getPrintableString() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append("Email: ");
+        builder.append(" Email: ");
         if (isPrivate) {
             builder.append(detailIsPrivate);
         }
