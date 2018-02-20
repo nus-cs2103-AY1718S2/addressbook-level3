@@ -79,6 +79,8 @@ public class LogicTest {
 
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
+        //AddressBook must be saved for each command in tests even if it doesn't mutate data
+        saveFile.save(addressBook);
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
