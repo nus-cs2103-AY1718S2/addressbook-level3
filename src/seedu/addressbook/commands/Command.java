@@ -27,6 +27,15 @@ public abstract class Command {
     }
 
     /**
+     * @return true if the object calling the method is an instance of a mutating Command subclass
+     */
+    public boolean isMutating() {
+        return (this instanceof AddCommand ||
+                this instanceof DeleteCommand ||
+                this instanceof ClearCommand);
+    }
+
+    /**
      * Constructs a feedback message to summarise an operation that displayed a listing of persons.
      *
      * @param personsDisplayed used to generate summary
