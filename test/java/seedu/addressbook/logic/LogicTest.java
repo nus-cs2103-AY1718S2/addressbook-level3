@@ -81,7 +81,7 @@ public class LogicTest {
         CommandResult r = logic.execute(inputCommand);
 
         //Generate command
-        Command commmand = new Parser().parseCommand(inputCommand);
+        Command command = new Parser().parseCommand(inputCommand);
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
         assertEquals(r.getRelevantPersons().isPresent(), isRelevantPersonsExpected);
