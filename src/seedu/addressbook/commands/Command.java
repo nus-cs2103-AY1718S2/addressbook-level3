@@ -70,4 +70,13 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Check if command mutates date
+     * @return true if the command is mutating the data, else false by default
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
 }
