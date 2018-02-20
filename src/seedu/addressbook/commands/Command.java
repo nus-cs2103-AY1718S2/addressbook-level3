@@ -54,6 +54,10 @@ public abstract class Command {
         this.relevantPersons = relevantPersons;
     }
 
+    public boolean isMutating() {
+        return false;
+    }
+
     /**
      * Extracts the the target person in the last shown list from the given arguments.
      *
