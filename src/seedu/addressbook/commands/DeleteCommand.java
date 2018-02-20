@@ -39,4 +39,12 @@ public class DeleteCommand extends Command {
         }
     }
 
+    @Override
+    /**
+     * Returns true since the Delete command changes the contents of address book
+     */
+    public boolean isMutating() {
+        return true;
+    }
+
 }

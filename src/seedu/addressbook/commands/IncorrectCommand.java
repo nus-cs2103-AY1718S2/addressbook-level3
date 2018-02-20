@@ -17,4 +17,11 @@ public class IncorrectCommand extends Command{
         return new CommandResult(feedbackToUser);
     }
 
+    @Override
+    /**
+     * Returns false since the Incorrect command does not change contents of address book
+     */
+    public boolean isMutating() {
+        return false;
+    }
 }
