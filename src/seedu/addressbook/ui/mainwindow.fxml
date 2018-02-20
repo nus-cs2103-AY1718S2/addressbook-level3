@@ -11,7 +11,7 @@
     <children>
         <FontAwesomeIconView fill="#eb0212" glyphName="ANCHOR" size="30"></FontAwesomeIconView>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
+        <TextField fx:id="commandInput" onAction="#onCommand" promptText="Enter command here..." VBox.vgrow="NEVER">
          <font>
             <Font name="Arial Narrow Bold Italic" size="16.0" />
          </font></TextField>
