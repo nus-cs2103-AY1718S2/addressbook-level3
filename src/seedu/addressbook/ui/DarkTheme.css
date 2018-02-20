@@ -5,6 +5,7 @@
     -fx-font-family: "Consolas";
     -fx-font-weight: bold;
     -fx-text-fill: yellow;
+    -fx-prompt-text-fill: gray;
     -fx-control-inner-background: derive(#1d1d1d,20%);
 }
 
