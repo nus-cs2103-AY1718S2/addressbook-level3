@@ -53,6 +53,7 @@ public abstract class Command {
         this.addressBook = addressBook;
         this.relevantPersons = relevantPersons;
     }
+    //Note: it is better to make the execute()
 
     /**
      * Extracts the the target person in the last shown list from the given arguments.
@@ -62,6 +63,11 @@ public abstract class Command {
     protected ReadOnlyPerson getTargetPerson() throws IndexOutOfBoundsException {
         return relevantPersons.get(getTargetIndex() - DISPLAYED_INDEX_OFFSET);
     }
+
+    /**
+     * @return boolean whether command mutates the data
+     */
+    public abstract boolean isMutating();
 
     public int getTargetIndex() {
         return targetIndex;
