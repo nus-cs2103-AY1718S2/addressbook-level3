@@ -37,6 +37,9 @@ public class Address implements Printable {
 
     @Override
     public String getPrintableString() {
+        if(isPrivate){
+            return String.format(" Address: (private) " + value);
+        }
         return String.format(" Address: " + value);
     }
 
