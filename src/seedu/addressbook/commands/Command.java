@@ -39,9 +39,7 @@ public abstract class Command {
     /**
      *@return true if address book data is mutated.
      */
-    public boolean isMutating() {
-        throw new UnsupportedOperationException("This method should be implemented in child classes");
-    }
+    public abstract boolean isMutating();
 
     /**
      * Executes the command and returns the result.
