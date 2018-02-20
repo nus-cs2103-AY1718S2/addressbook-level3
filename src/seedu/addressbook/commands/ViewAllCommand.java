@@ -37,4 +37,14 @@ public class ViewAllCommand extends Command {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
     }
+
+    /**
+     * States if this command mutates data
+     *
+     * @return true if this command mutates data
+     */
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
 }

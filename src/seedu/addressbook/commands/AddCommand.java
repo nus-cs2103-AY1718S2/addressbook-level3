@@ -67,4 +67,13 @@ public class AddCommand extends Command {
         }
     }
 
+    /**
+     * States if this command mutates data
+     *
+     * @return true if this command mutates data
+     */
+    @Override
+    public boolean isMutating() {
+        return true;
+    }
 }

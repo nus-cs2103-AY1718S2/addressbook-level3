@@ -17,4 +17,14 @@ public class IncorrectCommand extends Command{
         return new CommandResult(feedbackToUser);
     }
 
+    /**
+     * States if this command mutates data
+     *
+     * @return true if this command mutates data
+     */
+    @Override
+    public boolean isMutating() {
+        return false;
+    }
+
 }
