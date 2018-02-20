@@ -6,11 +6,13 @@ import seedu.addressbook.data.exception.IllegalValueException;
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address {
+public class Address implements Printable{
 
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
+    private static final String MESSAGE_ADDRESS_PUBLIC = "Address: ";
+    private static final String MESSAGE_ADDRESS_PRIVATE = "Address: (private) ";
 
     public final String value;
     private boolean isPrivate;
@@ -45,6 +47,14 @@ public class Address {
         return other == this // short circuit if same object
                 || (other instanceof Address // instanceof handles nulls
                 && this.value.equals(((Address) other).value)); // state check
+    }
+
+    @Override
+    public String getPrintableString() {
+        if (this.isPrivate) {
+            return MESSAGE_ADDRESS_PRIVATE + value;
+        }
+        return MESSAGE_ADDRESS_PUBLIC + value;
     }
 
     @Override
