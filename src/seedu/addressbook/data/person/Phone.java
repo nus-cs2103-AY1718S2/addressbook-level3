@@ -60,6 +60,6 @@ public class Phone implements Printable {
 
     @Override
     public String getPrintableString() {
-        return String.format(PRINTABLE_FORMAT, isPrivate ? "(private)" : "", this.toString());
+        return String.format(PRINTABLE_FORMAT, isPrivate ? "(private) " : "", this.toString());
     }
 }
