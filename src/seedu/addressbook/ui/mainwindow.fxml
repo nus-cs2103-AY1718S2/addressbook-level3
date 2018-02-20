@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
@@ -8,6 +9,7 @@
       fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
+      <Label layoutX="195.0" layoutY="10.0" text="Welcome to the Addressbook! Type help in the input box to learn more! " textFill="#215412" />
 
         <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
         </TextField>
