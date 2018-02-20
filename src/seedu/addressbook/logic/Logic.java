@@ -85,7 +85,8 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        if(command.isMutating())
+            storage.save(addressBook);
         return result;
     }
 
@@ -96,4 +97,13 @@ public class Logic {
             lastShownList = personList.get();
         }
     }
+
+    /**
+     * Returns true if the command mutates the data, false otherwise.
+     */
+    public boolean isMutating(String userCommandText) throws Exception {
+        Command command = new Parser().parseCommand(userCommandText);
+        return command.isMutating();
+    }
+        
 }
