@@ -58,6 +58,7 @@ public class MainWindow {
         }
     }
 
+    @FXML
     private void exitApp() throws Exception {
         mainApp.stop();
     }
