@@ -63,6 +63,14 @@ public abstract class Command {
         return relevantPersons.get(getTargetIndex() - DISPLAYED_INDEX_OFFSET);
     }
 
+    /**
+     * Determines if command is mutating the data
+     * @return true if is mutating and false if not
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
     public int getTargetIndex() {
         return targetIndex;
     }
