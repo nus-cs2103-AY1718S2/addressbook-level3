@@ -70,4 +70,7 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    //default isMutating method with return value of true
+    public boolean isMutating() { return true; }
 }
