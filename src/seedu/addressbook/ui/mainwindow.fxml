@@ -1,15 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <VBox alignment="center" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
-        <FontAwesomeIconView fill="#eb0212" glyphName="ANCHOR" size="30"></FontAwesomeIconView>
+        <FontAwesomeIconView glyphName="BOOK" size="30" text="">
+         <fill>
+            <LinearGradient endX="0.5333333333333333" endY="0.8380952380952382" startX="0.5333333923703149" startY="0.16825399852934347">
+               <stops>
+                  <Stop color="#abcade" />
+                  <Stop color="#abcade" offset="0.007662835249042145" />
+                  <Stop color="#4272f5" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin></FontAwesomeIconView>
+      <Text fill="#4272f5" strokeType="OUTSIDE" strokeWidth="0.0" text="My AddressBook">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
 
         <TextField fx:id="commandInput" onAction="#onCommand" promptText="Enter command here..." VBox.vgrow="NEVER">
          <font>
