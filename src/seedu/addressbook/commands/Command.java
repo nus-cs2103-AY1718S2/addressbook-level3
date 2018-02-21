@@ -76,9 +76,9 @@ public abstract class Command {
      *
      * @return true if the command mutate the data, false if it does not mutate the data
      *
-     * Default is set to false
+     * Default is set to true
      */
     public boolean isMutating() {
-        return false;
+        return true;
     }
 }
