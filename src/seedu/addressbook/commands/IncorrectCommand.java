@@ -13,6 +13,9 @@ public class IncorrectCommand extends Command{
     }
 
     @Override
+    public boolean isMutate() { return false; }
+
+    @Override
     public CommandResult execute() {
         return new CommandResult(feedbackToUser);
     }
