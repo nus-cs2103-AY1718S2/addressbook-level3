@@ -47,7 +47,6 @@ public class AddCommand extends Command {
                 new Address(address, isAddressPrivate),
                 new UniqueTagList(tagSet)
         );
-        this.mutateData = true;
     }
 
     public AddCommand(Person toAdd) {
@@ -57,6 +56,9 @@ public class AddCommand extends Command {
     public ReadOnlyPerson getPerson() {
         return toAdd;
     }
+
+    @Override
+    public boolean isMutate() {return true;}
 
     @Override
     public CommandResult execute() {

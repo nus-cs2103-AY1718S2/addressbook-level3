@@ -22,9 +22,10 @@ public class DeleteCommand extends Command {
 
     public DeleteCommand(int targetVisibleIndex) {
         super(targetVisibleIndex);
-        this.mutateData = true;
     }
 
+    @Override
+    public boolean isMutate() {return true;}
 
     @Override
     public CommandResult execute() {
