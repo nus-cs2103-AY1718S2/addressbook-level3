@@ -76,7 +76,7 @@ public class Logic {
     }
 
     /**
-     * Executes the command, updates storage, if command is mutated, and returns the result.
+     * Executes the command, updates storage if command is mutated, and returns the result.
      *
      * @param command user command
      * @return result of the command
@@ -97,6 +97,7 @@ public class Logic {
         }
     }
 
+    /** Updates the storage if command is mutated. */
     private void updateStorage(Command command) throws Exception {
         if(command.isMutating()) {
             storage.save(addressBook);
