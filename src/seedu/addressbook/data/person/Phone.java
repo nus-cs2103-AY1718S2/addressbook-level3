@@ -58,5 +58,8 @@ public class Phone implements Printable{
     }
 
     @Override
-    public String getPrintableString(){return ("Phone: " + value);}
+    public String getPrintableString(){
+        if(isPrivate){return ("(private) " + " Phone: " + value);}
+        else return ("Phone: " + value);
+    }
 }
