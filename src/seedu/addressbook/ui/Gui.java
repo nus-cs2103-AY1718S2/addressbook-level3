@@ -2,10 +2,12 @@ package seedu.addressbook.ui;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import seedu.addressbook.logic.Logic;
 import seedu.addressbook.Main;
 
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -30,6 +32,7 @@ public class Gui {
     }
 
     public void start(Stage stage, Stoppable mainApp) throws IOException {
+        stage.getIcons().add(new Image("file:resources/images/if_address-book_285679.png"));
         mainWindow = createMainWindow(stage, mainApp);
         mainWindow.displayWelcomeMessage(version, logic.getStorageFilePath());
     }
