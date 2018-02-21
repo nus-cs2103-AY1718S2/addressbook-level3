@@ -55,7 +55,7 @@ public abstract class Command {
     }
 
     /**
-     *  @return true if command types mutate the data. e.g. AddCommand
+     *  @return true if command types mutate the data.
      */
      public boolean isMutating() {
          return true;
