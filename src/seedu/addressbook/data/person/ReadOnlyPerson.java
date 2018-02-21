@@ -2,6 +2,10 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.ui.Formatter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A read-only immutable interface for a Person in the addressbook.
@@ -37,24 +41,11 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
-        final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
-        if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getPhone())
-                .append(" Email: ");
-        if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getEmail())
-                .append(" Address: ");
-        if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getAddress())
-                .append(" Tags: ");
+
+        builder.append(Formatter.getPrintableString(
+                getName(), getPhone(), getEmail(), getAddress()));
+
+        builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
         }
@@ -66,16 +57,21 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextHidePrivate() {
         final StringBuilder builder = new StringBuilder();
-        builder.append(getName());
+        List<Printable> printables = new ArrayList<Printable>();
+
+        printables.add(getName());
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            printables.add(getPhone());
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            printables.add(getEmail());
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            printables.add(getAddress());
         }
+        builder.append(Formatter.getPrintableString(
+                printables.toArray(new Printable[printables.size()])));
+
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
