@@ -74,7 +74,7 @@ public abstract class Command {
     }
 
     public boolean isMutating(){
-        return IS_MUTATING;
+        return IS_NOT_MUTATING;
     }
 
     /*public boolean isNotMutating(){
