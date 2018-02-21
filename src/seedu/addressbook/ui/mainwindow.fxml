@@ -30,11 +30,11 @@
         </menus>
       </MenuBar>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
-        </TextField>
-
         <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
         </TextArea>
+
+        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
+        </TextField>
 
     </children>
 
