@@ -58,6 +58,6 @@ public class Phone implements Printable{
     }
 
     public String getPrintableString(){
-        return "Phone: " + this.value;
+        return "Phone: " + this.value + " ";
     }
 }

@@ -62,7 +62,7 @@ public class Name implements Printable{
     }
 
     public String getPrintableString(){
-        return "Name: " + this.fullName;
+        return "Name: " + this.fullName + " ";
     }
 
 }

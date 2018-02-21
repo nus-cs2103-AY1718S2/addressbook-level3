@@ -60,6 +60,6 @@ public class Email implements Printable{
     }
 
     public String getPrintableString(){
-        return "Email: " + this.value;
+        return "Email: " + this.value + " ";
     }
 }
