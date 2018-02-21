@@ -71,6 +71,10 @@ public abstract class Command {
         this.targetIndex = targetIndex;
     }
 
+    /**
+     * Returns false(default) if command will not mutate the address book.
+     *
+     */
     public boolean isMutating() {
         return false;
     }
