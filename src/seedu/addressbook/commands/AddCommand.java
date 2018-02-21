@@ -67,4 +67,13 @@ public class AddCommand extends Command {
         }
     }
 
+    /**
+     * Determines if execution of commands mutates the address book
+     *
+     * @return true, add command mutates data
+     */
+    @Override
+    public boolean isMutating() {
+        return true;
+    }
 }
