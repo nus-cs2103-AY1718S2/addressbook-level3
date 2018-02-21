@@ -12,7 +12,7 @@
 
         <TextField fx:id="commandInput" alignment="TOP_LEFT" onAction="#onCommand" prefHeight="0.0" prefWidth="541.0" style="-fx-background-color: orange;" VBox.vgrow="NEVER">
          <font>
-            <Font name="Gujarati MT" size="13.0" />
+            <Font name="Italic" size="13.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />
@@ -20,7 +20,7 @@
 
         <TextArea fx:id="outputConsole" editable="false" prefHeight="237.0" prefWidth="541.0" style="-fx-border-color: white; -fx-background-color: grey;" wrapText="true" VBox.vgrow="ALWAYS">
          <font>
-            <Font name="Euphemia UCAS Bold" size="13.0" />
+            <Font name="Italic" size="13.0" />
          </font></TextArea>
 
     </children>
