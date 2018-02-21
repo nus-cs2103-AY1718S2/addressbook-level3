@@ -74,8 +74,6 @@ public abstract class Command {
 
     /**
      * Returns true when command mutates data
-     *
-     * @return false by default
      */
     public boolean isMutating() {
         return COMMAND_NOT_MUTATING;
