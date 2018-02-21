@@ -5,6 +5,7 @@ package seedu.addressbook.commands;
  */
 public class ClearCommand extends Command {
 
+    isMutating = true;
     public static final String COMMAND_WORD = "clear";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Clears address book permanently.\n\t"
             + "Example: " + COMMAND_WORD;
