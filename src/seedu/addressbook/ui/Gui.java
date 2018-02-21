@@ -21,6 +21,8 @@ public class Gui {
     public static final int INITIAL_WINDOW_WIDTH = 800;
     public static final int INITIAL_WINDOW_HEIGHT = 600;
     private final Logic logic;
+
+    // Image to be used as the application icon
     private Image image = new Image("images/Book.png");
 
     private MainWindow mainWindow;
