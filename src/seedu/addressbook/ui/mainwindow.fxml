@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
@@ -33,6 +34,7 @@
 
         <TextArea fx:id="outputConsole" editable="false" prefWidth="478.0" wrapText="true" VBox.vgrow="ALWAYS">
         </TextArea>
+      <ProgressBar prefWidth="200.0" progress="0.0" />
       <Button mnemonicParsing="false" text="Nuke Address Book" />
 
         <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
