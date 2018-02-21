@@ -74,7 +74,7 @@ public interface ReadOnlyPerson {
     default String getPrintableString(Printable... printables) {
         StringBuilder builder = new StringBuilder();
         for (Printable printable: printables) {
-            builder.append(printable.getPrintableString() + " ");
+            builder.append(printable.getPrintableString()).append(" ");
         }
         return builder.toString().trim();
     }

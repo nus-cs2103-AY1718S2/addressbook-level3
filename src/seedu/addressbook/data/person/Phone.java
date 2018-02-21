@@ -1,7 +1,6 @@
 package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
-import sun.plugin2.main.client.PrintBandDescriptor;
 
 /**
  * Represents a Person's phone number in the address book.
