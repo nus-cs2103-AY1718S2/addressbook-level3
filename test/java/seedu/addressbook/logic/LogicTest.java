@@ -12,6 +12,7 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
 import java.util.*;
@@ -76,12 +77,14 @@ public class LogicTest {
                                       AddressBook expectedAddressBook,
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
-
+        Command command = new Parser().parseCommand(inputCommand);
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
         
-        //Guarantees saveFile is saved
-        saveFile.save(addressBook);
+        //Guarantees saveFile is saved for non-mutating methods
+        if (!command.isMutating()) {
+            saveFile.save(addressBook);
+        }
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
