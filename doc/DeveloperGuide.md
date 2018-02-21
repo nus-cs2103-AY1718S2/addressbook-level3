@@ -101,9 +101,20 @@ Use case ends.
 
 **Extensions**
 
+1a. The new tag name is same as old tag name
+
+> 1a1. AddressBook shows user nothing will be changed <br>
+  Use case ends
+
+1b. The new tag name already exists in AddressBook
+
+> 1b1. AddressBook shows an error message <br>
+  Use case ends
+
 2a. No person has the tag
 
-> Use case ends
+> 2a1. AddressBook shows user no person has the tag, nothing will be changed <br>
+  Use case ends
 
 4a. User decided not to rename
 
