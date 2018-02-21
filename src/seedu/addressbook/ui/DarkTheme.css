@@ -2,16 +2,19 @@
 
 .text-field {
     -fx-font-size: 12pt;
-    -fx-font-family: "Consolas";
+    -fx-font-family: "Agency FB";
     -fx-font-weight: bold;
-    -fx-text-fill: yellow;
+    -fx-text-fill: red;
     -fx-control-inner-background: derive(#1d1d1d,20%);
+
+    -fx-prompt-text-fill: gray;
 }
 
 .text-area {
-    -fx-background-color: black;
-    -fx-control-inner-background: black;
-    -fx-font-family: "Segoe UI Semibold";
-    -fx-font-size: 10pt;
+	-fx-background-image: url("bg.jpg");
+	-fx-background-position: left top, center;
+	
+    -fx-font-family: "Agency FB";
+    -fx-font-size: 15pt;
     -fx-padding: 5 5 5 5;
 }
