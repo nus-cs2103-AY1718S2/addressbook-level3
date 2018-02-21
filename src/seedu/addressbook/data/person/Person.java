@@ -8,7 +8,7 @@ import java.util.Objects;
  * Represents a Person in the address book.
  * Guarantees: details are present and not null, field values are validated.
  */
-public class Person implements ReadOnlyPerson {
+public class Person implements ReadOnlyPerson, Printable {
 
     private Name name;
     private Phone phone;
@@ -84,4 +84,13 @@ public class Person implements ReadOnlyPerson {
         return getAsTextShowAll();
     }
 
+    @Override
+    public String getPrintableString() {
+        StringBuilder sb = new StringBuilder();
+        Printable fields[] = {name, phone, email, address};
+        for (Printable field: fields) {
+            sb.append(field.getPrintableString() + " ");
+        }
+        return sb.toString();
+    }
 }
