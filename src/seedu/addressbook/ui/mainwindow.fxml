@@ -14,17 +14,17 @@
             <Font name="Bookman Old Style" size="12.0" />
          </font></Text>
 
-              <TextField fx:id="commandInput" onAction="#onCommand" prefHeight="35.0" prefWidth="665.0">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-
               <TextArea fx:id="outputConsole" editable="false" prefHeight="535.0" prefWidth="665.0" wrapText="true">
          <font>
             <Font name="High Tower Text" size="14.0" />
          </font>
       </TextArea>
+
+              <TextField fx:id="commandInput" onAction="#onCommand" prefHeight="35.0" prefWidth="665.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </TextField>
 
     </children>
 
