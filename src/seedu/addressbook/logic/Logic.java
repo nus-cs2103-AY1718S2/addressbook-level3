@@ -98,4 +98,11 @@ public class Logic {
             lastShownList = personList.get();
         }
     }
+
+    /**
+     * @return true if parsed command mutates data, false otherwise.
+     */
+    public boolean isMutatingCommand(String inputCommand) {
+        return new Parser().parseCommand(inputCommand).isMutating();
+    }
 }
