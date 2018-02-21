@@ -94,6 +94,9 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
+5. Should be standalone and no external dependencies required.
+6. Commands should be intuitive and easy to remember.
+7. Commands should give feedback after executing them.
 
 ## Appendix D : Glossary
 
