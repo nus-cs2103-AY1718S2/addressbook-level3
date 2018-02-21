@@ -73,10 +73,7 @@ public abstract class Command {
 
     /**
      * Returns true if command mutates data, else returns false.
-     * Defaults to false, i.e. command does not mutate data.
      * @return Whether the command mutates the data
      */
-    public boolean isMutating() {
-        return false;
-    }
+    public abstract boolean isMutating();
 }
