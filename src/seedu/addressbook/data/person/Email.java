@@ -12,7 +12,7 @@ public class Email implements Printable{
     public static final String MESSAGE_EMAIL_CONSTRAINTS =
             "Person emails should be 2 alphanumeric/period strings separated by '@'";
     public static final String EMAIL_VALIDATION_REGEX = "[\\w\\.]+@[\\w\\.]+";
-    public static final String FORMAT_EMAIL_HEADER = "Address: ";
+    public static final String FORMAT_EMAIL_HEADER = "Email: ";
     public static final String FORMAT_PRIVATE = "(private) ";
     
     public final String value;
