@@ -15,8 +15,15 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
+
+    /**
+     * MUTATING means the data have been modified
+     * NOT_MUTATING means the data have yet to be modified
+     *
+     */
     public final boolean MUTATING = true;
     public final boolean NOT_MUTATING = false;
+    
     /**
      * @param targetIndex last visible listing index of the target person
      */
