@@ -57,10 +57,12 @@ Priority | As a ... | I want to ... | So that I can...
 -------- | :-------- | :--------- | :-----------
 `* * *` | new user | see usage instructions | refer to instructions when I forget how to use the App
 `* * *` | user | add a new person |
+`* * *` | user | edit a person | able to update changed entries of person's contact information
 `* * *` | user | delete a person | remove entries that I no longer need
 `* * *` | user | find a person by name | locate details of persons without having to go through the entire list
 `* *` | user | hide [private contact details](#private-contact-detail) by default | minimize chance of someone else seeing them by accident
 `*` | user with many persons in the address book | sort persons by name | locate a person easily
+`*` | user with many persons in the address book | add person with tags| group the person into categories
 
 
 ## Appendix B : Use Cases
@@ -90,11 +92,13 @@ Use case ends.
 
 ## Appendix C : Non Functional Requirements
 
-1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
+1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-
+5. Data privacy is not guaranteed to be safe because of the storage behavior.
+6. English is the ONLY language used.
+7. Time complexity should be within 2 second.
 ## Appendix D : Glossary
 
 ##### Mainstream OS
