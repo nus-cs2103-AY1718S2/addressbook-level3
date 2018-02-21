@@ -37,23 +37,7 @@ public interface ReadOnlyPerson {
      */
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
-        final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
-        if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getPhone())
-                .append(" Email: ");
-        if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getEmail())
-                .append(" Address: ");
-        if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getAddress())
+        builder.append(getPrintableString(getName(), getPhone(), getEmail(), getAddress()))
                 .append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
@@ -81,5 +65,18 @@ public interface ReadOnlyPerson {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    default String getPrintableString(Printable... printables){
+        StringBuilder sb = new StringBuilder();
+
+        for(Printable p: printables){
+            sb.append(p.getPrintableString() + " ");
+        }
+
+        return sb.toString().trim();
     }
 }
