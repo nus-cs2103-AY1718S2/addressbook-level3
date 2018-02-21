@@ -2,15 +2,18 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.exception.IllegalValueException;
 
+import static seedu.addressbook.common.Messages.PRIVATE_TAG;
+
 /**
  * Represents a Person's address in the address book.
  * Guarantees: immutable; is valid as declared in {@link #isValidAddress(String)}
  */
-public class Address {
+public class Address implements Printable{
 
     public static final String EXAMPLE = "123, some street";
     public static final String MESSAGE_ADDRESS_CONSTRAINTS = "Person addresses can be in any format";
     public static final String ADDRESS_VALIDATION_REGEX = ".+";
+    private static final String TYPE = "Address: ";
 
     public final String value;
     private boolean isPrivate;
@@ -54,5 +57,13 @@ public class Address {
 
     public boolean isPrivate() {
         return isPrivate;
+    }
+
+    @Override
+    public String getPrintableString() {
+        if(!isPrivate)
+           return TYPE + value + " ";
+        else
+            return TYPE + PRIVATE_TAG + value + " ";
     }
 }

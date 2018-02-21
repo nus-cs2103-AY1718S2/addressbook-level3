@@ -2,6 +2,8 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.UniqueTagList;
 
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -82,6 +84,35 @@ public class Person implements ReadOnlyPerson {
     @Override
     public String toString() {
         return getAsTextShowAll();
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of all contact information.
+     */
+    public String getPrintableString(boolean showPrivate) {
+        if(showPrivate)
+            return getPrintableString(getName(), getPhone(), getEmail(), getAddress());
+        else {
+            List<Printable> nonPrivate = new LinkedList<Printable>();
+            nonPrivate.add(getName());
+            if(!getPhone().isPrivate())
+                nonPrivate.add(getPhone());
+            if(!getEmail().isPrivate())
+                nonPrivate.add(getEmail());
+            if(!getAddress().isPrivate())
+                nonPrivate.add(getAddress());
+            return getPrintableString(nonPrivate.toArray(new Printable[nonPrivate.size()]));
+        }
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each printable object passed.
+     */
+    private String getPrintableString(Printable... printables) {
+        String concatenated = "";
+        for(Printable p: printables)
+            concatenated += p.getPrintableString();
+        return concatenated;
     }
 
 }
