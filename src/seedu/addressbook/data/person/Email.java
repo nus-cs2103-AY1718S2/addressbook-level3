@@ -59,7 +59,7 @@ public class Email implements Printable {
     }
 
     @Override
-    public String getPrintableString(){
-        return "Email: " + value;
+    public String getPrintableString() {
+        return String.format("Email: %s%s", isPrivate() ? "(private) " : "", value);
     }
 }
