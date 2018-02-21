@@ -61,6 +61,7 @@ public class Name implements Printable {
         return fullName.hashCode();
     }
 
+    @Override
     public String getPrintableString(){
         return "Name: " + fullName;
     }

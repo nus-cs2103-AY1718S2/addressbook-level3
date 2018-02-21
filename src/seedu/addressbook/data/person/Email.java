@@ -54,11 +54,11 @@ public class Email implements Printable {
         return value.hashCode();
     }
 
-
     public boolean isPrivate() {
         return isPrivate;
     }
 
+    @Override
     public String getPrintableString(){
         return "Email: " + value;
     }
