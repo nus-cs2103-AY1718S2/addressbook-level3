@@ -38,7 +38,7 @@ public class Formatter {
     /**
      * Returns a concatenated version of the printable strings of each object.
      */
-    public String getPrintableString(Printable... printables){
+    public static String getPrintableString(Printable... printables){
         StringBuilder sb = new StringBuilder();
         for (Printable p: printables){
             sb.append(p.getPrintableString());
