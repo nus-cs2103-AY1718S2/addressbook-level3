@@ -3,6 +3,7 @@ package seedu.addressbook.logic;
 import seedu.addressbook.commands.Command;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.AddressBook;
+import seedu.addressbook.data.person.Address;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
@@ -85,8 +86,13 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        saveToStorageIfCommandIsMutating(command, addressBook);
         return result;
+    }
+
+    private void saveToStorageIfCommandIsMutating(Command command, AddressBook addressBook) throws StorageFile.StorageOperationException {
+        if (command.isMutating())
+            storage.save(addressBook);
     }
 
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
