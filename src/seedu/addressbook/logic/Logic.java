@@ -76,7 +76,7 @@ public class Logic {
     }
 
     /**
-     * Executes the command, updates storage, and returns the result.
+     * Executes the command, updates storage if command changes data, and returns the result.
      *
      * @param command user command
      * @return result of the command
@@ -85,7 +85,9 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        if (command.isMutating()) {
+            storage.save(addressBook);
+        }
         return result;
     }
 
@@ -95,5 +97,12 @@ public class Logic {
         if (personList.isPresent()) {
             lastShownList = personList.get();
         }
+    }
+
+    /**
+     * @return true if parsed command mutates data, false otherwise.
+     */
+    public boolean isMutatingCommand(String inputCommand) {
+        return new Parser().parseCommand(inputCommand).isMutating();
     }
 }
