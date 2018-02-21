@@ -38,4 +38,8 @@ public class ViewCommand extends Command {
         }
     }
 
+    public boolean isMutating(){
+        return NOT_MUTATING;
+    }
+
 }
