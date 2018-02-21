@@ -71,7 +71,7 @@ public class Logic {
     public CommandResult execute(String userCommandText) throws Exception {
         Command command = new Parser().parseCommand(userCommandText);
         CommandResult result = execute(command);
-        recordResult(result, command);
+        recordResult(result);
         return result;
     }
 
@@ -85,14 +85,16 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        if (command.isMutating()) {
+            storage.save(addressBook);
+        }
         return result;
     }
 
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
-    private void recordResult(CommandResult result, Command command) {
+    private void recordResult(CommandResult result) {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();
-        if (personList.isPresent() && command.isMutating()) {
+        if (personList.isPresent()) {
             lastShownList = personList.get();
         }
     }
