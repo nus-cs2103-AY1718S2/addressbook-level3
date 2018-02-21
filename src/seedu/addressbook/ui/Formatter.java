@@ -4,7 +4,7 @@ import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import seedu.addressbook.data.person.Printable;
 /**
  * Used for formatting text for display. e.g. for adding text decorations.
  */
@@ -62,5 +62,14 @@ public class Formatter {
     private static String getIndexedListItem(int visibleIndex, String listItem) {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
     }
-
+    /**
+          Return printable string
+         */
+    public static String getPrintableString(Printable... printables){
+                StringBuilder sb = new StringBuilder();
+               for(Printable p : printables){
+                       sb.append(p.getPrintableString()+ ",");
+                    }
+                return sb.toString();
+            }
 }
