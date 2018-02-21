@@ -63,6 +63,16 @@ public abstract class Command {
         return relevantPersons.get(getTargetIndex() - DISPLAYED_INDEX_OFFSET);
     }
 
+    /**
+     * Use to detect mutating commands.
+     */
+    public Boolean isMutating() {
+        boolean mutation = false;
+        if(this instanceof AddCommand || this instanceof DeleteCommand || this instanceof ClearCommand) {
+            mutation = true;
+        }
+        return mutation;
+    }
     public int getTargetIndex() {
         return targetIndex;
     }
