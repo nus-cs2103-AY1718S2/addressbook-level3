@@ -58,7 +58,7 @@ public class AddCommand extends Command {
     }
 
     @Override
-    public boolean isMutate() {return true;}
+    public boolean isMutate() { return true; }
 
     @Override
     public CommandResult execute() {

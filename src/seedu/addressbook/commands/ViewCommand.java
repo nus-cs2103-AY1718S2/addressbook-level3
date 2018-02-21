@@ -24,6 +24,8 @@ public class ViewCommand extends Command {
         super(targetVisibleIndex);
     }
 
+    @Override
+    public boolean isMutate() { return false; }
 
     @Override
     public CommandResult execute() {
