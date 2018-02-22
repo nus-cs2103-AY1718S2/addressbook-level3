@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox stylesheets="@/seedu/addressbook/ui/DarkTheme.css" alignment="center" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="seedu.addressbook.ui.MainWindow">
+<VBox alignment="center" stylesheets="@/seedu/addressbook/ui/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="seedu.addressbook.ui.MainWindow">
 
     <children>
 
-        <TextField fx:id="commandInput" onAction="#onCommand" VBox.vgrow="NEVER">
+        <TextField fx:id="commandInput" onAction="#onCommand" prefHeight="30.0" prefWidth="250.0" VBox.vgrow="NEVER">
         </TextField>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+            <Button mnemonicParsing="false" onAction="#listAllPersonsInAddressBook" prefHeight="27.0" prefWidth="545.0" text="View AddressBook" />
+          <Button mnemonicParsing="false" onAction="#clearOutputConsole" text="Clear Console" />
+        </buttons>
+      </ButtonBar>
 
         <TextArea fx:id="outputConsole" editable="false" wrapText="true" VBox.vgrow="ALWAYS">
         </TextArea>

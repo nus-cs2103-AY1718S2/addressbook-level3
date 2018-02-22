@@ -10,6 +10,8 @@ import seedu.addressbook.logic.Logic;
 import seedu.addressbook.commands.CommandResult;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
+import seedu.addressbook.commands.ListCommand;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -50,6 +52,18 @@ public class MainWindow {
                 exitApp();
                 return;
             }
+            displayResult(result);
+            clearCommandInput();
+        } catch (Exception e) {
+            display(e.getMessage());
+            throw new RuntimeException(e);
+        }
+    }
+
+    @FXML
+    private void listAllPersonsInAddressBook() {
+        try {
+            CommandResult result = logic.execute("list");
             displayResult(result);
             clearCommandInput();
         } catch (Exception e) {

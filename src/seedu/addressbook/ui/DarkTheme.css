@@ -1,4 +1,12 @@
+.button {
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-font-size: 10pt;
+    -fx-background-color: lightgray;
+}
 
+.button-bar {
+    -fx-background-color: black;
+}
 
 .text-field {
     -fx-font-size: 12pt;
