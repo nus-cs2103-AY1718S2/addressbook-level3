@@ -16,6 +16,8 @@ public abstract class Command {
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
 
+    public final boolean MUTATING = true;
+    public final boolean IMMUTATING = false;
     /**
      * @param targetIndex last visible listing index of the target person
      */
@@ -69,5 +71,9 @@ public abstract class Command {
 
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
+    }
+
+    public boolean isMutating() {
+        return IMMUTATING;
     }
 }
