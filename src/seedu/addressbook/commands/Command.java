@@ -37,7 +37,7 @@ public abstract class Command {
     }
 
     /**
-     *@return true if address book data is mutated.
+     * Returns true if address book data is mutated.
      */
     public abstract boolean isMutating();
 
