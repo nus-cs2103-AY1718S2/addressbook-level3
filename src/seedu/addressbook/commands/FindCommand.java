@@ -52,5 +52,5 @@ public class FindCommand extends Command {
         }
         return matchedPersons;
     }
-
+    public boolean isMutating() { return false; }
 }

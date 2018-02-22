@@ -33,4 +33,6 @@ public class CommandResult {
         return Optional.ofNullable(relevantPersons);
     }
 
+
+
 }
