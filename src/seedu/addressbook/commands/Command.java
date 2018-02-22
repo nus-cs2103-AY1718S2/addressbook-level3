@@ -70,4 +70,11 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Checks that command can modify data by command type
+     */
+    public boolean isMorph(){
+        return false;
+    }
 }
