@@ -17,6 +17,6 @@ public class PersonTest {
         Person person = new Person(name, phone, email, address, tagList);
 
         assertEquals(person.getPrintableString(person.getName(), person.getEmail(), person.getAddress()),
-                Name.NAME + Name.EXAMPLE + Email.EMAIL + Email.EXAMPLE + Address.ADDRESS + Address.EXAMPLE);
+                Name.MESSAGE_NAME + Name.EXAMPLE + Email.MESSAGE_EMAIL + Email.EXAMPLE + Address.MESSAGE_ADDRESS + Address.EXAMPLE);
     }
 }
