@@ -1,6 +1,7 @@
 package seedu.addressbook.ui;
 
 import seedu.addressbook.data.person.ReadOnlyPerson;
+import seedu.addressbook.data.person.Printable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +62,20 @@ public class Formatter {
      */
     private static String getIndexedListItem(int visibleIndex, String listItem) {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
+    }
+
+    /**
+     * format a given set of printables and print out its formatted values
+     *
+     * @param printables
+     * @return
+     */
+    public static String getPrintableString(Printable... printables) {
+        StringBuilder sb = new StringBuilder();
+        for (Printable pr: printables) {
+            sb.append(pr.getPrintableString());
+        }
+        return sb.toString();
     }
 
 }
