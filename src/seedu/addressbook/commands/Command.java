@@ -55,6 +55,13 @@ public abstract class Command {
     }
 
     /**
+     * Checks for command types that mutate the data. The command returns false by default.
+     */
+    public boolean isMutating(){
+        return false;
+    }
+
+    /**
      * Extracts the the target person in the last shown list from the given arguments.
      *
      * @throws IndexOutOfBoundsException if the target index is out of bounds of the last viewed listing
