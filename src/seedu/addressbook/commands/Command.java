@@ -71,6 +71,9 @@ public abstract class Command {
         this.targetIndex = targetIndex;
     }
 
+    /**
+     * Returns true if command is mutating
+     */
     public boolean isMutating(){
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }
