@@ -3,7 +3,7 @@ package seedu.addressbook.data.person;
 import org.junit.Test;
 import seedu.addressbook.data.tag.UniqueTagList;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class PersonTest {
 
