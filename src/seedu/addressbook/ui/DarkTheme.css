@@ -9,9 +9,14 @@
 }
 
 .text-area {
-    -fx-background-color: black;
-    -fx-control-inner-background: black;
+    -fx-control-inner-background: rgba(0,0,0,0);
+    -fx-background-image: url("background.jpeg");
     -fx-font-family: "Western";
     -fx-font-size: 12pt;
     -fx-padding: 5 5 5 5;
 }
+
+.text-area .scroll-pane .viewport{
+    -fx-background-color: transparent;
+}
+
