@@ -17,7 +17,7 @@ public abstract class Command {
     private int targetIndex = -1;
 
     public final boolean MUTATING = true;
-    public final boolean IMMUTATING = false;
+    public final boolean NON_MUTATING = false;
     /**
      * @param targetIndex last visible listing index of the target person
      */
@@ -74,6 +74,6 @@ public abstract class Command {
     }
 
     public boolean isMutating() {
-        return IMMUTATING;
+        return NON_MUTATING;
     }
 }

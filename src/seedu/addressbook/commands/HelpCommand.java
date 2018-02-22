@@ -27,6 +27,6 @@ public class HelpCommand extends Command {
     }
 
     public boolean isMutating() {
-        return IMMUTATING;
+        return NON_MUTATING;
     }
 }
