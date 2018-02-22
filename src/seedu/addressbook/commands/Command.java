@@ -45,7 +45,11 @@ public abstract class Command {
 
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
-
+    
+    public Boolean isMutating() {
+        throw new UnsupportedOperationException("This method should be implement in child classes");
+    }
+    
     /**
      * Supplies the data the command will operate on.
      */
