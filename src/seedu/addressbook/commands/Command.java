@@ -15,15 +15,7 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
-    private boolean MUTATED;
-
-    public boolean getMutated() {
-        return MUTATED;
-    }
-
-    public void setMutated(boolean status) {
-        MUTATED = status;
-    }
+    public boolean MUTATED_DATA = true;
 
     /**
      * @param targetIndex last visible listing index of the target person
@@ -80,6 +72,11 @@ public abstract class Command {
         this.targetIndex = targetIndex;
     }
 
+    /**
+     * Returns whether data has been altered as a result of a command.
+     * @return
+     */
     public boolean isMutating() {
+        return !MUTATED_DATA;
     }
 }
