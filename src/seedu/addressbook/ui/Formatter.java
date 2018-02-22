@@ -1,5 +1,6 @@
 package seedu.addressbook.ui;
 
+import seedu.addressbook.data.person.Printable;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.ArrayList;
@@ -16,10 +17,11 @@ public class Formatter {
     /** A platform independent line separator. */
     private static final String LS = System.lineSeparator();
 
-
     /** Format of indexed list item */
     private static final String MESSAGE_INDEXED_LIST_ITEM = "\t%1$d. %2$s";
 
+    /** A comma to separate printable strings of each object */
+    private static final String COMMA = ",";
 
     /** Offset required to convert between 1-indexing and 0-indexing.  */
     private static final int DISPLAYED_INDEX_OFFSET = 1;
@@ -41,6 +43,15 @@ public class Formatter {
             formattedPersons.add(person.getAsTextHidePrivate());
         }
         return format(asIndexedList(formattedPersons));
+    }
+
+    /** Returns a concatenated version of the printable strings of each object. */
+    public String getPrintableString(Printable... printables) {
+        StringBuilder sb = new StringBuilder();
+        for (Printable p : printables) {
+            sb.append(LINE_PREFIX + p.getPrintableString() + COMMA);
+        }
+        return sb.toString();
     }
 
     /** Formats a list of strings as an indexed list. */
