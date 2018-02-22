@@ -21,7 +21,7 @@ public class ViewAllCommand extends Command {
 
 
     public ViewAllCommand(int targetVisibleIndex) {
-        super(targetVisibleIndex);
+        super(targetVisibleIndex, false);
     }
 
 

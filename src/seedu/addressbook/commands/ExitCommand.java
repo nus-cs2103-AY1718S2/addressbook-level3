@@ -11,6 +11,9 @@ public class ExitCommand extends Command {
             + "Example: " + COMMAND_WORD;
     public static final String MESSAGE_EXIT_ACKNOWEDGEMENT = "Exiting Address Book as requested ...";
 
+    public ExitCommand() {
+        super(false);
+    }
     @Override
     public CommandResult execute() {
         return new CommandResult(MESSAGE_EXIT_ACKNOWEDGEMENT);
