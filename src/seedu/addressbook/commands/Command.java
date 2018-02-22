@@ -47,9 +47,11 @@ public abstract class Command {
     //public abstract CommandResult execute();
 
     /**
-     * Returns true for command types that mutate the data
+     * Polymorphic method that returns true for command types that mutate the data
      */
-    public abstract boolean isMutating();
+    public boolean isMutating() {
+        return false;
+    }
 
     /**
      * Supplies the data the command will operate on.
