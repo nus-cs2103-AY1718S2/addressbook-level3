@@ -19,7 +19,7 @@ import java.util.*;
 import static junit.framework.TestCase.assertEquals;
 import static seedu.addressbook.common.Messages.*;
 
-
+import seedu.addressbook.parser.Parser;
 public class LogicTest {
 
     /**
@@ -79,6 +79,7 @@ public class LogicTest {
 
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
+        Command parsedCommand = new Parser().parseCommand(inputCommand);
 
         //Confirm the result contains the right data
         assertEquals(expectedMessage, r.feedbackToUser);
@@ -91,6 +92,9 @@ public class LogicTest {
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
         assertEquals(addressBook, saveFile.load());
+        if (parsedCommand.isMutating()) {
+            assertEquals(addressBook, saveFile.load());
+        }
     }
 
 
