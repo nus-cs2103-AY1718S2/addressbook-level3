@@ -27,7 +27,7 @@ public abstract class Command {
     }
 
     /**
-     * Constructs a feedback message to summarise an operation that displayed a listing of persons.
+n     * Constructs a feedback message to summarise an operation that displayed a listing of persons.
      *
      * @param personsDisplayed used to generate summary
      * @return summary message for persons displayed
@@ -69,5 +69,13 @@ public abstract class Command {
 
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
+    }
+
+    /**
+     * Indicates if the command modifies data.
+     * @return boolean whether command modifies data
+     */
+    public boolean isMutating() {
+	    return true;
     }
 }
