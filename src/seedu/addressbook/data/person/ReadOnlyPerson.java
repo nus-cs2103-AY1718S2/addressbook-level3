@@ -38,7 +38,7 @@ public interface ReadOnlyPerson {
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append(getName())
+        builder.append(getName())   
                 .append(" Phone: ");
         if (getPhone().isPrivate()) {
             builder.append(detailIsPrivate);
