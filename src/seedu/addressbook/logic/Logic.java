@@ -77,7 +77,7 @@ public class Logic {
 
     /**
      * Executes the command, updates storage, and returns the result.
-     *
+     * Saves data only if it is mutated.
      * @param command user command
      * @return result of the command
      * @throws Exception if there was any problem during command execution.
