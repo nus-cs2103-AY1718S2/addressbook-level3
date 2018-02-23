@@ -17,6 +17,15 @@ public abstract class Command {
     private int targetIndex = -1;
 
     /**
+     * Use this to decide if the addressbook data needs to be saved to disk
+     *
+     * @return true if this command mutates the data
+     */
+    public boolean isMutating() {
+        return true;
+    }
+
+    /**
      * @param targetIndex last visible listing index of the target person
      */
     public Command(int targetIndex) {
