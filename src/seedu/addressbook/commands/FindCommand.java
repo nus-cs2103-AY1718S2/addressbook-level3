@@ -23,6 +23,7 @@ public class FindCommand extends Command {
         this.keywords = keywords;
     }
 
+    private final boolean isMutating = false;
     /**
      * Returns copy of keywords in this command.
      */
@@ -53,4 +54,8 @@ public class FindCommand extends Command {
         return matchedPersons;
     }
 
+    @Override
+    public boolean isMutating() {
+        return isMutating;
+    }
 }
