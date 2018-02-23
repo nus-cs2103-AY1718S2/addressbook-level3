@@ -58,4 +58,9 @@ public class Email implements Printable {
     public boolean isPrivate() {
         return isPrivate;
     }
+    
+    @Override
+    public String getPrintableString() {
+        return "Email: " + (isPrivate() ? "(private) " : "")  + this.value + " ";
+    }
 }

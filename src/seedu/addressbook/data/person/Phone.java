@@ -53,7 +53,10 @@ public class Phone implements Printable {
         return value.hashCode();
     }
 
-    public boolean isPrivate() {
-        return isPrivate;
+    public boolean isPrivate() { return isPrivate; }
+    
+    @Override
+    public String getPrintableString() {
+        return "Phone: " + (isPrivate() ? "(private) " : "")  + this.value + " ";
     }
 }
