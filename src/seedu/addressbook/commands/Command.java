@@ -47,6 +47,13 @@ public abstract class Command {
     //public abstract CommandResult execute();
 
     /**
+     * Polymorphic method that returns true for command types that mutate the data
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
+    /**
      * Supplies the data the command will operate on.
      */
     public void setData(AddressBook addressBook, List<? extends ReadOnlyPerson> relevantPersons) {
