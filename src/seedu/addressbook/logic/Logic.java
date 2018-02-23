@@ -76,7 +76,7 @@ public class Logic {
     }
 
     /**
-     * Executes the command, updates storage, and returns the result.
+     * Executes the command, updates storage if command mutates data, and returns the result.
      *
      * @param command user command
      * @return result of the command
@@ -85,8 +85,14 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        saveToStorage(command);
         return result;
+    }
+
+    private void saveToStorage(Command command) throws Exception {
+        if(command.isMutating()){
+            storage.save(addressBook);
+        }
     }
 
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
