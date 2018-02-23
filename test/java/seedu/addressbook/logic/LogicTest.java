@@ -12,6 +12,7 @@ import seedu.addressbook.data.AddressBook;
 import seedu.addressbook.data.person.*;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import seedu.addressbook.parser.Parser;
 import seedu.addressbook.storage.StorageFile;
 
 import java.util.*;
@@ -21,6 +22,8 @@ import static seedu.addressbook.common.Messages.*;
 
 
 public class LogicTest {
+
+    private static final AddressBook EMPTY_ADDRESS_BOOK = new AddressBook();
 
     /**
      * See https://github.com/junit-team/junit4/wiki/rules#temporaryfolder-rule
@@ -77,6 +80,8 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
+        boolean isMutating = new Parser().parseCommand(inputCommand).isMutating();
+
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
 
@@ -90,7 +95,11 @@ public class LogicTest {
         //Confirm the state of data is as expected
         assertEquals(expectedAddressBook, addressBook);
         assertEquals(lastShownList, logic.getLastShownList());
-        assertEquals(addressBook, saveFile.load());
+        if (isMutating) {
+            assertEquals(addressBook, saveFile.load());
+        } else {
+            assertEquals(EMPTY_ADDRESS_BOOK, saveFile.load());
+        }
     }
 
 
