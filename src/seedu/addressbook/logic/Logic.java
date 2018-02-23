@@ -85,8 +85,14 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        saveToStorage(command);
         return result;
+    }
+
+    private void saveToStorage(Command command) throws Exception {
+        if(command.isMutating()){
+            storage.save(addressBook);
+        }
     }
 
     /** Updates the {@link #lastShownList} if the result contains a list of Persons. */
