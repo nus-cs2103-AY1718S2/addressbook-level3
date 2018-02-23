@@ -52,13 +52,13 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
         if (!getPhone().isPrivate()) {
-            builder.append(getPhone().getPrintableString());
+            builder.append(Formatter.getPrintableString(getPhone()));
         }
         if (!getEmail().isPrivate()) {
-            builder.append(getEmail().getPrintableString());
+            builder.append(Formatter.getPrintableString(getEmail()));
         }
         if (!getAddress().isPrivate()) {
-            builder.append(getAddress().getPrintableString());
+            builder.append(Formatter.getPrintableString(getAddress()));
         }
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
