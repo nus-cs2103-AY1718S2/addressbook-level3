@@ -70,9 +70,9 @@ public class Formatter {
     String getPrintableString(Printable... printables){
         StringBuilder string = new StringBuilder();
         for(Printable printable : printables){
-            string.append(printable.getPrintableString());
+            string.append(printable.getPrintableString()).append(" ");
         }
-        return string.toString();
+        return string.substring(0, string.length() - 1);
     }
 
 }
