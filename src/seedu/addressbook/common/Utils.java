@@ -1,8 +1,8 @@
 package seedu.addressbook.common;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
+
+import seedu.addressbook.data.person.Printable;
 
 /**
  * Utility methods
@@ -33,5 +33,16 @@ public class Utils {
             }
         }
         return true;
+    }
+
+    public static String getPrintableString(Printable... printables) {
+        String printableString = "";
+        List printablesList = Arrays.asList(printables);
+        for (int i = 0; i < printablesList.size() - 1; i++) {
+            printableString += printablesList.get(i);
+            printableString += ", ";
+        }
+        if (printablesList.size() > 0) printableString += printablesList.get(printables.length - 1);
+        return printableString;
     }
 }
