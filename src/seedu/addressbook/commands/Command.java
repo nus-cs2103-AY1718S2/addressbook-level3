@@ -70,4 +70,9 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Check if this command changes the data in AddressBook
+     */
+    public boolean isMutating() { return false; }
 }
