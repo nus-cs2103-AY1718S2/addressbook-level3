@@ -1,0 +1,17 @@
+
+
+.text-field {
+    -fx-font-size: 12pt;
+    -fx-font-family: "Segoe UI";
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-control-inner-background: grey;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-control-inner-background: white;
+    -fx-font-family: "Segoe UI";
+    -fx-font-size: 12pt;
+    -fx-padding: 5 5 5 5;
+}
