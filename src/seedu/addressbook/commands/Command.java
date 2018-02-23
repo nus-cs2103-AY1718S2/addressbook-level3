@@ -27,6 +27,13 @@ public abstract class Command {
     }
 
     /**
+     * Checks whether this command mutates the address book data.
+     */
+    public boolean isMutating() {
+        return false;
+    }
+
+    /**
      * Constructs a feedback message to summarise an operation that displayed a listing of persons.
      *
      * @param personsDisplayed used to generate summary
