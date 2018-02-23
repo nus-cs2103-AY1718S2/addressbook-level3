@@ -28,6 +28,6 @@ public class HelpCommand extends Command {
 
     @Override
     public boolean isMutating() {
-        return true;
+        return false;
     }
 }
