@@ -34,6 +34,18 @@ public class Person implements ReadOnlyPerson {
         this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags());
     }
 
+    /**
+     * Returns concatenated strings of printables
+     * @param printables
+     */
+    public static String getPrintableString(Printable... printables){
+        StringBuilder printableString = new StringBuilder();
+        for (Printable printable: printables){
+            printableString.append(printable.getPrintableString());
+        }
+        return printableString.toString();
+    }
+
     @Override
     public Name getName() {
         return name;
@@ -83,5 +95,7 @@ public class Person implements ReadOnlyPerson {
     public String toString() {
         return getAsTextShowAll();
     }
+
+
 
 }
