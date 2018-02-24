@@ -39,7 +39,7 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
+    public abstract CommandResult execute(){
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }
 
