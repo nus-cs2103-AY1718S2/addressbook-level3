@@ -38,22 +38,22 @@ public interface ReadOnlyPerson {
     default String getAsTextShowAll() {
         final StringBuilder builder = new StringBuilder();
         final String detailIsPrivate = "(private) ";
-        builder.append(getName())
+        builder.append(Person.getPrintableString(getName()))
                 .append(" Phone: ");
         if (getPhone().isPrivate()) {
             builder.append(detailIsPrivate);
         }
-        builder.append(getPhone())
+        builder.append(Person.getPrintableString(getPhone()))
                 .append(" Email: ");
         if (getEmail().isPrivate()) {
             builder.append(detailIsPrivate);
         }
-        builder.append(getEmail())
+        builder.append(Person.getPrintableString(getEmail()))
                 .append(" Address: ");
         if (getAddress().isPrivate()) {
             builder.append(detailIsPrivate);
         }
-        builder.append(getAddress())
+        builder.append(Person.getPrintableString(getAddress()))
                 .append(" Tags: ");
         for (Tag tag : getTags()) {
             builder.append(tag);
@@ -68,13 +68,13 @@ public interface ReadOnlyPerson {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName());
         if (!getPhone().isPrivate()) {
-            builder.append(" Phone: ").append(getPhone());
+            builder.append(" Phone: ").append(Person.getPrintableString(getPhone()));
         }
         if (!getEmail().isPrivate()) {
-            builder.append(" Email: ").append(getEmail());
+            builder.append(" Email: ").append(Person.getPrintableString(getEmail()));
         }
         if (!getAddress().isPrivate()) {
-            builder.append(" Address: ").append(getAddress());
+            builder.append(" Address: ").append(Person.getPrintableString(getAddress()));
         }
         builder.append(" Tags: ");
         for (Tag tag : getTags()) {
@@ -82,4 +82,6 @@ public interface ReadOnlyPerson {
         }
         return builder.toString();
     }
+
+
 }
