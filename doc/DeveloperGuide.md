@@ -94,7 +94,7 @@ Use case ends.
 2. Should be able to hold up to 1000 persons.
 3. Should come with automated unit tests and open source code.
 4. Should favor DOS style commands over Unix-style commands.
-5. Should never crashes during usage
+5. Should never [crashes] (#crashes) during usage
 6. Should have specialized interfaces for [different devices] (#different devices)
 7. Developer guide and User guide should be updated for each new version and written concisely.
 8. Address book data should be integrated with a cloud storage to prevent undesirable data loss.
@@ -108,6 +108,10 @@ Use case ends.
 ##### Private contact detail
 
 > A contact detail that is not meant to be shared with others
+
+##### Crashes
+
+> program stops execution unnormally without showing an error message.
 
 ##### Different devices
 
