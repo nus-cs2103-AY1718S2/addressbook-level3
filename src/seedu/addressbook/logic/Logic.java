@@ -85,7 +85,7 @@ public class Logic {
     private CommandResult execute(Command command) throws Exception {
         command.setData(addressBook, lastShownList);
         CommandResult result = command.execute();
-        storage.save(addressBook);
+        saveToAddressBookIfMutating(command.isMutating());
         return result;
     }
 
@@ -94,6 +94,18 @@ public class Logic {
         final Optional<List<? extends ReadOnlyPerson>> personList = result.getRelevantPersons();
         if (personList.isPresent()) {
             lastShownList = personList.get();
+        }
+    }
+
+    /**
+     * Saves the AddressBook if the command executed mutates the data in the file
+     *
+     * @param mutated
+     * @throws StorageFile.StorageOperationException
+     */
+    private void saveToAddressBookIfMutating(boolean mutated) throws StorageFile.StorageOperationException {
+        if (mutated) {
+            storage.save(addressBook);
         }
     }
 }
