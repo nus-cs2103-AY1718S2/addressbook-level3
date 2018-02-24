@@ -77,6 +77,11 @@ public class LogicTest {
                                       boolean isRelevantPersonsExpected,
                                       List<? extends ReadOnlyPerson> lastShownList) throws Exception {
 
+        // update savefile before execution
+        if (!addressBook.equals(saveFile.load())) {
+            saveFile.save(addressBook);
+        }
+
         //Execute the command
         CommandResult r = logic.execute(inputCommand);
 
