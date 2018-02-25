@@ -63,6 +63,14 @@ public abstract class Command {
         return relevantPersons.get(getTargetIndex() - DISPLAYED_INDEX_OFFSET);
     }
 
+    /**
+     * Returns whether the command type will mutate data
+     *
+     */
+    public boolean isMutating() {
+        throw new UnsupportedOperationException("This method should be implemented in child classes");
+    }
+
     public int getTargetIndex() {
         return targetIndex;
     }
