@@ -9,7 +9,7 @@ import seedu.addressbook.data.person.ReadOnlyPerson;
  * Private contact details are not shown.
  */
 public class ViewCommand extends Command {
-
+    public static final boolean type = false;
     public static final String COMMAND_WORD = "view";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Shows the non-private details of the person "
@@ -36,6 +36,11 @@ public class ViewCommand extends Command {
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
+    }
+
+    @Override
+    public boolean isMutating(){
+        return type;
     }
 
 }

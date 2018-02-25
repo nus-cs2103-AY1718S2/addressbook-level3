@@ -9,7 +9,7 @@ import java.util.List;
  * Lists all persons in the address book to the user.
  */
 public class ListCommand extends Command {
-
+    public static final boolean type = false;
     public static final String COMMAND_WORD = "list";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" 
@@ -21,5 +21,10 @@ public class ListCommand extends Command {
     public CommandResult execute() {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
+    }
+
+    @Override
+    public boolean isMutating(){
+        return type;
     }
 }

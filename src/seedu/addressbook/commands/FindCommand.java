@@ -9,7 +9,7 @@ import java.util.*;
  * Keyword matching is case sensitive.
  */
 public class FindCommand extends Command {
-
+    public static final boolean type = false;
     public static final String COMMAND_WORD = "find";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Finds all persons whose names contain any of "
@@ -34,6 +34,11 @@ public class FindCommand extends Command {
     public CommandResult execute() {
         final List<ReadOnlyPerson> personsFound = getPersonsWithNameContainingAnyKeyword(keywords);
         return new CommandResult(getMessageForPersonListShownSummary(personsFound), personsFound);
+    }
+
+    @Override
+    public boolean isMutating(){
+        return type;
     }
 
     /**
