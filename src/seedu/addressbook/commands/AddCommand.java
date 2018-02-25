@@ -12,7 +12,7 @@ import java.util.Set;
  * Adds a person to the address book.
  */
 public class AddCommand extends Command {
-
+    public static final boolean type = true;
     public static final String COMMAND_WORD = "add";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Adds a person to the address book. "
@@ -65,6 +65,11 @@ public class AddCommand extends Command {
         } catch (UniquePersonList.DuplicatePersonException dpe) {
             return new CommandResult(MESSAGE_DUPLICATE_PERSON);
         }
+    }
+
+    @Override
+    public boolean isMutating(){
+        return type;
     }
 
 }

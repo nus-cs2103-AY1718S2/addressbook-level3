@@ -9,7 +9,7 @@ import seedu.addressbook.data.person.ReadOnlyPerson;
  * Private contact details are shown.
  */
 public class ViewAllCommand extends Command {
-
+    public static final boolean type = false;
     public static final String COMMAND_WORD = "viewall";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Shows all details of the person "
@@ -36,5 +36,10 @@ public class ViewAllCommand extends Command {
         } catch (IndexOutOfBoundsException ie) {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
+    }
+
+    @Override
+    public boolean isMutating(){
+        return type;
     }
 }
