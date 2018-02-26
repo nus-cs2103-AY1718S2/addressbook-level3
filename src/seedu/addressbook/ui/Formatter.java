@@ -68,7 +68,7 @@ public class Formatter {
         StringBuilder sb = new StringBuilder();
         for(Printable p: printables){
             sb.append(p.getPrintableString());
-            sb.append("  ");
+            sb.append(" ");
         }
         return sb.toString();
     }
