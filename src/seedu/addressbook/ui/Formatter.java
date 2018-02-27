@@ -1,5 +1,7 @@
 package seedu.addressbook.ui;
 
+import org.omg.CORBA.PRIVATE_MEMBER;
+import seedu.addressbook.data.person.Printable;
 import seedu.addressbook.data.person.ReadOnlyPerson;
 
 import java.util.ArrayList;
@@ -63,4 +65,15 @@ public class Formatter {
         return String.format(MESSAGE_INDEXED_LIST_ITEM, visibleIndex, listItem);
     }
 
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public static String getPrintableString(Printable... printables){
+        StringBuilder builder = new StringBuilder();
+
+        for(Printable p: printables) {
+            builder.append(p.getPrintableString()).append(" ");
+        }
+        return builder.toString();
+    }
 }
