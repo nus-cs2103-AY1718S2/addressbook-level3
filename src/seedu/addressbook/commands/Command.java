@@ -47,9 +47,7 @@ public abstract class Command {
      * Reflects whether the command mutates address book data
      * @return whether data have been mutated, by default false
      */
-     public boolean isMutating() { 
-         return false;
-     }
+     public abstract boolean isMutating();
 
     //Note: it is better to make the execute() method abstract, by replacing the above method with the line below:
     //public abstract CommandResult execute();
