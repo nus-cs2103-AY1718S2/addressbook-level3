@@ -72,10 +72,7 @@ public abstract class Command {
     }
 
     /**
-     *  Checks if the command mutates the deta
-     * @return false by default
+     *  Returns true if the command potentially mutates data
      */
-    public boolean isMutating(){
-        return false;
-    }
+    public abstract boolean isMutating();
 }
