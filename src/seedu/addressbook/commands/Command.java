@@ -15,7 +15,8 @@ public abstract class Command {
     protected AddressBook addressBook;
     protected List<? extends ReadOnlyPerson> relevantPersons;
     private int targetIndex = -1;
-
+    protected boolean isMutate = true;
+    private boolean isNotMutate = false;
     /**
      * @param targetIndex last visible listing index of the target person
      */
@@ -61,6 +62,10 @@ public abstract class Command {
      */
     protected ReadOnlyPerson getTargetPerson() throws IndexOutOfBoundsException {
         return relevantPersons.get(getTargetIndex() - DISPLAYED_INDEX_OFFSET);
+    }
+
+    public boolean isMutating() {
+        return isNotMutate;
     }
 
     public int getTargetIndex() {
