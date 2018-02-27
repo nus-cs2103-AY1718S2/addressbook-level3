@@ -13,6 +13,10 @@ import java.util.Set;
  */
 public class AddCommand extends Command {
 
+    public boolean isMutating() {
+        return true;
+    }
+
     public static final String COMMAND_WORD = "add";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n" + "Adds a person to the address book. "
