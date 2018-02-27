@@ -6,6 +6,10 @@ package seedu.addressbook.commands;
  */
 public class IncorrectCommand extends Command{
 
+    public boolean isMutating() {
+        return false;
+    }
+
     public final String feedbackToUser;
 
     public IncorrectCommand(String feedbackToUser){

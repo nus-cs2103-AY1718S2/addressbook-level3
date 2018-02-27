@@ -13,7 +13,9 @@ import java.util.Set;
  */
 public class AddCommand extends Command {
 
-    isMutating = true;
+    public boolean isMutating() {
+        return true;
+    }
 
     public static final String COMMAND_WORD = "add";
 
