@@ -82,6 +82,15 @@ public class UniquePersonList implements Iterable<Person> {
         return internalList.contains(toCheck);
     }
 
+    public boolean contains(String name){
+        for(int i=0;i<internalList.size();i++){
+            if(internalList.get(i).getName().toString().equals(name)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     /**
      * Adds a person to the list.
      *
@@ -114,6 +123,7 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     @Override
+
     public Iterator<Person> iterator() {
         return internalList.iterator();
     }
