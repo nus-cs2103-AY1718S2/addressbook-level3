@@ -113,6 +113,16 @@ public class AddressBook {
         return new UniquePersonList(allPersons);
     }
 
+
+    /**
+     * Defensively copied UniquePersonList of all persons in sorted order in the address book at the time of the call.
+     */
+    public UniquePersonList getAllSortedPersons() {
+        allPersons.sort();
+        return new UniquePersonList(allPersons);
+    }
+
+
     /**
      * Defensively copied UniqueTagList of all tags in the address book at the time of the call.
      */
