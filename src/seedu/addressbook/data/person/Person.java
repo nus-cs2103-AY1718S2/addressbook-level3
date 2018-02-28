@@ -94,7 +94,7 @@ public class Person implements ReadOnlyPerson {
         {
             result.concat(p.getPrintableString() + " ");
         }
-
         return result;
     }
+
 }

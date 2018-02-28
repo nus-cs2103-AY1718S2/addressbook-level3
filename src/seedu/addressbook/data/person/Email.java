@@ -64,4 +64,5 @@ public class Email implements Printable{
     {
         return "Email: " + value;
     }
+
 }
