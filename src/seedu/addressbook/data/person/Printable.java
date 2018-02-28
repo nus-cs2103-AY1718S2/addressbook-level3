@@ -3,7 +3,7 @@ package seedu.addressbook.data.person;
 public interface Printable {
 
     /**
-     * Returns a printable string for an object
+     * Returns a printable string representation of an object
      */
     String getPrintableString();
 

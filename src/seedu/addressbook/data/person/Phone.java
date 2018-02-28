@@ -60,6 +60,6 @@ public class Phone implements Printable{
     @Override
     public String getPrintableString()
     {
-        return value;
+        return "Phone: " + value;
     }
 }
