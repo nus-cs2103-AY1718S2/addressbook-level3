@@ -42,7 +42,7 @@ public abstract class Command {
      * @param sortedPersonsDisplayed used to generate summary
      * @return summary message for persons displayed
      */
-    public static String getMessageForSortListShownSummary(List<? extends ReadOnlyPerson> sortedPersonsDisplayed) {
+    public static String getMessageForSortedListShownSummary(List<? extends ReadOnlyPerson> sortedPersonsDisplayed) {
         return String.format(Messages.MESSAGE_PERSONS_SORTED_OVERVIEW, sortedPersonsDisplayed.size());
     }
 
