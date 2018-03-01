@@ -8,6 +8,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PHONE_NUMBER;
 
 /**
  * Parses user input.
@@ -26,6 +28,8 @@ public class Parser {
                     + " (?<isAddressPrivate>p?)a/(?<address>[^/]+)"
                     + "(?<tagArguments>(?: t/[^/]+)*)"); // variable number of tags
 
+    public static final Pattern CHANGE_NUMBER_FORMAT =
+            Pattern.compile("(?<index>.+)" + " (?<phone>[^/]+)");
 
     /**
      * Signals that the user input could not be parsed.
@@ -47,7 +51,7 @@ public class Parser {
      * @param userInput full user input string
      * @return the command based on the user input
      */
-    public Command parseCommand(String userInput) {
+    public Command parseCommand(String userInput) throws IllegalValueException {
         final Matcher matcher = BASIC_COMMAND_FORMAT.matcher(userInput.trim());
         if (!matcher.matches()) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE));
@@ -62,6 +66,9 @@ public class Parser {
 
             case DeleteCommand.COMMAND_WORD:
                 return prepareDelete(arguments);
+                
+            case ChangeNumCommand.COMMAND_WORD:
+                return prepareChangeNum(arguments);
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
@@ -153,6 +160,43 @@ public class Parser {
             return new DeleteCommand(targetIndex);
         } catch (ParseException | NumberFormatException e) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE));
+        }
+    }
+
+    /**
+     * Checks whether this string only contains digits.
+     *
+     * @param str a string
+     */
+    private void checkIsPureDigitString (String str) throws IllegalValueException {
+        if (!str.matches("[0-9]+")) {
+            throw new IllegalValueException("Person phone numbers should only contain numbers");
+        }
+    }
+
+    /**
+     * Parses arguments in the context of the change num person command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareChangeNum(String args) throws IllegalValueException {
+        final Matcher matcher = CHANGE_NUMBER_FORMAT.matcher(args.trim());
+        
+        // Validate arg string format
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddCommand.MESSAGE_USAGE));
+        }
+        String delims = "[ ]+";
+        String[] tokens = args.trim().split(delims);
+
+        try {
+            checkIsPureDigitString(tokens[1]);
+            return new ChangeNumCommand(Integer.parseInt(tokens[0]), tokens[1]);
+        } catch (IllegalValueException ive) {
+            return new IncorrectCommand(MESSAGE_INVALID_PHONE_NUMBER);
+        } catch (NumberFormatException nfe) {
+            return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
     }
 

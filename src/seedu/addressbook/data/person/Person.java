@@ -66,6 +66,13 @@ public class Person implements ReadOnlyPerson {
         tags.setTags(replacement);
     }
 
+    /**
+     * Updates the person's phone number to the one in the argument.
+     */
+    public void setPhone(String num) { 
+        this.phone.setNum(num); 
+    }
+
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
