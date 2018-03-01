@@ -66,6 +66,21 @@ Examples:
   `delete 1`<br>
   Deletes the 1st person in the results of the `find` command.
 
+### Changing a person's phone number : `changenum`
+Changes the specified person's phone number from the address book. Irreversible.<br>
+Format: `changenum INDEX NEW_NUMBER`
+
+> Changes the person's phone number at the specified `INDEX`. 
+  The index refers to the index number shown in the most recent listing.
+
+Examples: 
+* `list`<br>
+  `changenum 2 99997777`<br>
+  Changes the phone number of the 2nd person in the address book to 99997777.
+* `find Betsy`<br> 
+  `changenum 1 88886666`<br>
+  Changes the phone number of the 1st person in the results of the `find` command to 88886666.
+
 ## View non-private details of a person : `view`
 Displays the non-private details of the specified person.<br>
 Format: `view INDEX`

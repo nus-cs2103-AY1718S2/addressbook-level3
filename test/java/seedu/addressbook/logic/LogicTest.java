@@ -392,6 +392,65 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_changenum_invalidArgsFormat() throws Exception {
+        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ChangeNumCommand.MESSAGE_USAGE);
+        assertCommandBehavior("changenum ", expectedMessage);
+        assertCommandBehavior("changenum arg not number", expectedMessage);
+    }
+
+    @Test
+    public void execute_changenum_invalidIndex() throws Exception {
+        assertInvalidIndexBehaviorForCommand("changenum");
+    }
+
+    @Test
+    public void execute_changenum_changesSuccessfully() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePerson(1, false);
+        Person p2 = helper.adam();
+        Person p3 = helper.generatePerson(3, true);
+        Person p4 = helper.adam();
+
+        List<Person> threePersons = helper.generatePersonList(p1, p2, p3);
+        
+        p4.setPhone("99998888");
+        List<Person> updatedThreePersons = helper.generatePersonList(p1, p4, p3);
+
+        AddressBook expectedAB = helper.generateAddressBook(updatedThreePersons);
+        
+        helper.addToAddressBook(addressBook, threePersons);
+        logic.setLastShownList(threePersons);
+
+        assertCommandBehavior("changenum 2 99998888",
+                String.format(ChangeNumCommand.MESSAGE_CHANGE_NUMBER_PERSON_SUCCESS, p4),
+                expectedAB,
+                false,
+                updatedThreePersons);
+    }
+
+    @Test
+    public void execute_changenum_invalid_index() throws Exception {
+
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePerson(1, false);
+        Person p2 = helper.generatePerson(2, true);
+        Person p3 = helper.generatePerson(3, true);
+
+        List<Person> threePersons = helper.generatePersonList(p1, p2, p3);
+
+        AddressBook expectedAB = helper.generateAddressBook(threePersons);
+
+        helper.addToAddressBook(addressBook, threePersons);
+        logic.setLastShownList(threePersons);
+
+        assertCommandBehavior("changenum 4 99998888",
+                Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX,
+                expectedAB,
+                false,
+                threePersons);
+    }
+    
+    @Test
     public void execute_find_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, FindCommand.MESSAGE_USAGE);
         assertCommandBehavior("find ", expectedMessage);

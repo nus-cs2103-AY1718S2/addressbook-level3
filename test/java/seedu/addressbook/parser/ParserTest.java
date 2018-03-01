@@ -25,14 +25,14 @@ public class ParserTest {
     }
 
     @Test
-    public void emptyInput_returnsIncorrect() {
+    public void emptyInput_returnsIncorrect() throws IllegalValueException {
         final String[] emptyInputs = { "", "  ", "\n  \n" };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, HelpCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, emptyInputs);
     }
 
     @Test
-    public void unknownCommandWord_returnsHelp() {
+    public void unknownCommandWord_returnsHelp() throws IllegalValueException {
         final String input = "unknowncommandword arguments arguments";
         parseAndAssertCommandType(input, HelpCommand.class);
     }
@@ -42,25 +42,25 @@ public class ParserTest {
      */
     
     @Test
-    public void helpCommand_parsedCorrectly() {
+    public void helpCommand_parsedCorrectly() throws IllegalValueException {
         final String input = "help";
         parseAndAssertCommandType(input, HelpCommand.class);
     }
     
     @Test
-    public void clearCommand_parsedCorrectly() {
+    public void clearCommand_parsedCorrectly() throws IllegalValueException {
         final String input = "clear";
         parseAndAssertCommandType(input, ClearCommand.class);
     }
 
     @Test
-    public void listCommand_parsedCorrectly() {
+    public void listCommand_parsedCorrectly() throws IllegalValueException {
         final String input = "list";
         parseAndAssertCommandType(input, ListCommand.class);
     }
 
     @Test
-    public void exitCommand_parsedCorrectly() {
+    public void exitCommand_parsedCorrectly() throws IllegalValueException {
         final String input = "exit";
         parseAndAssertCommandType(input, ExitCommand.class);
     }
@@ -70,21 +70,21 @@ public class ParserTest {
      */
     
     @Test
-    public void deleteCommand_noArgs() {
+    public void deleteCommand_noArgs() throws IllegalValueException {
         final String[] inputs = { "delete", "delete " };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
     }
 
     @Test
-    public void deleteCommand_argsIsNotSingleNumber() {
+    public void deleteCommand_argsIsNotSingleNumber() throws IllegalValueException {
         final String[] inputs = { "delete notAnumber ", "delete 8*wh12", "delete 1 2 3 4 5" };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
     }
     
     @Test
-    public void deleteCommand_numericArg_indexParsedCorrectly() {
+    public void deleteCommand_numericArg_indexParsedCorrectly() throws IllegalValueException {
         final int testIndex = 1;
         final String input = "delete " + testIndex;
         final DeleteCommand result = parseAndAssertCommandType(input, DeleteCommand.class);
@@ -92,21 +92,21 @@ public class ParserTest {
     }
 
     @Test
-    public void viewCommand_noArgs() {
+    public void viewCommand_noArgs() throws IllegalValueException {
         final String[] inputs = { "view", "view " };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
     }
 
     @Test
-    public void viewCommand_argsIsNotSingleNumber() {
+    public void viewCommand_argsIsNotSingleNumber() throws IllegalValueException {
         final String[] inputs = { "view notAnumber ", "view 8*wh12", "view 1 2 3 4 5" };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
     }
     
     @Test
-    public void viewCommand_numericArg_indexParsedCorrectly() {
+    public void viewCommand_numericArg_indexParsedCorrectly() throws IllegalValueException {
         final int testIndex = 2;
         final String input = "view " + testIndex;
         final ViewCommand result = parseAndAssertCommandType(input, ViewCommand.class);
@@ -114,7 +114,7 @@ public class ParserTest {
     }
 
     @Test
-    public void viewAllCommand_noArgs() {
+    public void viewAllCommand_noArgs() throws IllegalValueException {
         final String[] inputs = { "viewall", "viewall " };
         final String resultMessage =
                 String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewAllCommand.MESSAGE_USAGE);
@@ -122,14 +122,14 @@ public class ParserTest {
     }
 
     @Test
-    public void viewAllCommand_argsIsNotSingleNumber() {
+    public void viewAllCommand_argsIsNotSingleNumber() throws IllegalValueException {
         final String[] inputs = { "viewall notAnumber ", "viewall 8*wh12", "viewall 1 2 3 4 5" };
         final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewAllCommand.MESSAGE_USAGE);
         parseAndAssertIncorrectWithMessage(resultMessage, inputs);
     }
 
     @Test
-    public void viewAllCommand_numericArg_indexParsedCorrectly() {
+    public void viewAllCommand_numericArg_indexParsedCorrectly() throws IllegalValueException {
         final int testIndex = 3;
         final String input = "viewall " + testIndex;
         final ViewAllCommand result = parseAndAssertCommandType(input, ViewAllCommand.class);
@@ -141,7 +141,7 @@ public class ParserTest {
      */
 
     @Test
-    public void findCommand_invalidArgs() {
+    public void findCommand_invalidArgs() throws IllegalValueException {
         // no keywords
         final String[] inputs = {
                 "find",
@@ -153,7 +153,7 @@ public class ParserTest {
     }
 
     @Test
-    public void findCommand_validArgs_parsedCorrectly() {
+    public void findCommand_validArgs_parsedCorrectly() throws IllegalValueException {
         final String[] keywords = { "key1", "key2", "key3" };
         final Set<String> keySet = new HashSet<>(Arrays.asList(keywords));
 
@@ -164,7 +164,7 @@ public class ParserTest {
     }
 
     @Test
-    public void findCommand_duplicateKeys_parsedCorrectly() {
+    public void findCommand_duplicateKeys_parsedCorrectly() throws IllegalValueException {
         final String[] keywords = { "key1", "key2", "key3" };
         final Set<String> keySet = new HashSet<>(Arrays.asList(keywords));
 
@@ -180,7 +180,7 @@ public class ParserTest {
      */
     
     @Test
-    public void addCommand_invalidArgs() {
+    public void addCommand_invalidArgs() throws IllegalValueException {
         final String[] inputs = {
                 "add",
                 "add ",
@@ -197,7 +197,7 @@ public class ParserTest {
     }
 
     @Test
-    public void addCommand_invalidPersonDataInArgs() {
+    public void addCommand_invalidPersonDataInArgs() throws IllegalValueException {
         final String invalidName = "[]\\[;]";
         final String validName = Name.EXAMPLE;
         final String invalidPhoneArg = "p/not__numbers";
@@ -226,7 +226,7 @@ public class ParserTest {
     }
 
     @Test
-    public void addCommand_validPersonData_parsedCorrectly() {
+    public void addCommand_validPersonData_parsedCorrectly() throws IllegalValueException {
         final Person testPerson = generateTestPerson();
         final String input = convertPersonToAddCommandString(testPerson);
         final AddCommand result = parseAndAssertCommandType(input, AddCommand.class);
@@ -279,7 +279,7 @@ public class ParserTest {
     /**
      * Asserts that parsing the given inputs will return IncorrectCommand with the given feedback message.
      */
-    private void parseAndAssertIncorrectWithMessage(String feedbackMessage, String... inputs) {
+    private void parseAndAssertIncorrectWithMessage(String feedbackMessage, String... inputs) throws IllegalValueException {
         for (String input : inputs) {
             final IncorrectCommand result = parseAndAssertCommandType(input, IncorrectCommand.class);
             assertEquals(result.feedbackToUser, feedbackMessage);
@@ -293,7 +293,7 @@ public class ParserTest {
      * @param expectedCommandClass expected class of returned command
      * @return the parsed command object
      */
-    private <T extends Command> T parseAndAssertCommandType(String input, Class<T> expectedCommandClass) {
+    private <T extends Command> T parseAndAssertCommandType(String input, Class<T> expectedCommandClass) throws IllegalValueException {
         final Command result = parser.parseCommand(input);
         assertTrue(result.getClass().isAssignableFrom(expectedCommandClass));
         return (T) result;
