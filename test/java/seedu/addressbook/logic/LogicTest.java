@@ -202,6 +202,30 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sort_showsAllSortedPersons() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePersonWithName("John doe");
+        Person p2 = helper.generatePersonWithName("John Doe");
+        Person p3 = helper.generatePersonWithName("Jane Low");
+        Person p4 = helper.generatePersonWithName("Blake Stu");
+        Person p5 = helper.generatePersonWithName("Hob wright");
+        Person p6 = helper.generatePersonWithName("JohN Doe");
+        Person p7 = helper.generatePersonWithName("Leonard");
+        Person p8 = helper.generatePersonWithName("Hob Wright");
+
+        List<Person> eightPersons = helper.generatePersonList(p1, p2, p3, p4, p5, p6, p7, p8);
+        helper.addToAddressBook(addressBook, eightPersons);
+        List<Person> expectedList = helper.generatePersonList(p4, p8, p5, p3, p6, p2, p1, p7);
+        AddressBook expectedAB = helper.generateAddressBook(expectedList);
+
+        assertCommandBehavior("sort",
+                Command.getMessageForSortedListShownSummary(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+    }
+
+    @Test
     public void execute_view_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         assertCommandBehavior("view ", expectedMessage);
