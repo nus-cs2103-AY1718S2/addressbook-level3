@@ -40,6 +40,9 @@ public class MainWindow {
     @FXML
     private TextField commandInput;
 
+    @FXML
+    private TextArea listConsole;
+
 
     @FXML
     void onCommand(ActionEvent event) {
@@ -50,7 +53,11 @@ public class MainWindow {
                 exitApp();
                 return;
             }
+            CommandResult listResult = logic.execute("list");
+
             displayResult(result);
+            displayListConsole(listResult);
+
             clearCommandInput();
         } catch (Exception e) {
             display(e.getMessage());
@@ -77,6 +84,11 @@ public class MainWindow {
         outputConsole.clear();
     }
 
+    /** Clears the list display area */
+    public void clearListConsole(){
+        listConsole.clear();
+    }
+
     /** Displays the result of a command execution to the user. */
     public void displayResult(CommandResult result) {
         clearOutputConsole();
@@ -85,6 +97,16 @@ public class MainWindow {
             display(resultPersons.get());
         }
         display(result.feedbackToUser);
+    }
+
+    /** Displays the full list of persons to the user. */
+    public void displayListConsole(CommandResult result) {
+        clearListConsole();
+        final Optional<List<? extends ReadOnlyPerson>> resultPersons = result.getRelevantPersons();
+        if(resultPersons.isPresent()) {
+            displayList(resultPersons.get());
+        }
+        displayList(result.feedbackToUser);
     }
 
     public void displayWelcomeMessage(String version, String storageFilePath) {
@@ -100,11 +122,19 @@ public class MainWindow {
         display(new Formatter().format(persons));
     }
 
+    private void displayList(List<? extends ReadOnlyPerson> persons) {
+        displayList(new Formatter().format(persons));
+    }
+
     /**
      * Displays the given messages on the output display area, after formatting appropriately.
      */
     private void display(String... messages) {
         outputConsole.setText(outputConsole.getText() + new Formatter().format(messages));
+    }
+
+    private void displayList(String... messages) {
+        listConsole.setText(listConsole.getText() + new Formatter().format(messages));
     }
 
 }
