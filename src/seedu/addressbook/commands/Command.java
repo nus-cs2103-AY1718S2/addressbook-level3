@@ -70,4 +70,9 @@ public abstract class Command {
     public void setTargetIndex(int targetIndex) {
         this.targetIndex = targetIndex;
     }
+
+    /**
+     * Returns true if the command mutates the address book to limit file saves.
+     */
+    public abstract boolean isMutating();
 }
