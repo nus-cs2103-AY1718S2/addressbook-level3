@@ -113,6 +113,17 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.clear();
     }
 
+    /**
+     * Sorts all entries in addressbook in increasing alphabetical order based on first name
+     */
+    public void sort() {
+        internalList.sort(
+            Comparator.comparing((Person p) -> p.getName().toString(),
+                (s1, s2) -> (s1.compareToIgnoreCase(s2) == 0) ?
+                s1.compareTo(s2) : s1.compareToIgnoreCase(s2))
+            );
+    }
+
     @Override
     public Iterator<Person> iterator() {
         return internalList.iterator();

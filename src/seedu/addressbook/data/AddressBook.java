@@ -114,6 +114,13 @@ public class AddressBook {
     }
 
     /**
+     * Sorts all persons in addressbook in increasing alphabetical order based on first name
+     */
+    public void sort() {
+        allPersons.sort();
+    }
+
+    /**
      * Defensively copied UniqueTagList of all tags in the address book at the time of the call.
      */
     public UniqueTagList getAllTags() {
