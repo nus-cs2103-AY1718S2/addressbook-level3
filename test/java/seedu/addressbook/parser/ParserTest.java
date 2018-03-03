@@ -66,7 +66,7 @@ public class ParserTest {
     }
 
     /**
-     * Test ingle index argument commands
+     * Test Single index argument commands
      */
     
     @Test
@@ -244,6 +244,46 @@ public class ParserTest {
 
         final AddCommand result = parseAndAssertCommandType(input, AddCommand.class);
         assertEquals(result.getPerson(), testPerson);
+    }
+
+    /**
+     * Test editName command
+     */
+
+    @Test
+    public void editNameCommand_invalidArgs() {
+        final String[] inputs = {
+                "editName",
+                "editName ",
+                "editName wrong args format",
+        };
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditNameCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+    }
+
+    @Test
+    public void editNameCommand_invalidPersonDataInArgs() {
+        final String invalidName = "[]\\[;]";
+        final String validName = Name.EXAMPLE;
+
+        final String editNameCommandFormatString = "editName $s c/$s";
+        
+        final String[] inputs = {
+                // invalid name
+                String.format(editNameCommandFormatString, invalidName, validName),
+                String.format(editNameCommandFormatString, validName, invalidName)
+        };
+        for (String input : inputs) {
+            parseAndAssertCommandType(input, IncorrectCommand.class);
+        }
+    }
+
+    @Test
+    public void editNameCommand_validPersonData_parsedCorrectly() {
+        final String input = "editName John Doe c/Jane Doe";
+
+        final EditNameCommand result = parseAndAssertCommandType(input, EditNameCommand.class);
+        assertEquals(result.getNewName(), "Jane Doe");
     }
 
     private static Person generateTestPerson() {
