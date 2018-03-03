@@ -88,6 +88,29 @@ Use case ends.
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
 
+#### Use case: Rename person
+
+**MSS**
+1. User requests to rename person
+2. User enters name of person to be renamed and new name of the person to be renamed.
+3. AddressBook renames the person <br>
+Use case ends.
+
+**Extensions**
+
+2a. The addressbook is empty
+
+> Use case ends
+
+2b. Name that user wants to update is the same as name of the person that user wants to rename
+
+> 2b1. AddressBook shows an error message <br>
+  Use case ends
+  
+2c. The name of the person that user wants to update is not in addressbook
+
+> Use case ends
+
 ## Appendix C : Non Functional Requirements
 
 1. Should work on any [mainstream OS](#mainstream-os) as long as it has Java 8 or higher installed.
