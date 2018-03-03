@@ -161,6 +161,21 @@ public class LogicTest {
                               false,
                               Collections.emptyList());
 
+
+        // setup expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person nextToBeAdded = helper.john();
+        AddressBook expectedAB2 = new AddressBook();
+        expectedAB.addPerson(nextToBeAdded);
+
+        // execute command and verify result
+        assertCommandBehavior(helper.generateAddCommand(nextToBeAdded),
+                              String.format(AddCommand.MESSAGE_SUCCESS, nextToBeAdded),
+                              expectedAB2,
+                              false,
+                              Collections.emptyList());
+
+        
     }
 
     @Test
@@ -467,6 +482,17 @@ public class LogicTest {
             Phone privatePhone = new Phone("111111", true);
             Email email = new Email("adam@gmail.com", false);
             Address privateAddress = new Address("111, alpha street", true);
+            Tag tag1 = new Tag("tag1");
+            Tag tag2 = new Tag("tag2");
+            UniqueTagList tags = new UniqueTagList(tag1, tag2);
+            return new Person(name, privatePhone, email, privateAddress, tags);
+        }
+
+        Person tommy() throws Exception {
+            Name name = new Name("John Lim");
+            Phone privatePhone = new Phone("990011", true);
+            Email email = new Email("johnlim@gmail.com", false);
+            Address privateAddress = new Address("123, gamma street", true);
             Tag tag1 = new Tag("tag1");
             Tag tag2 = new Tag("tag2");
             UniqueTagList tags = new UniqueTagList(tag1, tag2);
