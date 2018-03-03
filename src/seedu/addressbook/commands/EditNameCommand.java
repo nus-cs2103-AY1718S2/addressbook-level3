@@ -26,6 +26,10 @@ public class EditNameCommand extends Command{
         this.currName = currName;
         this.newName = new Name(newName);
     }
+    
+    public String getNewName(){
+        return newName.toString();
+    }
 
     @Override
     public CommandResult execute() {
