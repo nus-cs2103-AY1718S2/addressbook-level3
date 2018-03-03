@@ -26,6 +26,10 @@ public class Parser {
                     + " (?<isAddressPrivate>p?)a/(?<address>[^/]+)"
                     + "(?<tagArguments>(?: t/[^/]+)*)"); // variable number of tags
 
+    public static final Pattern EDIT_ARGS_FORMAT = // '/' forward slashes are reserved for delimiter prefixes
+            Pattern.compile("(?<currName>[^/]+)"
+                    + " c/(?<newName>[^/]+)");
+
 
     /**
      * Signals that the user input could not be parsed.
@@ -77,6 +81,9 @@ public class Parser {
 
             case ViewAllCommand.COMMAND_WORD:
                 return prepareViewAll(arguments);
+
+            case EditNameCommand.COMMAND_WORD:
+                return prepareEditName(arguments);
 
             case ExitCommand.COMMAND_WORD:
                 return new ExitCommand();
@@ -226,5 +233,26 @@ public class Parser {
         return new FindCommand(keywordSet);
     }
 
+    /**
+     * Parses arguments in the context of the editName command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareEditName(String args) {
+        final Matcher matcher = EDIT_ARGS_FORMAT.matcher(args.trim());
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    EditNameCommand.MESSAGE_USAGE));
+        }
 
+        try {
+            return new EditNameCommand(
+                    matcher.group("currName"),
+
+                    matcher.group("newName"));
+        } catch (IllegalValueException ive) {
+            return new IncorrectCommand(ive.getMessage());
+        }
+    }
 }

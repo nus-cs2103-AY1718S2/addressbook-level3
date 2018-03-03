@@ -34,6 +34,13 @@ public class Person implements ReadOnlyPerson {
         this(source.getName(), source.getPhone(), source.getEmail(), source.getAddress(), source.getTags());
     }
 
+    /**
+     * Changes current name
+     */
+    public void editName(Name newName){
+        this.name = newName;
+    }
+
     @Override
     public Name getName() {
         return name;
