@@ -202,6 +202,31 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sort_showsAllPersons() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person person1 = helper.generatePersonWithName("Air Blade");
+        Person person2 = helper.generatePersonWithName("Blue Sky");
+        Person person3 = helper.generatePersonWithName("Cia Moto");
+
+        List<Person> expectedList = helper.generatePersonList(person1, person2, person3);
+        List<Person> listInNonSortedOrder = helper.generatePersonList(person3, person2, person1);
+
+        AddressBook expectedAB = helper.generateAddressBook(listInNonSortedOrder);
+
+
+        // prepare address book state
+
+        helper.addToAddressBook(addressBook, listInNonSortedOrder);
+
+        assertCommandBehavior("sort",
+                              Command.getMessageForPersonListShownSummary(expectedList),
+                              expectedAB,
+                              true,
+                              expectedList);
+    }
+
+    @Test
     public void execute_view_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         assertCommandBehavior("view ", expectedMessage);
