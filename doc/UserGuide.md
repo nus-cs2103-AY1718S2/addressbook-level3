@@ -95,6 +95,16 @@ Examples:
 * `find Betsy`<br> 
   `viewall 1`<br>
   Views all details of the 1st person in the results of the `find` command.
+  
+## Edit name of existing entry: `editName`
+Edits the name (case-sensitive) of an existing entry in the address book.<br>
+Format: `editName CURRENTNAME c/NEWNAME`
+
+> Finds the person with CURRENTNAME (if it exists) and changes it to NEWNAME
+
+Examples:
+* `editName John Doe c/Jane Doe`
+* `editName Tomas c/Thomas`
 
 ## Clearing all entries : `clear`
 Clears all entries from the address book.<br>
