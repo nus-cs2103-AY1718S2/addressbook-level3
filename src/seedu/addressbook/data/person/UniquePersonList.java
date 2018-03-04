@@ -30,6 +30,10 @@ public class UniquePersonList implements Iterable<Person> {
 
     private final List<Person> internalList = new ArrayList<>();
 
+    public List<String> getInternalList() {
+        return internalList;
+    }
+
     /**
      * Constructs empty person list.
      */
