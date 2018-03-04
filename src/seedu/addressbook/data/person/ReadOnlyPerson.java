@@ -2,6 +2,7 @@ package seedu.addressbook.data.person;
 
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
+import java.util.StringJoiner;
 
 /**
  * A read-only immutable interface for a Person in the addressbook.
@@ -36,29 +37,14 @@ public interface ReadOnlyPerson {
      * Formats the person as text, showing all contact details.
      */
     default String getAsTextShowAll() {
-        final StringBuilder builder = new StringBuilder();
-        final String detailIsPrivate = "(private) ";
-        builder.append(getName())
-                .append(" Phone: ");
-        if (getPhone().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getPhone())
-                .append(" Email: ");
-        if (getEmail().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getEmail())
-                .append(" Address: ");
-        if (getAddress().isPrivate()) {
-            builder.append(detailIsPrivate);
-        }
-        builder.append(getAddress())
-                .append(" Tags: ");
+        String info = getPrintableString(getName(), getPhone(), getEmail(), getAddress());
+        final StringBuilder sb = new StringBuilder();
+        sb.append(info);
+        sb.append(" Tags: ");
         for (Tag tag : getTags()) {
-            builder.append(tag);
+            sb.append(tag);
         }
-        return builder.toString();
+        return sb.toString();
     }
 
     /**
@@ -81,5 +67,13 @@ public interface ReadOnlyPerson {
             builder.append(tag);
         }
         return builder.toString();
+    }
+
+    default String getPrintableString(Printable... printables) {
+        StringJoiner sj = new StringJoiner(" ");
+        for (Printable printable: printables) {
+            sj.add(printable.getPrintableString());
+        }
+        return sj.toString();
     }
 }
