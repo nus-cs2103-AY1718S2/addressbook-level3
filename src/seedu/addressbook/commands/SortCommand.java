@@ -17,7 +17,7 @@ public class SortCommand extends Command {
 
     @Override
     public CommandResult execute() {
-        List<Person> allPersons = addressbook.getAllPersons().getInternalList();
+        List<Person> allPersons = addressBook.getAllPersons().getInternalList();
         allPersons.sort((Person p1, Person p2) -> (p1.getName().toString()).compareTo(p2.getName().toString()));
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
