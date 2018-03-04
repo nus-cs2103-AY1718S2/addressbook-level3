@@ -178,6 +178,38 @@ public class Parser {
     }
 
     /**
+     * Parses arguments in the context of the edit person command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareEdit(String args) {
+        final Matcher matcher = EDIT_PERSON_ARGS_FORMAT.matcher(args.trim());
+        // Validate arg string format
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
+        try {
+            String rawTargetIndex = matcher.group("targetIndex").trim();
+            String rawAttribute = matcher.group("attribute").trim();
+            final int targetIndex = parseArgsAsDisplayedIndex(rawTargetIndex);
+            final Attribute attribute = Attribute.valueOf(rawAttribute.toUpperCase());
+            final String newValue = matcher.group("newValue").trim();
+            return new EditCommand(
+                    targetIndex,
+                    attribute,
+                    newValue
+            );
+        } catch (ParseException pe) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        } catch (NumberFormatException nfe) {
+            return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        } catch (IllegalArgumentException iae) {
+            return new IncorrectCommand(MESSAGE_INVALID_ATTRIBUTE);
+        }
+    }
+
+    /**
      * Parses arguments in the context of the view command.
      *
      * @param args full command args string
