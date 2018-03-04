@@ -30,7 +30,7 @@ public class UniquePersonList implements Iterable<Person> {
 
     private final List<Person> internalList = new ArrayList<>();
 
-    public List<String> getInternalList() {
+    public List<Person> getInternalList() {
         return internalList;
     }
 
