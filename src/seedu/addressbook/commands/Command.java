@@ -39,7 +39,7 @@ public abstract class Command {
     /**
      * Executes the command and returns the result.
      */
-    public CommandResult execute(){
+    public CommandResult execute() {
         throw new UnsupportedOperationException("This method should be implement in child classes");
     }
 
@@ -61,6 +61,10 @@ public abstract class Command {
      */
     protected ReadOnlyPerson getTargetPerson() throws IndexOutOfBoundsException {
         return relevantPersons.get(getTargetIndex() - DISPLAYED_INDEX_OFFSET);
+    }
+
+    public boolean isMutating() {
+        return false;
     }
 
     public int getTargetIndex() {
