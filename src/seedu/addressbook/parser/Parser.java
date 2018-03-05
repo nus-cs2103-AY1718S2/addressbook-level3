@@ -273,4 +273,5 @@ public class Parser {
     public enum Attribute {
         NAME, PHONE, EMAIL, ADDRESS
     }
+    
 }
