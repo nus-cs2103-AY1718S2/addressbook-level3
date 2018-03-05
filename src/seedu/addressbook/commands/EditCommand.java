@@ -28,7 +28,7 @@ public class EditCommand extends Command {
 
 	public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edit is successful!\n"
 			+ "Original Person: %1$s\n"
-			+ ", Edited Person: %2$s"
+			+ ", Edited Person: %2$s";
 
 	private final Attribute attribute;
 

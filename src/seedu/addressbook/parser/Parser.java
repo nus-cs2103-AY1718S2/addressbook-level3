@@ -22,7 +22,7 @@ public class Parser {
             Pattern.compile("(?<targetIndex>\\S+)"
                     + " (?<attribute>\\S+)"
                     + " (?<newValue>\\S+)");
-                                                                            + 
+                                                                             
     public static final Pattern KEYWORDS_ARGS_FORMAT =
             Pattern.compile("(?<keywords>\\S+(?:\\s+\\S+)*)"); // one or more keywords separated by whitespace
 
@@ -261,7 +261,7 @@ public class Parser {
             return new EditCommand(targetIndex, attribute, newValue);
         } catch (ParseException pe) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    EditCommand(MESSAGE_USAGE));
+                    EditCommand.MESSAGE_USAGE));
         } catch (NumberFormatException nfe) {
             return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         } catch (IllegalArgumentException iae) {
