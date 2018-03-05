@@ -54,7 +54,7 @@ public class EditCommand extends Command {
 			return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS,
 											target.getAsTextHidePrivate(),
 											updatedPerson.getAsTextHidePrivate()));
-		} catch(IndexOutOfBounds ie) {
+		} catch(IndexOutOfBoundsException ie) {
 			return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
 		} catch(PersonNotFoundException pnfe) {
 			return new CommandResult(Messages.MESSAGE_PERSON_NOT_IN_ADDRESSBOOK);
@@ -96,7 +96,7 @@ public class EditCommand extends Command {
 				name = new Name(newValue);
 				break;
 			case PHONE:
-				name = new Phone(newValue, phone.isPrivate());
+				phone = new Phone(newValue, phone.isPrivate());
 				break;
 		}
 

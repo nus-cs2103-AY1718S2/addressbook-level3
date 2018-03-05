@@ -256,7 +256,7 @@ public class Parser {
             String originalTargetIndex = matcher.group("targetIndex").trim();
             String originalAttribute = matcher.group("attribute").trim();
             final int targetIndex = parseArgsAsDisplayedIndex(originalTargetIndex);
-            final Attribute attribute = Attribute.valueOf(rawAttribute.toUpperCase());
+            final Attribute attribute = Attribute.valueOf(originalAttribute.toUpperCase());
             final String newValue = matcher.group("newValue").trim();
             return new EditCommand(targetIndex, attribute, newValue);
         } catch (ParseException pe) {
