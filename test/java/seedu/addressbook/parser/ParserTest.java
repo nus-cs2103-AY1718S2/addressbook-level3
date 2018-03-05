@@ -58,12 +58,6 @@ public class ParserTest {
         final String input = "list";
         parseAndAssertCommandType(input, ListCommand.class);
     }
-	
-	 @Test
-    public void listCommand_parsedCorrectly() {
-        final String input = "sort";
-        parseAndAssertCommandType(input, SortCommand.class);
-    }
 
     @Test
     public void exitCommand_parsedCorrectly() {
