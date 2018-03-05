@@ -14,6 +14,7 @@ import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED
 /**
  * Parses user input.
  */
+//Solution below adapted from https://github.com/nus-cs2103-AY1718S2/addressbook-level3/pull/749/files
 public class Parser {
 
     public static final Pattern PERSON_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>.+)");

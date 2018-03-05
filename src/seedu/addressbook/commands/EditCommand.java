@@ -16,6 +16,8 @@ import seedu.addressbook.parser.Parser.Attribute;
  * based on the last-displayed index of the person in the address book
  * by updating his/her atttribute with the new value.
  */
+
+//Solution below adapted from https://github.com/nus-cs2103-AY1718S2/addressbook-level3/pull/749/files
 public class EditCommand extends Command {
 
 	public static final String COMMAND_WORD = "edit";
