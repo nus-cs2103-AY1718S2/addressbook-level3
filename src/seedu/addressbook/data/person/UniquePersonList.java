@@ -30,6 +30,7 @@ public class UniquePersonList implements Iterable<Person> {
 
     private final List<Person> internalList = new ArrayList<>();
 
+    
     /**
      * Constructs empty person list.
      */
@@ -106,6 +107,18 @@ public class UniquePersonList implements Iterable<Person> {
         }
     }
 
+    /**
+     * Sort all persons in alphabetical order
+     * 
+     */
+    public void sort() {
+    	internalList.sort(
+    			Comparator.comparing((Person p) -> p.getName().toString(),
+    					(p1,p2)->(p1.compareToIgnoreCase(p2)==0) ? p1.compareTo(p2): p1.compareToIgnoreCase(p2))
+    			);
+    }
+    
+    
     /**
      * Clears all persons in list.
      */

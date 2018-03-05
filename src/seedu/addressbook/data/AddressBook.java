@@ -81,7 +81,12 @@ public class AddressBook {
         syncTagsWithMasterList(toAdd);
         allPersons.add(toAdd);
     }
-
+    /**
+     * Sort all persons by name in alphabectical order.
+     */
+    public void sort() {
+    	allPersons.sort();
+    }
     /**
      * Checks if an equivalent person exists in the address book.
      */
