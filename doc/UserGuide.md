@@ -66,6 +66,24 @@ Examples:
   `delete 1`<br>
   Deletes the 1st person in the results of the `find` command.
 
+## Editing a person: `edit`
+Edits a particular attribute of a person in the address book. Irreversible.<br>
+Format: `edit INDEX ATTRIBUTE NEW_VALUE`
+
+> Edits the person at the specified `INDEX` by replacing the `ATTRIBUTE` of the person with the `NEW_VALUE`. 
+  The index refers to the index number shown in the most recent listing.
+
+> If an invalid `ATTRIBUTE` is entered or the `NEW_VALUE` that is entered is identical
+  to the current value of the `ATTRIBUTE`, there will be no changes to be made.
+
+  Examples: 
+* `list`<br>
+  `edit 2 phone 90091234`<br>
+  Edits the 2nd person in the address book by updating his/her phone number to "90091234".
+  `list`<br>
+  `edit 1 name Jake`<br>
+  Edits the 1st person in the address book by updating his/her name to "Jake".
+  
 ## View non-private details of a person : `view`
 Displays the non-private details of the specified person.<br>
 Format: `view INDEX`
