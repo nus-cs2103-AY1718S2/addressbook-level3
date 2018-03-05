@@ -23,11 +23,11 @@ public class Name {
      * @throws IllegalValueException if given name string is invalid.
      */
     public Name(String name) throws IllegalValueException {
-        name = name.toLowerCase().trim();
+        name = name.trim();
         if (!isValidName(name)) {
             throw new IllegalValueException(MESSAGE_NAME_CONSTRAINTS);
         }
-        this.fullName = name.toLowerCase();
+        this.fullName = name;
     }
 
     /**
@@ -41,12 +41,12 @@ public class Name {
      * Retrieves a listing of every word in the name, in order.
      */
     public List<String> getWordsInName() {
-        return Arrays.asList(fullName.toLowerCase().split("\\s+"));
+        return Arrays.asList(fullName.split("\\s+"));
     }
 
     @Override
     public String toString() {
-        return fullName.toLowerCase();
+        return fullName;
     }
 
     @Override
