@@ -104,6 +104,11 @@ public class StorageFileTest {
                                 new Email("betsycrowe@gmail.com", false),
                                 new Address("Newgate Prison", true),
                                 new UniqueTagList(new Tag("friend"), new Tag("criminal"))));
+        ab.addPerson(new Person(new Name("john tan"),
+                                new Phone("90001234", false),
+                                new Email("johntan@gmail.com", false),
+                                new Address("Baker street, block 999, #05-09", false),
+                                new UniqueTagList(Collections.emptySet())));
         return ab;
     }
 }
