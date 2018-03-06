@@ -195,10 +195,34 @@ public class LogicTest {
         helper.addToAddressBook(addressBook, false, true);
 
         assertCommandBehavior("list",
-                              Command.getMessageForPersonListShownSummary(expectedList),
-                              expectedAB,
-                              true,
-                              expectedList);
+                Command.getMessageForPersonListShownSummary(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+    }
+
+    @Test
+    public void execute_list_showAllPerson() throws Exception {
+        //prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person person1 = helper.generatePersonWithName("Airy");
+        Person person2 = helper.generatePersonWithName("Bily");
+        Person person3 = helper.generatePersonWithName("Cily");
+
+        List<Person> expectedList = helper.generatePersonList(person1,person2,person3);
+        List<Person> unexpectedList = helper.generatePersonList(person2,person3,person1);
+
+        AddressBook expectedAB = helper.generateAddressBook(unexpectedList);
+
+        //prepare Addressbook state
+        helper.addToAddressBook(addressBook,unexpectedList);
+
+        assertCommandBehavior("sort",
+                Command.getMessageForPersonListShownSummary(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+
     }
 
     @Test
