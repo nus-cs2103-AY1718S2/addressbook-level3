@@ -16,7 +16,7 @@ public class SortCommand extends Command{
 
     @Override
     public CommandResult execute() {
-        //To be implemented
-        return new CommandResult("To be implemented");
+        this.addressBook.sort();
+        return new CommandResult("Address Book sorted!");
     }
 }
