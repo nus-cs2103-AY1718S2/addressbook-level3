@@ -457,6 +457,50 @@ public class LogicTest {
                                 expectedList);
     }
 
+    @Test
+    public void execute_sort_emptyAddressBook() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        List<Person> emptyList = new ArrayList<>();
+        List<Person> expectedList = new ArrayList<>();
+        //Empty AddressBook expected
+        AddressBook expectedAB = helper.generateAddressBook(expectedList);
+        //add empty list into AddressBook
+        helper.addToAddressBook(addressBook, emptyList);
+        assertCommandBehavior("sort",
+                                Messages.MESSAGE_SORTED,
+                                expectedAB,
+                                false,
+                                expectedList);
+    }
+
+    @Test
+    public void execute_sort_unorderedAddressBook() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        Person pTarget1 = helper.generatePersonWithName("A");
+        Person pTarget2 = helper.generatePersonWithName("B");
+        Person pTarget3 = helper.generatePersonWithName("C");
+        Person pTarget4 = helper.generatePersonWithName("D");
+        Person p1 = helper.generatePersonWithName("D");
+        Person p2 = helper.generatePersonWithName("A");
+        Person p3 = helper.generatePersonWithName("C");
+        Person p4 = helper.generatePersonWithName("B");
+        //prepare unordered list
+        List<Person> unorderedList = helper.generatePersonList(p1,p2,p3,p4);
+        //Expect sorted list
+        List<Person> expectedList = helper.generatePersonList(pTarget1,pTarget2,pTarget3,pTarget4);
+        //No last shown list so expect empty
+        List<Person> emptyList = new ArrayList<>();
+        //Sorted AddressBook expected
+        AddressBook expectedAB = helper.generateAddressBook(expectedList);
+        //add unordered list into AddressBook
+        helper.addToAddressBook(addressBook, unorderedList);
+        assertCommandBehavior("sort",
+                Messages.MESSAGE_SORTED,
+                expectedAB,
+                false,
+                emptyList);
+    }
+
     /**
      * A utility class to generate test data.
      */
