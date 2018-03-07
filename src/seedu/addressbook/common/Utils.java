@@ -3,6 +3,7 @@ package seedu.addressbook.common;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import seedu.addressbook.data.person.Printable;
 
 /**
  * Utility methods
@@ -33,5 +34,17 @@ public class Utils {
             }
         }
         return true;
+    }
+
+    /**
+     * Returns a concatenated version of the printable strings of each object.
+     */
+    public static String getPrintableString(Printable... printables) {
+        StringBuilder sb = new StringBuilder();
+        for (Printable printable: printables) {
+            sb.append(printable.getPrintableString());
+            sb.append("\n");
+        }
+        return sb.toString();
     }
 }
