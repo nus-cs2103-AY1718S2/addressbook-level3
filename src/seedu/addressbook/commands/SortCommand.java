@@ -1,7 +1,6 @@
 package seedu.addressbook.commands;
 
-import seedu.addressbook.data.person.ReadOnlyPerson;
-import java.util.List;
+import seedu.addressbook.common.Messages;
 
 /**
  * Sorts entries in the address book according to first name.
@@ -14,9 +13,10 @@ public class SortCommand extends Command{
             + ": Sorts entries in the address book according to first name.\n"
             + "Example: " + COMMAND_WORD;
 
+
     @Override
     public CommandResult execute() {
         this.addressBook.sort();
-        return new CommandResult("Address Book sorted!");
+        return new CommandResult(Messages.MESSAGE_SORTED);
     }
 }
