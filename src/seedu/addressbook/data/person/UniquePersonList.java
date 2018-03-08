@@ -131,4 +131,11 @@ public class UniquePersonList implements Iterable<Person> {
         return internalList.hashCode();
     }
 
+    /**
+     * Sorts all persons in the list according to their full name
+     */
+    public void sort(){
+        internalList.sort((personA, personB) -> (personA.getName().fullName.toLowerCase().compareTo(personB.getName().fullName.toLowerCase())));
+    }
+
 }
