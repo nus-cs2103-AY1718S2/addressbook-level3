@@ -41,19 +41,19 @@ public class Name {
      * Retrieves a listing of every word in the name, in order.
      */
     public List<String> getWordsInName() {
-        return Arrays.asList(fullName.toLowerCase().split("\\s+"));
+        return Arrays.asList(fullName.split("\\s+"));
     }
 
     @Override
     public String toString() {
-        return fullName.toLowerCase();
+        return fullName;
     }
 
     @Override
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Name // instanceof handles nulls
-                && this.fullName.toLowerCase().equals(((Name) other).fullName.toLowerCase())); // state check
+                && this.fullName.equals(((Name) other).fullName.)); // state check
     }
 
     @Override
