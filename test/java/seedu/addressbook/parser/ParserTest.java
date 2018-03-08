@@ -52,6 +52,11 @@ public class ParserTest {
         final String input = "clear";
         parseAndAssertCommandType(input, ClearCommand.class);
     }
+    @Test
+    public void sortCommand_parsedCorrectly() {
+        final String input = "sort";
+        parseAndAssertCommandType(input, SortCommand.class);
+    }
 
     @Test
     public void listCommand_parsedCorrectly() {

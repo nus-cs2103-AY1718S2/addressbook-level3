@@ -457,6 +457,50 @@ public class LogicTest {
                                 expectedList);
     }
 
+    @Test
+    public void execute_sort_nonEmptyAddressBook() throws Exception {
+        TestDataHelper testDatahelper = new TestDataHelper();
+        Person target1 = testDatahelper.generatePersonWithName("A");
+        Person target2 = testDatahelper.generatePersonWithName("B");
+        Person target3 = testDatahelper.generatePersonWithName("C");
+        Person target4 = testDatahelper.generatePersonWithName("D");
+        Person person1 = testDatahelper.generatePersonWithName("D");
+        Person person2 = testDatahelper.generatePersonWithName("B");
+        Person person3 = testDatahelper.generatePersonWithName("C");
+        Person person4 = testDatahelper.generatePersonWithName("A");
+        //get an unsorted list
+        List<Person> unsortedList = testDatahelper.generatePersonList(person1,person2,person3,person4);
+        //Expect sorted list
+        List<Person> expectedList = testDatahelper.generatePersonList(target1,target2,target3,target4);
+        //No last shown list so expect empty
+        List<Person> emptyList = new ArrayList<>();
+        //Sorted AddressBook expected
+        AddressBook expectedAB = testDatahelper.generateAddressBook(expectedList);
+        //add unsorted list into AddressBook
+        testDatahelper.addToAddressBook(addressBook, unsortedList);
+        assertCommandBehavior("sort",
+                                Messages.MESSAGE_SORTED,
+                                expectedAB,
+                                false,
+                                emptyList);
+    }
+
+    @Test
+    public void execute_sort_emptyAddressBook() throws Exception {
+        TestDataHelper testDatahelper = new TestDataHelper();
+        List<Person> emptyList = new ArrayList<>();
+        List<Person> expectedList = new ArrayList<>();
+        //Empty AddressBook expected
+        AddressBook expectedAB = testDatahelper.generateAddressBook(expectedList);
+        //add empty list into AddressBook
+        testDatahelper.addToAddressBook(addressBook, emptyList);
+        assertCommandBehavior("sort",
+                                Messages.MESSAGE_SORTED,
+                                expectedAB,
+                                false,
+                                expectedList);
+    }
+
     /**
      * A utility class to generate test data.
      */
