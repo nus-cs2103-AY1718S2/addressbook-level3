@@ -18,12 +18,12 @@ public class Name {
     public final String fullName;
 
     /**
-     * Validates given name.
+     * Validates the given name.
      *
      * @throws IllegalValueException if given name string is invalid.
      */
     public Name(String name) throws IllegalValueException {
-        name = name.toLowerCase().trim();
+        name = name.trim();
         if (!isValidName(name)) {
             throw new IllegalValueException(MESSAGE_NAME_CONSTRAINTS);
         }
@@ -53,7 +53,7 @@ public class Name {
     public boolean equals(Object other) {
         return other == this // short circuit if same object
                 || (other instanceof Name // instanceof handles nulls
-                && this.fullName.equals(((Name) other).fullName.)); // state check
+                && this.fullName.equals(((Name) other).fullName)); // state check
     }
 
     @Override
