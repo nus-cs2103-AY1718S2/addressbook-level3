@@ -318,6 +318,75 @@ public class ParserTest {
         }
     }
 
+    @Test
+    public void editCommand_validPersonData_parsedCorrectly() {
+        // setup
+        final Person testPersonOld = generateTestPerson();
+        final String input = convertPersonToAddCommandString(testPersonOld);
+        parseAndAssertCommandType(input, AddCommand.class);
+
+        final String editCommandFormatString = "edit $s $s $s";
+        final String newName = "Ryan";
+        final String newPhone = "99999999";
+        final String newEmail = "ryan@hello.com";
+        final String newAddress = "Street of Istana";
+
+        final String[] inputs = {
+                String.format(editCommandFormatString, 1, "name", newName),
+                String.format(editCommandFormatString, 1, "phone", newPhone),
+                String.format(editCommandFormatString, 1, "email", newEmail),
+                String.format(editCommandFormatString, 1, "address", newAddress)
+        };
+
+        try {
+            Person[] expected = {
+                    new Person(
+                            new Name(newName),
+                            new Phone(Phone.EXAMPLE, true),
+                            new Email(Email.EXAMPLE, false),
+                            new Address(Address.EXAMPLE, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    ),
+                    new Person(
+                            new Name(Name.EXAMPLE),
+                            new Phone(newPhone, true),
+                            new Email(Email.EXAMPLE, false),
+                            new Address(Address.EXAMPLE, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    ),
+                    new Person(
+                            new Name(Name.EXAMPLE),
+                            new Phone(Phone.EXAMPLE, true),
+                            new Email(newEmail, false),
+                            new Address(Address.EXAMPLE, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    ),
+                    new Person(
+                            new Name(Name.EXAMPLE),
+                            new Phone(Phone.EXAMPLE, true),
+                            new Email(Email.EXAMPLE, false),
+                            new Address(newAddress, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    )
+            };
+            for (int i = 0; i < inputs.length; i++) {
+                final EditCommand editResult = parseAndAssertCommandType(inputs[i], EditCommand.class);
+                assertEquals(editResult.getUpdatedPerson(), expected[i]);
+            }
+        } catch (IllegalValueException ive) {
+            throw new RuntimeException("test person data should be valid by definition");
+        }
+    }
+
+
     /**
      * Utility methods
      */
