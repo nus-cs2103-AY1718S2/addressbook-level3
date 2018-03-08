@@ -7,15 +7,23 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_ATTRIBUTE;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 
 /**
  * Parses user input.
  */
+//Solution below adapted from https://github.com/nus-cs2103-AY1718S2/addressbook-level3/pull/749/files
 public class Parser {
 
     public static final Pattern PERSON_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>.+)");
 
+    public static final Pattern EDIT_PERSON_ARGS_FORMAT =
+            Pattern.compile("(?<targetIndex>\\S+)"
+                    + " (?<attribute>\\S+)"
+                    + " (?<newValue>\\S+)");
+                                                                             
     public static final Pattern KEYWORDS_ARGS_FORMAT =
             Pattern.compile("(?<keywords>\\S+(?:\\s+\\S+)*)"); // one or more keywords separated by whitespace
 
@@ -63,6 +71,9 @@ public class Parser {
             case DeleteCommand.COMMAND_WORD:
                 return prepareDelete(arguments);
 
+            case EditCommand.COMMAND_WORD:
+                return prepareEdit(arguments);
+
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
 
@@ -72,6 +83,9 @@ public class Parser {
             case ListCommand.COMMAND_WORD:
                 return new ListCommand();
 
+            case SortCommand.COMMAND_WORD:
+            	return new SortCommand();
+            	
             case ViewCommand.COMMAND_WORD:
                 return prepareView(arguments);
 
@@ -140,7 +154,6 @@ public class Parser {
         return new HashSet<>(tagStrings);
     }
 
-
     /**
      * Parses arguments in the context of the delete person command.
      *
@@ -148,6 +161,7 @@ public class Parser {
      * @return the prepared command
      */
     private Command prepareDelete(String args) {
+        
         try {
             final int targetIndex = parseArgsAsDisplayedIndex(args);
             return new DeleteCommand(targetIndex);
@@ -214,7 +228,7 @@ public class Parser {
      * @return the prepared command
      */
     private Command prepareFind(String args) {
-        final Matcher matcher = KEYWORDS_ARGS_FORMAT.matcher(args.trim());
+        final Matcher matcher = KEYWORDS_ARGS_FORMAT.matcher(args.toLowerCase().trim());
         if (!matcher.matches()) {
             return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
                     FindCommand.MESSAGE_USAGE));
@@ -226,5 +240,38 @@ public class Parser {
         return new FindCommand(keywordSet);
     }
 
+    /**
+     * Parses arguments in the context of the editing person command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareEdit(String args) {
+        final Matcher matcher = KEYWORDS_ARGS_FORMAT.matcher(args.trim());
+        // Validate arg string format
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    EditCommand.MESSAGE_USAGE));
+        }
+        try {
+            String originalTargetIndex = matcher.group("targetIndex").trim();
+            String originalAttribute = matcher.group("attribute").trim();
+            final int targetIndex = parseArgsAsDisplayedIndex(originalTargetIndex);
+            final Attribute attribute = Attribute.valueOf(originalAttribute.toUpperCase());
+            final String newValue = matcher.group("newValue").trim();
+            return new EditCommand(targetIndex, attribute, newValue);
+        } catch (ParseException pe) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                    EditCommand.MESSAGE_USAGE));
+        } catch (NumberFormatException nfe) {
+            return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        } catch (IllegalArgumentException iae) {
+            return new IncorrectCommand(MESSAGE_INVALID_ATTRIBUTE);
+        }
+    }
 
+    public enum Attribute {
+        NAME, PHONE, EMAIL, ADDRESS
+    }
+    
 }
