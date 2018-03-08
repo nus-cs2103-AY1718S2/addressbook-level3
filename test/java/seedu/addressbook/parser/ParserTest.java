@@ -296,6 +296,28 @@ public class ParserTest {
         parseAndAssertIncorrectWithMessage(newResultMessage, correctNumArgsButWrongType);
     }
 
+    @Test
+    public void editCommand_invalidNewValueDataInArgs() {
+        final String invalidName = "[]\\[;]";
+        final String invalidPhoneArg = "p/not__numbers";
+        final String invalidEmailArg = "e/notAnEmail123";
+
+        final String addCommandFormatString = "edit $s $s $s";
+
+        // test each incorrect person data field argument individually
+        final String[] inputs = {
+                // invalid name
+                String.format(addCommandFormatString, 1, "name", invalidName),
+                // invalid phone
+                String.format(addCommandFormatString, 1, "phone", invalidPhoneArg),
+                // invalid email
+                String.format(addCommandFormatString, 1, "email", invalidEmailArg),
+         };
+        for (String input : inputs) {
+            parseAndAssertCommandType(input, IncorrectCommand.class);
+        }
+    }
+
     /**
      * Utility methods
      */
