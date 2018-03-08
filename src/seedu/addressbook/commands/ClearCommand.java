@@ -1,7 +1,7 @@
 package seedu.addressbook.commands;
 
 /**
- * Clears all persons from the address book.
+ * Clears the address book.
  */
 public class ClearCommand extends Command {
 
