@@ -31,12 +31,14 @@ public class EditCommand extends Command {
 
     private final Attribute attribute;
     private final String newValue;
+    private Person updatedPerson;
 
 
     public EditCommand(int targetVisibleIndex, Attribute attribute, String newValue) {
         super(targetVisibleIndex);
         this.attribute = attribute;
         this.newValue = newValue;
+        updatedPerson = null;
     }
 
 
@@ -47,7 +49,7 @@ public class EditCommand extends Command {
             if (isNewValueSameAsOld(target)) {
                 return new CommandResult(Messages.MESSAGE_INVALID_NEW_VALUE);
             }
-            Person updatedPerson = updateExistingPerson(target);
+            updatedPerson = updateExistingPerson(target);
             addressBook.removePerson(target);
             addressBook.addPerson(updatedPerson);
             return new CommandResult(String.format(MESSAGE_EDIT_PERSON_SUCCESS,
@@ -98,5 +100,9 @@ public class EditCommand extends Command {
                 break;
         }
         return new Person(name, phone, email, address, existingPerson.getTags());
+    }
+
+    public Person getUpdatedPerson() {
+        return updatedPerson;
     }
 }
