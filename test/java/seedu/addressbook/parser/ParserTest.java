@@ -175,10 +175,10 @@ public class ParserTest {
         assertEquals(keySet, result.getKeywords());
     }
 
-    /**
+       /**
      * Test add person command
      */
-    
+
     @Test
     public void addCommand_invalidArgs() {
         final String[] inputs = {
