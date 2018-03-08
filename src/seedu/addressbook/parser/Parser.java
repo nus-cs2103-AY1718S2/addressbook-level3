@@ -1,13 +1,30 @@
 package seedu.addressbook.parser;
 
-import seedu.addressbook.commands.*;
+import seedu.addressbook.commands.AddCommand;
+import seedu.addressbook.commands.ClearCommand;
+import seedu.addressbook.commands.Command;
+import seedu.addressbook.commands.DeleteCommand;
+import seedu.addressbook.commands.EditCommand;
+import seedu.addressbook.commands.ExitCommand;
+import seedu.addressbook.commands.FindCommand;
+import seedu.addressbook.commands.HelpCommand;
+import seedu.addressbook.commands.IncorrectCommand;
+import seedu.addressbook.commands.ListCommand;
+import seedu.addressbook.commands.ViewAllCommand;
+import seedu.addressbook.commands.ViewCommand;
 import seedu.addressbook.data.exception.IllegalValueException;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_ATTRIBUTE;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 
 /**
  * Parses user input.
@@ -15,6 +32,10 @@ import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 public class Parser {
 
     public static final Pattern PERSON_INDEX_ARGS_FORMAT = Pattern.compile("(?<targetIndex>.+)");
+
+    public static final Pattern EDIT_PERSON_ARGS_FORMAT = Pattern.compile("(?<targetIndex>\\S+)"
+            + " (?<attribute>\\S+)"
+            + " (?<newValue>\\S+)");
 
     public static final Pattern KEYWORDS_ARGS_FORMAT =
             Pattern.compile("(?<keywords>\\S+(?:\\s+\\S+)*)"); // one or more keywords separated by whitespace
@@ -62,6 +83,9 @@ public class Parser {
 
             case DeleteCommand.COMMAND_WORD:
                 return prepareDelete(arguments);
+
+            case EditCommand.COMMAND_WORD:
+                return prepareEdit(arguments);
 
             case ClearCommand.COMMAND_WORD:
                 return new ClearCommand();
@@ -157,6 +181,38 @@ public class Parser {
     }
 
     /**
+     * Parses arguments in the context of the edit person command.
+     *
+     * @param args full command args string
+     * @return the prepared command
+     */
+    private Command prepareEdit(String args) {
+        final Matcher matcher = EDIT_PERSON_ARGS_FORMAT.matcher(args.trim());
+        // Validate arg string format
+        if (!matcher.matches()) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        }
+        try {
+            String rawTargetIndex = matcher.group("targetIndex").trim();
+            String rawAttribute = matcher.group("attribute").trim();
+            final int targetIndex = parseArgsAsDisplayedIndex(rawTargetIndex);
+            final Attribute attribute = Attribute.valueOf(rawAttribute.toUpperCase());
+            final String newValue = matcher.group("newValue").trim();
+            return new EditCommand(
+                    targetIndex,
+                    attribute,
+                    newValue
+            );
+        } catch (ParseException pe) {
+            return new IncorrectCommand(String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE));
+        } catch (NumberFormatException nfe) {
+            return new IncorrectCommand(MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        } catch (IllegalArgumentException iae) {
+            return new IncorrectCommand(MESSAGE_INVALID_ATTRIBUTE);
+        }
+    }
+
+    /**
      * Parses arguments in the context of the view command.
      *
      * @param args full command args string
@@ -226,5 +282,7 @@ public class Parser {
         return new FindCommand(keywordSet);
     }
 
-
+    public enum Attribute {
+        NAME, PHONE, EMAIL, ADDRESS
+    }
 }

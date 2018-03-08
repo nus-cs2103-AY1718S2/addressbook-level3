@@ -51,6 +51,27 @@ Examples:
 * `find Betsy Tim John`<br>
   Returns Any person having names `Betsy`, `Tim`, or `John`
 
+### Editing a person : `edit`
+Edits the specified person from the address book. Irreversible.<br>
+Format: `EDIT INDEX ATTRIBUTE NEW_VALUE`
+
+> Edits the person at the specified `INDEX` by replacing their `ATTRIBUTE` with the `NEW_VALUE`.
+> The index refers to the index number shown in the most recent listing.
+>
+> If an invalid `ATTRIBUTE` is given or the given `NEW_VALUE` is identical to the respective old value,
+> no changes will be made.
+
+Examples:
+* `list`<br>
+  `edit 1 name Ryan`<br>
+  Edits the 1st person in the address book, changing his / her name to "Ryan".
+* `find Betsy`<br>
+  `edit 2 phone 98765432`<br>
+  Edits the 2nd person in the results of the `find` command, changing his / her phone number to "98765432".
+* `find Daniel`<br>
+  `edit 3 email example@hello.com`<br>
+  Edits the 3rd person in the results of the `find` command, changing his / her email address to "example@hello.com".
+
 ## Deleting a person : `delete`
 Deletes the specified person from the address book. Irreversible.<br>
 Format: `delete INDEX`

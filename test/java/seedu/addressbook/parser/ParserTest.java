@@ -14,6 +14,7 @@ import java.util.Set;
 
 import static org.junit.Assert.*;
 import static seedu.addressbook.common.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.addressbook.common.Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
 
 public class ParserTest {
 
@@ -175,10 +176,10 @@ public class ParserTest {
         assertEquals(keySet, result.getKeywords());
     }
 
-    /**
+       /**
      * Test add person command
      */
-    
+
     @Test
     public void addCommand_invalidArgs() {
         final String[] inputs = {
@@ -249,11 +250,11 @@ public class ParserTest {
     private static Person generateTestPerson() {
         try {
             return new Person(
-                new Name(Name.EXAMPLE),
-                new Phone(Phone.EXAMPLE, true),
-                new Email(Email.EXAMPLE, false),
-                new Address(Address.EXAMPLE, true),
-                new UniqueTagList(new Tag("tag1"), new Tag("tag2"), new Tag("tag3"))
+                    new Name(Name.EXAMPLE),
+                    new Phone(Phone.EXAMPLE, true),
+                    new Email(Email.EXAMPLE, false),
+                    new Address(Address.EXAMPLE, true),
+                    new UniqueTagList(new Tag("tag1"), new Tag("tag2"), new Tag("tag3"))
             );
         } catch (IllegalValueException ive) {
             throw new RuntimeException("test person data should be valid by definition");
@@ -271,6 +272,121 @@ public class ParserTest {
         }
         return addCommand;
     }
+
+    /**
+     * Test edit person command
+     */
+
+    @Test
+    public void editCommand_invalidArgs() {
+        final String[] inputs = {
+                "edit",
+                "edit ",
+                // no index
+                String.format("edit $s $s", "name", Name.EXAMPLE),
+                // no attribute
+                String.format("edit $s $s", 1, Name.EXAMPLE),
+                // no new value
+                String.format("edit $s $s", 1, "name")
+        };
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+
+        final String correctNumArgsButWrongType = "edit wrong args format";
+        final String newResultMessage = MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
+        parseAndAssertIncorrectWithMessage(newResultMessage, correctNumArgsButWrongType);
+    }
+
+    @Test
+    public void editCommand_invalidNewValueDataInArgs() {
+        final String invalidName = "[]\\[;]";
+        final String invalidPhoneArg = "p/not__numbers";
+        final String invalidEmailArg = "e/notAnEmail123";
+
+        final String addCommandFormatString = "edit $s $s $s";
+
+        // test each incorrect person data field argument individually
+        final String[] inputs = {
+                // invalid name
+                String.format(addCommandFormatString, 1, "name", invalidName),
+                // invalid phone
+                String.format(addCommandFormatString, 1, "phone", invalidPhoneArg),
+                // invalid email
+                String.format(addCommandFormatString, 1, "email", invalidEmailArg),
+         };
+        for (String input : inputs) {
+            parseAndAssertCommandType(input, IncorrectCommand.class);
+        }
+    }
+
+    @Test
+    public void editCommand_validPersonData_parsedCorrectly() {
+        // setup
+        final Person testPersonOld = generateTestPerson();
+        final String input = convertPersonToAddCommandString(testPersonOld);
+        parseAndAssertCommandType(input, AddCommand.class);
+
+        final String editCommandFormatString = "edit $s $s $s";
+        final String newName = "Ryan";
+        final String newPhone = "99999999";
+        final String newEmail = "ryan@hello.com";
+        final String newAddress = "Street of Istana";
+
+        final String[] inputs = {
+                String.format(editCommandFormatString, 1, "name", newName),
+                String.format(editCommandFormatString, 1, "phone", newPhone),
+                String.format(editCommandFormatString, 1, "email", newEmail),
+                String.format(editCommandFormatString, 1, "address", newAddress)
+        };
+
+        try {
+            Person[] expected = {
+                    new Person(
+                            new Name(newName),
+                            new Phone(Phone.EXAMPLE, true),
+                            new Email(Email.EXAMPLE, false),
+                            new Address(Address.EXAMPLE, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    ),
+                    new Person(
+                            new Name(Name.EXAMPLE),
+                            new Phone(newPhone, true),
+                            new Email(Email.EXAMPLE, false),
+                            new Address(Address.EXAMPLE, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    ),
+                    new Person(
+                            new Name(Name.EXAMPLE),
+                            new Phone(Phone.EXAMPLE, true),
+                            new Email(newEmail, false),
+                            new Address(Address.EXAMPLE, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    ),
+                    new Person(
+                            new Name(Name.EXAMPLE),
+                            new Phone(Phone.EXAMPLE, true),
+                            new Email(Email.EXAMPLE, false),
+                            new Address(newAddress, true),
+                            new UniqueTagList(new Tag("tag1"),
+                                    new Tag("tag2"),
+                                    new Tag("tag3"))
+                    )
+            };
+            for (int i = 0; i < inputs.length; i++) {
+                final EditCommand editResult = parseAndAssertCommandType(inputs[i], EditCommand.class);
+                assertEquals(editResult.getUpdatedPerson(), expected[i]);
+            }
+        } catch (IllegalValueException ive) {
+            throw new RuntimeException("test person data should be valid by definition");
+        }
+    }
+
 
     /**
      * Utility methods
