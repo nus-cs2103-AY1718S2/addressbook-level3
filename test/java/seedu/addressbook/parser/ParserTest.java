@@ -273,6 +273,30 @@ public class ParserTest {
     }
 
     /**
+     * Test edit person command
+     */
+
+    @Test
+    public void editCommand_invalidArgs() {
+        final String[] inputs = {
+                "edit",
+                "edit ",
+                // no index
+                String.format("edit $s $s", "name", Name.EXAMPLE),
+                // no attribute
+                String.format("edit $s $s", 1, Name.EXAMPLE),
+                // no new value
+                String.format("edit $s $s", 1, "name")
+        };
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+
+        final String correctNumArgsButWrongType = "edit wrong args format";
+        final String newResultMessage = MESSAGE_INVALID_PERSON_DISPLAYED_INDEX;
+        parseAndAssertIncorrectWithMessage(newResultMessage, correctNumArgsButWrongType);
+    }
+
+    /**
      * Utility methods
      */
 
