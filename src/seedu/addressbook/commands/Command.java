@@ -36,6 +36,9 @@ public abstract class Command {
         return String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, personsDisplayed.size());
     }
 
+    public static String getMessageForSortedPersonListShownSummary() {
+        return String.format(Messages.MESSAGE_PERSONS_SORTED);
+    }
     /**
      * Executes the command and returns the result.
      */

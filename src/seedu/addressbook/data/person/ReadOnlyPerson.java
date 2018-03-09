@@ -3,6 +3,7 @@ package seedu.addressbook.data.person;
 import seedu.addressbook.data.tag.Tag;
 import seedu.addressbook.data.tag.UniqueTagList;
 
+
 /**
  * A read-only immutable interface for a Person in the addressbook.
  * Implementations should guarantee: details are present and not null, field values are validated.
@@ -19,6 +20,7 @@ public interface ReadOnlyPerson {
      * changes on the returned list will not affect the person's internal tags.
      */
     UniqueTagList getTags();
+
 
     /**
      * Returns true if the values inside this object is same as those of the other (Note: interfaces cannot override .equals)
@@ -82,4 +84,6 @@ public interface ReadOnlyPerson {
         }
         return builder.toString();
     }
+
+
 }
