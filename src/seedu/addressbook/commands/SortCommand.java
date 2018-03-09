@@ -23,7 +23,7 @@ public class SortCommand extends Command {
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson>allPersons = sortList();
-        return new CommandResult(getMessageForSortedPersonListShownSummary(), allPersons);
+        return new CommandResult(getMessageForSortedPersonListShownSummary(allPersons), allPersons);
     }
 
     private List<ReadOnlyPerson> sortList() {

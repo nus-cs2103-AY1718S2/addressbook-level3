@@ -212,17 +212,18 @@ public class LogicTest {
         Person p3 = helper.generatePersonWithName("Caleb");
         Person p4 = helper.generatePersonWithName("Daniel");
 
-        List<Person> unsortedList = helper.generatePersonList(p1, p3, p2, p4);
+        List<Person> fourPersons = helper.generatePersonList(p1, p3, p2, p4);
         List<Person> expectedList = helper.generatePersonList(p1, p2, p3, p4);
         List<Person> emptyList = new ArrayList<>();
         AddressBook expectedAB = helper.generateAddressBook(expectedList);
-        helper.addToAddressBook(addressBook, unsortedList);
+        helper.addToAddressBook(addressBook, fourPersons);
         assertCommandBehavior("sort",
-                Command.getMessageForSortedPersonListShownSummary(),
+                Command.getMessageForSortedPersonListShownSummary(expectedList),
                 expectedAB,
                 true,
-                emptyList);
+                expectedList);
     }
+
 
     @Test
     public void execute_view_invalidArgsFormat() throws Exception {
