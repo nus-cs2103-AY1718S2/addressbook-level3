@@ -7,7 +7,11 @@ import seedu.addressbook.data.person.Person;
 public class SortCommand extends Command {
 
     public static final String COMMAND_WORD = "sort";
-    //do something
+
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n"
+            + "Sort all people in alphabetical order.\n\t"
+            + "Example: " + COMMAND_WORD;
+
     @Override
     public CommandResult execute() {
         List<Person> allPerson = addressBook.getAllPersons().getInternalList();

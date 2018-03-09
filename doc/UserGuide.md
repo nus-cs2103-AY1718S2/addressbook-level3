@@ -81,6 +81,10 @@ Examples:
   `view 1`<br>
   Views the 1st person in the results of the `find` command.
 
+## Sorting all entries : 'Sort'
+Sort all entries in alphabetical order.<br>
+Format: 'sort'
+
 ## View all details of a person : `viewall`
 Displays all details (including private details) of the specified person.<br>
 Format: `viewall INDEX`
