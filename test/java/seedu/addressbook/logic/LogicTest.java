@@ -202,6 +202,24 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sort() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        AddressBook expectedAB = helper.generateAddressBook(false, true);
+        expectedAB.sort();
+        List<? extends ReadOnlyPerson> expectedList = expectedAB.getAllPersons().immutableListView();
+
+        // prepare address book state
+        helper.addToAddressBook(addressBook, false, true);
+
+        assertCommandBehavior("sort",
+                Command.getMessageForPersonSortShownSummary(expectedList),
+                expectedAB,
+                true,
+                expectedList);
+    }
+
+    @Test
     public void execute_view_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         assertCommandBehavior("view ", expectedMessage);

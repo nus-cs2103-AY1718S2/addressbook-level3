@@ -113,6 +113,13 @@ public class UniquePersonList implements Iterable<Person> {
         internalList.clear();
     }
 
+    /**
+     * Sorts all persons in list in lexicographic order.
+     */
+    public void sort() {
+        Collections.sort(internalList, new PersonComparator());
+    }
+
     @Override
     public Iterator<Person> iterator() {
         return internalList.iterator();

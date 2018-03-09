@@ -30,6 +30,10 @@ public class Name {
         this.fullName = name;
     }
 
+    public String getFullName() {
+        return fullName;
+    }
+
     /**
      * Returns true if a given string is a valid person name.
      */
