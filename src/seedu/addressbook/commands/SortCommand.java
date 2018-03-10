@@ -7,6 +7,9 @@ import java.util.List;
 public class SortCommand extends Command {
 
     public static final String COMMAND_WORD = "sort";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + ":\n"
+            + "Sort all people in alphabetical order.\n\t"
+            + "Example: " + COMMAND_WORD;
 
     @Override
     public CommandResult execute() {
