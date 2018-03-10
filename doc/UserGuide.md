@@ -34,6 +34,21 @@ Examples:
 * `add John Doe p/98765432 e/johnd@gmail.com a/John street, block 123, #01-01`
 * `add Betsy Crowe pp/1234567 e/betsycrowe@gmail.com pa/Newgate Prison t/criminal t/friend`
 
+## Editing a person : `edit`
+Edits the specified person from the address book.<br>
+Format: `edit INDEX [p]p/PHONE_NUMBER [p]e/EMAIL [p]a/ADDRESS [t/TAG]...`
+
+> Edits the person at the specified `INDEX`. 
+  The index refers to the index number shown in the most recent listing.
+
+Examples: 
+* `list`<br>
+  `edit 2 pp/999 pe/betsy@gmail.com pa/somewhere t/secretive`<br>
+  Edits the 2nd person in the address book.
+* `find Betsy`<br> 
+  `edit 1 pp/999 pe/betsy@gmail.com pa/somewhere t/secretive`<br>
+  Edits the 1st person in the results of the `find` command.
+
 ## Listing all persons : `list`
 Shows a list of all persons in the address book.<br>
 Format: `list`
