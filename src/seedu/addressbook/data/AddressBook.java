@@ -82,6 +82,12 @@ public class AddressBook {
         allPersons.add(toAdd);
     }
 
+    public void editPerson(ReadOnlyPerson target, Person editedPerson) throws PersonNotFoundException {
+        syncTagsWithMasterList(editedPerson);
+        allPersons.editPerson(target, editedPerson);
+    }
+
+
     /**
      * Sorts the address book by name in ascending order.
      */

@@ -107,6 +107,19 @@ public class UniquePersonList implements Iterable<Person> {
     }
 
     /**
+     * Edits the person {@code target} in the list into {@code editedPerson}.
+     *
+     * @throws PersonNotFoundException if {@code target} could not be found in the list.
+     */
+    public void editPerson(ReadOnlyPerson target, Person editedPerson) throws  PersonNotFoundException {
+        int index = internalList.indexOf(target);
+        if (index == -1) {
+            throw new PersonNotFoundException();
+        }
+        internalList.set(index, editedPerson);
+    }
+
+    /**
      * Sorts the address book by name in ascending order.
      */
     public void sort() {
