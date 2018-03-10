@@ -202,6 +202,52 @@ public class LogicTest {
     }
 
     @Test
+    public void execute_sortEmptyList_emptyAddressBook() throws Exception {
+        TestDataHelper helper = new TestDataHelper();
+        List<Person> emptyList = new ArrayList<>();
+        List<Person> expectedList = new ArrayList<>();
+        AddressBook expectedAB = helper.generateAddressBook(expectedList);
+
+        // prepare address book state
+        helper.addToAddressBook(addressBook, emptyList);
+
+        String messageSuccess = SortCommand.MESSAGE_SUCCESS
+                + SortCommand.getMessageForPersonListShownSummary(expectedList);
+
+        assertCommandBehavior("sort",
+                                messageSuccess,
+                                expectedAB,
+                                true,
+                                expectedList);
+    }
+
+    @Test
+    public void execute_sortUnorderedList_showsAllPersons() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePersonWithName("Alpha");
+        Person p2 = helper.generatePersonWithName("Beta");
+        Person p3 = helper.generatePersonWithName("Gamma");
+        Person p4 = helper.generatePersonWithName("Delta");
+
+        List<Person> unorderedList = helper.generatePersonList(p3, p4, p1, p2);
+        List<Person> expectedList = helper.generatePersonList(p1, p2, p4, p3);
+        AddressBook expectedAB = helper.generateAddressBook(expectedList);
+
+        // prepare address book state
+        helper.addToAddressBook(addressBook, unorderedList);
+
+        String messageSuccess = SortCommand.MESSAGE_SUCCESS
+                + SortCommand.getMessageForPersonListShownSummary(expectedList);
+
+        assertCommandBehavior("sort",
+                                messageSuccess,
+                                expectedAB,
+                                true,
+                                expectedList);
+    }
+
+    @Test
     public void execute_view_invalidArgsFormat() throws Exception {
         String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, ViewCommand.MESSAGE_USAGE);
         assertCommandBehavior("view ", expectedMessage);
