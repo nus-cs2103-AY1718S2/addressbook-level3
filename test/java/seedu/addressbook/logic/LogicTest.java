@@ -231,7 +231,7 @@ public class LogicTest {
         // prepare address book state
         helper.addToAddressBook(addressBook, unexpectedList);
 
-        assertCommandBehavior("list",
+        assertCommandBehavior("sort",
                 Command.getMessageForPersonListShownSummary(expectedList),
                 expectedAB,
                 true,
