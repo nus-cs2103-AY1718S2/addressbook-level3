@@ -87,6 +87,61 @@ Use case ends.
 
 > 3a1. AddressBook shows an error message <br>
   Use case resumes at step 2
+  
+#### Use case: Delete person
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to delete a specific person in the list
+4. AddressBook deletes the person <br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+  
+#### Use case: Edit person
+
+**MSS**
+
+1. User requests to list persons
+2. AddressBook shows a list of persons
+3. User requests to edit a specific person in the list
+4. AddressBook edits the person <br>
+Use case ends.
+
+**Extensions**
+
+2a. The list is empty
+
+> Use case ends
+
+3a. The given index is invalid
+
+> 3a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+  
+4a. The given data has incorrect format
+
+> 4a1. AddressBook shows an error message <br>
+  Use case resumes at step 2
+
+#### Use case: Sort all persons
+
+**MSS**
+
+1. User requests to sort persons
+2. AddressBook sort the list of all persons and display it
+Use case ends.
 
 ## Appendix C : Non Functional Requirements
 
