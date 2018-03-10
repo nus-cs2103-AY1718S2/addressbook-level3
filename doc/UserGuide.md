@@ -1,3 +1,6 @@
+<i>I would like to acknowledge Gan Zhangbao, Samuel whose GitHub account user name is traceurgan and his 
+account can be found on https://github.com/traceurgan for his inspiration</i> 
+
 # User Guide
 
 This product is not meant for end-users and therefore there is no user-friendly installer. 
@@ -80,6 +83,10 @@ Examples:
 * `find Betsy` <br> 
   `view 1`<br>
   Views the 1st person in the results of the `find` command.
+
+## Sorting all entries : 'Sort'
+Sort all people in the address book by name alphabetically.<br>
+Format: `sort`
 
 ## View all details of a person : `viewall`
 Displays all details (including private details) of the specified person.<br>
