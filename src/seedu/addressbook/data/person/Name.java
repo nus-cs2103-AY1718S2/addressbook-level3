@@ -4,6 +4,7 @@ import seedu.addressbook.data.exception.IllegalValueException;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Comparator;
 
 /**
  * Represents a Person's name in the address book.
@@ -28,6 +29,10 @@ public class Name {
             throw new IllegalValueException(MESSAGE_NAME_CONSTRAINTS);
         }
         this.fullName = name;
+    }
+
+
+    public void compare(String name1, String name2){
     }
 
     /**
