@@ -181,7 +181,64 @@ public class LogicTest {
                 expectedAB,
                 false,
                 Collections.emptyList());
+    }
 
+    @Test
+    public void execute_edit_invalidArgsFormat() throws Exception {
+        String expectedMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
+        assertCommandBehavior(
+                "edit wrong args wrong args", expectedMessage);
+        assertCommandBehavior(
+                "edit invalidIndex p/12345 e/valid@email.butNoPhonePrefix a/valid, address", expectedMessage);
+        assertCommandBehavior(
+                "edit 1 12345 e/valid@email.butNoPhonePrefix a/valid, address", expectedMessage);
+        assertCommandBehavior(
+                "edit 1 p/12345 valid@email.butNoPrefix a/valid, address", expectedMessage);
+        assertCommandBehavior(
+                "edit 1 p/12345 e/valid@email.butNoAddressPrefix valid, address", expectedMessage);
+    }
+
+    @Test
+    public void execute_edit_invalidPersonData() throws Exception {
+        assertCommandBehavior(
+                "edit 1 p/not_numbers e/valid@e.mail a/valid, address", Phone.MESSAGE_PHONE_CONSTRAINTS);
+        assertCommandBehavior(
+                "edit 1 p/12345 e/notAnEmail a/valid, address", Email.MESSAGE_EMAIL_CONSTRAINTS);
+        assertCommandBehavior(
+                "edit 1 p/12345 e/valid@e.mail a/valid, address t/invalid_-[.tag", Tag.MESSAGE_TAG_CONSTRAINTS);
+
+    }
+
+    @Test
+    public void execute_edit_successful() throws Exception {
+        // prepare expectations
+        TestDataHelper helper = new TestDataHelper();
+        Person p1 = helper.generatePersonWithName("Alpha");
+        Person p2 = helper.generatePersonWithName("Beta");
+        Person p3 = helper.generatePersonWithName("Gamma");
+
+        List<Person> personList = helper.generatePersonList(p1, p2, p3);
+        AddressBook expectedAB = helper.generateAddressBook(personList);
+
+        // prepare address book state
+        helper.addToAddressBook(addressBook, personList);
+        final Set<Tag> tagSet = new HashSet<>();
+        tagSet.add(new Tag("secretive"));
+        Person editedPerson = new Person(
+                new Name("Beta"),
+                new Phone("911", true),
+                new Email("beta@gmail.com", false),
+                new Address("somewhere", true),
+                new UniqueTagList(tagSet)
+        );
+        logic.setLastShownList(personList);
+        expectedAB.editPerson(p2, editedPerson);
+
+        assertCommandBehavior("edit 2 pp/911 e/beta@gmail.com pa/somewhere t/secretive",
+                String.format(EditCommand.MESSAGE_EDIT_PERSON_SUCCESS, editedPerson),
+                expectedAB,
+                false,
+                personList);
     }
 
     @Test

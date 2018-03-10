@@ -252,6 +252,79 @@ public class ParserTest {
         assertEquals(result.getPerson(), testPerson);
     }
 
+    @Test
+    public void editCommand_invalidArgs() {
+        final String[] inputs = {
+                "edit",
+                "edit ",
+                "edit wrong args format",
+                // not an index
+                String.format("edit $s $s e/$s a/$s", Name.EXAMPLE, Phone.EXAMPLE, Email.EXAMPLE, Address.EXAMPLE),
+                // no phone prefix
+                String.format("edit 1 $s e/$s a/$s", Phone.EXAMPLE, Email.EXAMPLE, Address.EXAMPLE),
+                // no email prefix
+                String.format("edit 1 p/$s $s a/$s", Phone.EXAMPLE, Email.EXAMPLE, Address.EXAMPLE),
+                // no address prefix
+                String.format("edit 1 p/$s e/$s $s", Phone.EXAMPLE, Email.EXAMPLE, Address.EXAMPLE)
+        };
+        final String resultMessage = String.format(MESSAGE_INVALID_COMMAND_FORMAT, EditCommand.MESSAGE_USAGE);
+        parseAndAssertIncorrectWithMessage(resultMessage, inputs);
+    }
+
+    @Test
+    public void editCommand_invalidPersonDataInArgs() {
+        final String invalidIndex = "[@]\\!?/[;]";
+        final String validIndex = "1";
+        final String invalidPhoneArg = "p/not__numbers";
+        final String validPhoneArg = "p/" + Phone.EXAMPLE;
+        final String invalidEmailArg = "e/notAnEmail123";
+        final String validEmailArg = "e/" + Email.EXAMPLE;
+        final String invalidTagArg = "t/invalid_-[.tag";
+
+        // address can be any string, so no invalid address
+        final String editCommandFormatString = "edit $s $s $s a/" + Address.EXAMPLE;
+
+        // test each incorrect person data field argument individually
+        final String[] inputs = {
+                // invalid index
+                String.format(editCommandFormatString, invalidIndex, validPhoneArg, validEmailArg),
+                // invalid phone
+                String.format(editCommandFormatString, validIndex, invalidPhoneArg, validEmailArg),
+                // invalid email
+                String.format(editCommandFormatString, validIndex, validPhoneArg, invalidEmailArg),
+                // invalid tag
+                String.format(editCommandFormatString, validIndex, validPhoneArg, validEmailArg) + " " + invalidTagArg
+        };
+        for (String input : inputs) {
+            parseAndAssertCommandType(input, IncorrectCommand.class);
+        }
+    }
+
+    @Test
+    public void editCommand_validPersonData_parsedCorrectly() throws IllegalValueException{
+        final Person testPerson = generateTestPerson();
+        testPerson.changeName(new Name("dummy"));
+        final String addInput = convertPersonToAddCommandString(testPerson);
+        final String input = "edit 1 " + addInput.substring(10);
+        final EditCommand result = parseAndAssertCommandType(input, EditCommand.class);
+        assertEquals(result.getPerson(), testPerson);
+    }
+
+    @Test
+    public void editCommand_duplicateTags_merged() throws IllegalValueException {
+        final Person testPerson = generateTestPerson();
+        testPerson.changeName(new Name("dummy"));
+        final String addInput = convertPersonToAddCommandString(testPerson);
+        String input = "edit 1 " + addInput.substring(10);
+        for (Tag tag : testPerson.getTags()) {
+            // create duplicates by doubling each tag
+            input += " t/" + tag.tagName;
+        }
+
+        final EditCommand result = parseAndAssertCommandType(input, EditCommand.class);
+        assertEquals(result.getPerson(), testPerson);
+    }
+
     private static Person generateTestPerson() {
         try {
             return new Person(
