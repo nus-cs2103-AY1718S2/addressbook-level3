@@ -214,8 +214,7 @@ public class LogicTest {
 
         List<Person> fourPersons = helper.generatePersonList(p1, p3, p2, p4);
         List<Person> expectedList = helper.generatePersonList(p1, p2, p3, p4);
-        List<Person> emptyList = new ArrayList<>();
-        AddressBook expectedAB = helper.generateAddressBook(expectedList);
+        AddressBook expectedAB = helper.generateAddressBook(fourPersons);
         helper.addToAddressBook(addressBook, fourPersons);
         assertCommandBehavior("sort",
                 Command.getMessageForSortedPersonListShownSummary(expectedList),
