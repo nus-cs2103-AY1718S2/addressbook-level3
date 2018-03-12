@@ -16,10 +16,14 @@ public class ListCommand extends Command {
             + "Displays all persons in the address book as a list with index numbers.\n\t"
             + "Example: " + COMMAND_WORD;
 
+    public ListCommand() {
+        super(false);
+    }
 
     @Override
     public CommandResult execute() {
         List<ReadOnlyPerson> allPersons = addressBook.getAllPersons().immutableListView();
         return new CommandResult(getMessageForPersonListShownSummary(allPersons), allPersons);
     }
+
 }

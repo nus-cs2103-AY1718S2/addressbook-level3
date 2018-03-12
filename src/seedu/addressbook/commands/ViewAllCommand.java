@@ -21,7 +21,7 @@ public class ViewAllCommand extends Command {
 
 
     public ViewAllCommand(int targetVisibleIndex) {
-        super(targetVisibleIndex);
+        super(targetVisibleIndex, false);
     }
 
 
@@ -37,4 +37,5 @@ public class ViewAllCommand extends Command {
             return new CommandResult(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
         }
     }
+
 }
